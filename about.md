@@ -16,7 +16,7 @@ You can find the source code for Jekyll at
  -->
 
 I am Arjun Krishna, a undergraduate student of Computer Science at IIT Madras.
-My interests include Machine Learning, Data Analysis, Algorithms.
+My interests include Machine Learning, Data Analysis, Artificial Intelligence and Algorithms.
 
 In this blog I have explained some code I have written for projects.
 
