@@ -6,7 +6,7 @@ categories: R
 excerpt : some basic R commands that would be useful
 ---
 In this post I will share a few standard R snippets that would be useful for some Machine 
-Learning Problems. I learnt these from the [ISLR][islr] by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani, some examples are taken directly from this. 
+Learning Problems. I learnt these from the [ISLR][islr] by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani, most examples are taken directly from this book. 
 
 
 
