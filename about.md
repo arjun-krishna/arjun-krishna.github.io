@@ -15,10 +15,16 @@ You can find the source code for Jekyll at
 [jekyll](https://github.com/jekyll/jekyll)
  -->
 
-I am Arjun Krishna, a undergraduate student of Computer Science at IIT Madras.
+<table>
+<tr>
+<td>
+<img width="700px"  height="180px" src="/assets/about/arjun.jpg" />
+</td>
+<td style="padding-left: 50px">
+I am Arjun Krishna, a undergraduate student of Computer Science and Engineering at IIT Madras.
 My interests include Machine Learning, Data Analysis, Artificial Intelligence and Algorithms.
 
-In this blog I have explained some code I have written for projects.
-
-PS: If any post in this blog presents a solution to your assignment. I recommend you try to solve it on your own as solving it by yourself will truely be a rewarding experience.
-
+In this blog I have explained some code I have written for projects put up on my github profile and also some notes on interesting topics.
+</td>
+</tr>
+</table>
