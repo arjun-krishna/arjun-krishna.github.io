@@ -1,5 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-07-24T21:42:21+05:30</updated><id>http://localhost:4000//</id><title type="html">Arjun Krishna Blog</title><subtitle>In this blog I will explain my projects put up on github, report some data analysis I perform and also put up notes on some topics.
-</subtitle><entry><title type="html">Multi Arm Bandit</title><link href="http://localhost:4000/rl/2017/02/14/Multi-arm-bandits.html" rel="alternate" type="text/html" title="Multi Arm Bandit" /><published>2017-02-14T11:00:30+05:30</published><updated>2017-02-14T11:00:30+05:30</updated><id>http://localhost:4000/rl/2017/02/14/Multi-arm-bandits</id><content type="html" xml:base="http://localhost:4000/rl/2017/02/14/Multi-arm-bandits.html">&lt;style type=&quot;text/css&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-08-30T18:20:27+05:30</updated><id>http://localhost:4000//</id><title type="html">Arjun Krishna Blog</title><subtitle>In this blog I will explain my projects put up on github, report some data analysis I perform and also put up notes on some interesting topics.
+</subtitle><entry><title type="html">Computation Models of Cognition</title><link href="http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition.html" rel="alternate" type="text/html" title="Computation Models of Cognition" /><published>2017-08-10T11:00:30+05:30</published><updated>2017-08-10T11:00:30+05:30</updated><id>http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition</id><content type="html" xml:base="http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition.html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note : This post contains my notes from the CMC course at IITM 
+       and also some views I have on the topic.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The idea of this post is discuss cognitive science &amp;amp; challenges in creating a human-level intelligence, study the current day tools/techniques we have and also discuss possible non-traditional methods.&lt;/p&gt;
+
+&lt;p&gt;CONTENTS&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#preliminary-thoughts&quot; id=&quot;markdown-toc-preliminary-thoughts&quot;&gt;Preliminary Thoughts&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#is-brain-the-only-place-where-the-cognition-happens&quot; id=&quot;markdown-toc-is-brain-the-only-place-where-the-cognition-happens&quot;&gt;&lt;strong&gt;Is brain the only place where the cognition happens?&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;preliminary-thoughts&quot;&gt;Preliminary Thoughts&lt;/h2&gt;
+
+&lt;h4 id=&quot;is-brain-the-only-place-where-the-cognition-happens&quot;&gt;&lt;strong&gt;Is brain the only place where the cognition happens?&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;It is very true that our brain plays a very important role in cognition. However, there
+is the theory of &lt;a href=&quot;https://en.wikipedia.org/wiki/Embodied_cognition&quot;&gt;Embodied cognition&lt;/a&gt; which indicates that the entire body of an organism shapes the cognitive abilities.&lt;/p&gt;
+
+&lt;p&gt;Say we had a very powerful computing machine and could simulate the neuron connections in the human brain, 
+Can we generate natural-intelligence ? There is a gap in our understanding of how the brain works, but if
+we truely understand all the underlying physiology of human brain and emulate it on a machine is that sufficient 
+for intelligence is a hard question to answer. Philosophically speaking it is possible there some meta-physical element is attached to human intelligence which we haven’t discovered. However, it is important to see what we can 
+engineer than debate about philosophical aspects.&lt;/p&gt;
+
+&lt;p&gt;Also, there is question of Build vs Grow in Aritifical Intelligence. Human intelligence is shaped by experiences and memory, this enhances over time this is the “Growth of Intelligence”. However, many present day models for the task of language translation is a “Built Intelligence” we show it a lot of adult conversations/language during training, So the model has not learnt say the translation ability like how a human does.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“If our brains were simple enough for us to understand them, we’d be so simple that we couldn’t.”  &lt;br /&gt;
+–  Ian Stewart, The Collapse of Chaos: Discovering Simplicity in a Complex World&lt;/p&gt;
+&lt;/blockquote&gt;</content><summary type="html">Can we really model Human level intelligence? Can machines think like Humans ? What are the current tools we have that tries to model some sort of intelligence? Are they sufficient? Modeling human mind is a very challenging problem. The key challenge in this area is that the Human mind itself is used in studying the 'Mind'. The area has a major philosophical component, it is important to ponder on these but it is also very interesting to see what we can engineer. With the human-machine interface becoming better everyday, there are still miles to go for a true Artificial Human-Like Intelligence to be created.</summary></entry><entry><title type="html">Multi Arm Bandit</title><link href="http://localhost:4000/rl/2017/02/14/Multi-arm-bandits.html" rel="alternate" type="text/html" title="Multi Arm Bandit" /><published>2017-02-14T11:00:30+05:30</published><updated>2017-02-14T11:00:30+05:30</updated><id>http://localhost:4000/rl/2017/02/14/Multi-arm-bandits</id><content type="html" xml:base="http://localhost:4000/rl/2017/02/14/Multi-arm-bandits.html">&lt;style type=&quot;text/css&quot;&gt;
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 &lt;/style&gt;
 
