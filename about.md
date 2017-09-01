@@ -45,8 +45,8 @@ You can find the source code for Jekyll at
 <img src="/assets/about/arjun.JPG" />
 </td>
 <td style="padding-left: 50px">
-I am Arjun Krishna, a undergraduate student of Computer Science and Engineering at IIT Madras.
-My interests include Machine Learning, Data Analysis, Artificial Intelligence and Algorithms.
+I am Arjun Krishna, an undergraduate student of Computer Science and Engineering at IIT Madras.
+My interests include Machine Learning, Artificial Intelligence and Algorithms.
 
 In this blog I have explained some code I have written for projects put up on my github profile and also some notes on interesting topics.
 </td>
@@ -61,8 +61,8 @@ In this blog I have explained some code I have written for projects put up on my
 </tr>
 <tr>
 <td >
-I am Arjun Krishna, a undergraduate student of Computer Science and Engineering at IIT Madras.
-My interests include Machine Learning, Data Analysis, Artificial Intelligence and Algorithms.
+I am Arjun Krishna, an undergraduate student of Computer Science and Engineering at IIT Madras.
+My interests include Machine Learning, Artificial Intelligence and Algorithms.
 
 In this blog I have explained some code I have written for projects put up on my github profile and also some notes on interesting topics.
 </td>
