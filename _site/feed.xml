@@ -1,5 +1,461 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-08-30T18:20:27+05:30</updated><id>http://localhost:4000//</id><title type="html">Arjun Krishna Blog</title><subtitle>In this blog I will explain my projects put up on github, report some data analysis I perform and also put up notes on some interesting topics.
-</subtitle><entry><title type="html">Computation Models of Cognition</title><link href="http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition.html" rel="alternate" type="text/html" title="Computation Models of Cognition" /><published>2017-08-10T11:00:30+05:30</published><updated>2017-08-10T11:00:30+05:30</updated><id>http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition</id><content type="html" xml:base="http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition.html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note : This post contains my notes from the CMC course at IITM 
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-02T19:55:45+05:30</updated><id>http://localhost:4000//</id><title type="html">Arjun Krishna Blog</title><subtitle>In this blog I will explain my projects put up on github, report some data analysis I perform and also put up notes on some interesting topics.
+</subtitle><entry><title type="html">Multi Layer Perceptron</title><link href="http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron.html" rel="alternate" type="text/html" title="Multi Layer Perceptron" /><published>2017-08-27T11:00:30+05:30</published><updated>2017-08-27T11:00:30+05:30</updated><id>http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron</id><content type="html" xml:base="http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron.html">&lt;style type=&quot;text/css&quot;&gt;
+table, th, td {
+   border: 1px solid black;
+}
+table {
+    border-collapse: collapse;
+}
+td, th {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+&lt;/style&gt;
+
+&lt;script type=&quot;text/x-mathjax-config&quot;&gt;
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i &lt; all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;CONTENTS&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#description-of-the-network&quot; id=&quot;markdown-toc-description-of-the-network&quot;&gt;Description of the Network&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#forward-propagation&quot; id=&quot;markdown-toc-forward-propagation&quot;&gt;Forward-Propagation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#back-propagation&quot; id=&quot;markdown-toc-back-propagation&quot;&gt;Back-Propagation&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#gradient-descent-update&quot; id=&quot;markdown-toc-gradient-descent-update&quot;&gt;Gradient Descent Update&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#back-propagation-algorithm&quot; id=&quot;markdown-toc-back-propagation-algorithm&quot;&gt;Back-Propagation Algorithm&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#mini-batch-back-propagation--with-momentum-based-acceleration-&quot; id=&quot;markdown-toc-mini-batch-back-propagation--with-momentum-based-acceleration-&quot;&gt;Mini-Batch Back-Propagation ( with momentum based acceleration )&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#mnist-classification&quot; id=&quot;markdown-toc-mnist-classification&quot;&gt;MNIST Classification&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#data&quot; id=&quot;markdown-toc-data&quot;&gt;Data&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#preprocessing&quot; id=&quot;markdown-toc-preprocessing&quot;&gt;Preprocessing&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#architecture&quot; id=&quot;markdown-toc-architecture&quot;&gt;Architecture&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#training&quot; id=&quot;markdown-toc-training&quot;&gt;Training&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#experiment&quot; id=&quot;markdown-toc-experiment&quot;&gt;Experiment&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#sigmoid-activation&quot; id=&quot;markdown-toc-sigmoid-activation&quot;&gt;Sigmoid Activation&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#relu-activation&quot; id=&quot;markdown-toc-relu-activation&quot;&gt;ReLU Activation&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#sigmoid-activation-data-not-standardized&quot; id=&quot;markdown-toc-sigmoid-activation-data-not-standardized&quot;&gt;Sigmoid Activation (Data not standardized)&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#performance-on-a-test-sample&quot; id=&quot;markdown-toc-performance-on-a-test-sample&quot;&gt;Performance on a Test Sample&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#link-to-the-code&quot; id=&quot;markdown-toc-link-to-the-code&quot;&gt;Link to the code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;description-of-the-network&quot;&gt;Description of the Network&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Symbol&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Dimension&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$n_l$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Number of layers&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$x$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;($n$, $1$)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Input Image Flattened&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$a^{(l)}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;($d_{(l)}$, $1$)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Activation in Hidden Layer $(l)$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$\hat{y}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;($c$, $1$)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Prediction of the Neural Net&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$W^{(l)}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;($d_{(l)}$,$d_{(l-1)}$)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Weight of the connections layer $(l-1)$ to $(l)$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$W_{ji}^{(l)}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Weight of edge connecting $j^{th}$ neuron in layer $(l)$ to $i^{th}$ neuron in layer $(l-1)$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$b^{(l)}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;($d_{(l)}$, $1$)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bias for neurons in layer $(l)$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$f$&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Activation Function&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Also, Note that&lt;/p&gt;
+
+&lt;p&gt;$a^{(1)} = x$&lt;/p&gt;
+
+&lt;p&gt;$\hat{y} = a^{(n_l)}$&lt;/p&gt;
+
+&lt;h1 id=&quot;forward-propagation&quot;&gt;Forward-Propagation&lt;/h1&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;z^{(l+1)} = W^{(l)} \times a^{(l)} + b^{(l)}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;a^{(l+1)} = f(z^{(l+1)})&lt;/script&gt;
+
+&lt;h1 id=&quot;back-propagation&quot;&gt;Back-Propagation&lt;/h1&gt;
+
+&lt;p&gt;For the Classification Task we choose cross entropy as the loss function
+we want to minimize. The following is the cross entropy loss for a training example.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+J(W,b;x,y) &amp;= - \displaystyle\sum_{i=1}^{c} y_i \log\hat{y}_i \\\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\text{where,}\hspace{0.1in} \hat{y}_i = \frac{e^{z^{(n_l)}_i}}{ \displaystyle\sum_{j=1}^{c} e^{z^{(n_l)}_j}}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Let m is the number of training samples&lt;/li&gt;
+  &lt;li&gt;Also applying an $L_2$ regularization on the weights in the network 
+The following the Loss function we would want to minimize.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+J(W,b)&amp; = \Bigg [ \frac{1}{m} \displaystyle\sum_{i=1}^{m} J(W,b;x^{(i)},y^{(i)}) \Bigg ] 
++\frac{\lambda}{2} \displaystyle\sum_{l=1}^{n_l-1} \displaystyle\sum_{i=1}^{d_{(l-1)}} \displaystyle\sum_{j=1}^{d_{(l)}} (W_{ji}^{(l)})^{2}\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;h4 id=&quot;gradient-descent-update&quot;&gt;Gradient Descent Update&lt;/h4&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+W_{ji}^{(l)} &amp;= W_{ji}^{(l)} - \alpha \frac{\partial}{\partial W_{ji}^{(l)}}{J(W,b)} \\
+b_{i}^{(l)} &amp;= b_{i}^{(l)} - \alpha \frac{\partial}{\partial b_{i}^{(l)}}{J(W,b)}\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;back-propagation-algorithm&quot;&gt;Back-Propagation Algorithm&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Perform the forward pass&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For the error at the output layer&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+\delta^{(n_l)}_k &amp;= \frac{\partial}{\partial z^{(n_l)}_k}{J(W,b;x,y)} \nonumber \\
+&amp;= - \displaystyle\sum_{i=1}^{c} y_i ( 1_{k = i} - \frac{e^{z^{(n_l)}_k}}{ \displaystyle\sum_{j=1}^{c} e^{z^{(n_l)}_j}} ) \nonumber \\
+\delta^{(n_l)}_k &amp;= - \displaystyle\sum_{i=1}^{c} y_i ( 1_{k = i} - \hat{y}_k ) \nonumber\end{aligned} %]]&gt;&lt;/script&gt;
+
+    &lt;p&gt;&lt;span&gt;&lt;strong&gt;The matrix equivalent of the same&lt;/strong&gt;&lt;/span&gt; &lt;em&gt;(y is a one-hot
+encoded representation of the label)&lt;/em&gt;&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\delta^{(n_l)} = \hat{y} - y&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For l = $n_l - 1$ to $2$ :&lt;/p&gt;
+
+    &lt;p&gt;Set&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\delta^{(l)} = ((W^{(l)})^T\delta^{(l+1)}) \bullet f'(z^{(l)})&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Compute the gradients&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+\nabla_{W^{(l)}} J(W,b;x,y) &amp;= \delta^{(l+1)} (a^{(l)})^T \\
+\nabla_{b^{(l)}} J(W,b;x,y) &amp;= \delta^{(l+1)}\end{aligned} %]]&gt;&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;mini-batch-back-propagation--with-momentum-based-acceleration-&quot;&gt;Mini-Batch Back-Propagation ( with momentum based acceleration )&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;For a mini-batch of size of m, we compute the average gradient form the batch and use that to update the model parameters.&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+  \nabla_{W^{(l)}} J(W,b) &amp;= \frac{1}{m} \displaystyle\sum_{i=1}^{m} \nabla_{W^{(l)}} J(W,b;x_i,y_i) \\
+  \nabla_{b^{(l)}} J(W,b) &amp;= \frac{1}{m} \displaystyle\sum_{i=1}^{m} \nabla_{b^{(l)}} J(W,b;x_i,y_i) \\\end{aligned} %]]&gt;&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Parameter Update using Momentum based acceleration&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+vW^{(l)} &amp;= \gamma*vW^{(l)} + \alpha (\nabla_{W^{(l)}} J(W,b) + \lambda W^{(l)} )  \nonumber\\
+W^{(l)} &amp;= W^{(l)} -vW^{(l)}  \\
+vb^{(l)} &amp;= \gamma*vb^{(l)} + \alpha (\nabla_{b^{(l)}} J(W,b) + \lambda b^{(l)} ) \nonumber \\
+b^{(l)}  &amp;= b^{(l)} - vb^{(l)} \end{aligned} %]]&gt;&lt;/script&gt;
+
+    &lt;p&gt;Initially, $vW^{(l)}$ and $vb^{(l)}$ are zero matrices of the same size as $W^{(l)}$ and $b^{(l)}$ respectively.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;mnist-classification&quot;&gt;MNIST Classification&lt;/h1&gt;
+
+&lt;h4 id=&quot;data&quot;&gt;Data&lt;/h4&gt;
+
+&lt;p&gt;The input is an $28 \times 28$ image of a handwritten digit, the task is
+to classify the image to recognize the digit. The MNIST data from
+&lt;a href=&quot;http://yann.lecun.com/exdb/mnist/&quot;&gt;Lecun’s page&lt;/a&gt; is used for this task.
+The training data contains $60000$ images and the test data has $10000$
+images.&lt;/p&gt;
+
+&lt;h4 id=&quot;preprocessing&quot;&gt;Preprocessing&lt;/h4&gt;
+
+&lt;p&gt;The flattened image to be feed into the network is standardized (normalized). Each
+pixel is a feature and each feature is standardized by centralizing
+(subtract the mean) and divided by the standard deviation. This was done
+because when using ReLU activations in the MLP, the softmax exploded
+into a NaN loss and hindered further training. However, the MLP which
+used sigmoid activations could be trained by directly feeding the image
+without the preprocessing.&lt;/p&gt;
+
+&lt;h4 id=&quot;architecture&quot;&gt;Architecture&lt;/h4&gt;
+
+&lt;p&gt;A Multilayer Perceptron with 3 hidden layers. The input is a $784$
+dimensional vector $x$, followed by $h_1$(1000), $h_2$(500), $h_3$(250)
+and the output $y$ is a 10 dimensional vector, representing the
+probability of image belonging to a particular class label. The
+parameters of the network are initialized with a random gaussian with
+mean 0 and standard deviation 0.08.&lt;/p&gt;
+
+&lt;h4 id=&quot;training&quot;&gt;Training&lt;/h4&gt;
+
+&lt;p&gt;The SGD algorithm with momentum based acceleration is used for training.
+The size of the minibatch is 64. The L2-regularization parameter
+$\lambda = 0.005$ and the momentum parameter $\gamma = 0.8$.&lt;/p&gt;
+
+&lt;h2 id=&quot;experiment&quot;&gt;Experiment&lt;/h2&gt;
+
+&lt;p&gt;In this section, the plots of the training progress of the Multilayer
+perceptron using Sigmoid and ReLU activations are presented for
+different learning rates (fixed and scheduled).&lt;/p&gt;
+
+&lt;h3 id=&quot;sigmoid-activation&quot;&gt;Sigmoid Activation&lt;/h3&gt;
+
+&lt;p&gt;The learning rates chosen are 0.001, 0.01, 0.05 and a scheduled learning
+rate with initial value 0.2 and decayed by a factor of 0.85 every 250
+iterations. The input to the network is standardized. Achieves a
+test-accuracy of $90.1$%&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/MLP/plots/sig_1.png&quot; alt=&quot;Accuracy on test data for sigmoid activation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/MLP/plots/sig_2.png&quot; alt=&quot;Cross Entropy Loss on test data for sigmoid
+activation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The lower the learning rate, the slower is the convergence. A very high
+learning rate, though rushes to the optimum at a rapid pace and has a
+lot of fluctuations in the test loss. The learning rate scheduling works best,
+initially moves rapidly (taking larger steps) and then lowers the
+learning rate to steadily move to an optimum.&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;&lt;strong&gt;Training Loss vs Epoch for different Learning rates&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/MLP/plots/sig_3.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/MLP/plots/sig_4.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/MLP/plots/sig_5.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/MLP/plots/sig_6.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;The training loss plots also indicate the rate of convergence is
+dependent on the learning rate. The lower learning rate the convergence
+is slower. The scheduled learning rate, has lesser fluctuation in
+training loss as the training progresses and hence more stable.&lt;/p&gt;
+
+&lt;h3 id=&quot;relu-activation&quot;&gt;ReLU Activation&lt;/h3&gt;
+
+&lt;p&gt;The learning rates chosen are 0.001, 0.01, 0.05 and a scheduled learning
+rate with initial value 0.2 and decayed by a factor of 0.85 every 250
+iterations. The input to the network is standardized. Achieves a
+test-accuracy of $96.8$%&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/MLP/plots/rel_1.png&quot; alt=&quot;Accuracy on test data for ReLU activation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/MLP/plots/rel_2.png&quot; alt=&quot;Cross Entropy Loss on test data for ReLU activation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The performance of ReLU activated network is better than that of
+sigmoid, it achieves a higher accuracy and also has a lower test loss.
+However, observe that the sigmoid activated MLP approximately reaches
+close to the least loss it achieves in about $1000$ epochs whereas the
+ReLU activated MLP takes approximately $2000$ epochs.&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;&lt;strong&gt;Training Loss vs Epoch for different Learning rates&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/MLP/plots/rel_3.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/MLP/plots/rel_4.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/MLP/plots/rel_5.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/MLP/plots/rel_6.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;The choice of the Learning rate affects the rate at which the network converges
+and also affects the stability. With $\alpha = 0.001$ the improvement is
+smooth, but takes a long time to converge, whereas $\alpha = 0.05$
+reaches a low loss, but oscillates a lot. MLP with a scheduled learning
+rate converges with lesser oscillations and also achieves a good
+accuracy. Also compared to sigmoid activated MLP, the ReLU-MLP has lower
+test loss.&lt;/p&gt;
+
+&lt;h3 id=&quot;sigmoid-activation-data-not-standardized&quot;&gt;Sigmoid Activation (Data not standardized)&lt;/h3&gt;
+
+&lt;p&gt;Here the input to the MLP is not standardized and the raw flattened
+image is feed to the network. The learning rates for which the
+experiment is conducted is 0.001, 0.01, 0.05 and a scheduled learning
+rate with initial value 0.2 and decayed by factor of 0.85 every 250
+iterations. This model achieves a test-accuracy of $93.9$%&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/MLP/plots/un_sig_1.png&quot; alt=&quot;Accuracy on test data for sigmoid activation (input not
+standardized)&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/MLP/plots/un_sig_2.png&quot; alt=&quot;Cross Entropy Loss on test data for sigmoid activation (input not
+standardized)&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We observe that in this case a very high $\alpha$ can lead to
+divergence, since the image signal varies from 0 to 255, large changes
+in weight can lead to large variations in activation, hence in the case
+of $\alpha=0.05$ we observe that the loss is increasing. Thus, in most
+cases it is a good idea to standardize (normalize) the data.&lt;/p&gt;
+
+&lt;h3 id=&quot;performance-on-a-test-sample&quot;&gt;Performance on a Test Sample&lt;/h3&gt;
+
+&lt;p&gt;The top three predictions for the sampled test image made by the Sigmoid
+Activated MLP and ReLU Activated MLP are presented. Both the networks
+are trained with scheduled learning rate. The value in the table is “predicted_label (probability)”&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Image&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Sigmoid&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;ReLU&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/assets/MLP/plots/1.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (0.975)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (0.997)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/assets/MLP/plots/3.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (0.913)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (0.993)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/assets/MLP/plots/5.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2 (0.905)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2 (0.991)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/assets/MLP/plots/7.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3 (0.417)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3 (0.724)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/assets/MLP/plots/9.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4 (0.813)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4 (0.983)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/assets/MLP/plots/11.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;6 (0.571)&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;6 (0.629)&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/assets/MLP/plots/13.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6 (0.600)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6 (0.976)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/assets/MLP/plots/15.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7 (0.970)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7 (0.999)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/assets/MLP/plots/17.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;8 (0.796)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;8 (0.946)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/assets/MLP/plots/19.png&quot; alt=&quot;image&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;9 (0.543)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;9 (0.631)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The choice of Learning rate in MLP plays an important role in
+convergence.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Learning rate scheduling helps in achieving a stable convergence,
+without fluctuating the parameter values much at the later stages of
+the training, it reaches the optimum steadily.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;ReLU activated MLP seems to perform better than the Sigmoid activated MLP. However, a MLP with layers having 
+ReLU and Sigmoid activation might give better results. (Will experiment with this soon)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;link-to-the-code&quot;&gt;Link to the code&lt;/h1&gt;
+
+&lt;p&gt;Checkout the code @ &lt;a href=&quot;https://www.github.com/arjun-krishna/Multi-Layered-Perceptron&quot;&gt;MLP-code&lt;/a&gt;&lt;/p&gt;</content><summary type="html">Multi Layer Perceptron (implemented in python). Experimented on the MNIST data</summary></entry><entry><title type="html">Computation Models of Cognition</title><link href="http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition.html" rel="alternate" type="text/html" title="Computation Models of Cognition" /><published>2017-08-10T11:00:30+05:30</published><updated>2017-08-10T11:00:30+05:30</updated><id>http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition</id><content type="html" xml:base="http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition.html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note : This post contains my notes from the CMC course at IITM 
        and also some views I have on the topic.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -33,7 +489,7 @@ engineer than debate about philosophical aspects.&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;“If our brains were simple enough for us to understand them, we’d be so simple that we couldn’t.”  &lt;br /&gt;
 –  Ian Stewart, The Collapse of Chaos: Discovering Simplicity in a Complex World&lt;/p&gt;
-&lt;/blockquote&gt;</content><summary type="html">Can we really model Human level intelligence? Can machines think like Humans ? What are the current tools we have that tries to model some sort of intelligence? Are they sufficient? Modeling human mind is a very challenging problem. The key challenge in this area is that the Human mind itself is used in studying the 'Mind'. The area has a major philosophical component, it is important to ponder on these but it is also very interesting to see what we can engineer. With the human-machine interface becoming better everyday, there are still miles to go for a true Artificial Human-Like Intelligence to be created.</summary></entry><entry><title type="html">Multi Arm Bandit</title><link href="http://localhost:4000/rl/2017/02/14/Multi-arm-bandits.html" rel="alternate" type="text/html" title="Multi Arm Bandit" /><published>2017-02-14T11:00:30+05:30</published><updated>2017-02-14T11:00:30+05:30</updated><id>http://localhost:4000/rl/2017/02/14/Multi-arm-bandits</id><content type="html" xml:base="http://localhost:4000/rl/2017/02/14/Multi-arm-bandits.html">&lt;style type=&quot;text/css&quot;&gt;
+&lt;/blockquote&gt;</content><summary type="html">Can we really model Human level intelligence? Can machines think like Humans ? What are the current tools we have that tries to model some sort of intelligence? Are they sufficient? Modeling human mind is a very challenging problem. The key challenge in this area is that the Human mind itself is used in studying the 'Mind'. The area has a major philosophical component, it is important to ponder on these but it is also very interesting to see what we can engineer. With the human-machine interface becoming better everyday, there are still miles to go for a true Artificial Human-Like Intelligence to be created.</summary></entry><entry><title type="html">Multi Arm Bandit</title><link href="http://localhost:4000/reinforcement-learning/2017/02/14/Multi-arm-bandits.html" rel="alternate" type="text/html" title="Multi Arm Bandit" /><published>2017-02-14T11:00:30+05:30</published><updated>2017-02-14T11:00:30+05:30</updated><id>http://localhost:4000/reinforcement-learning/2017/02/14/Multi-arm-bandits</id><content type="html" xml:base="http://localhost:4000/reinforcement-learning/2017/02/14/Multi-arm-bandits.html">&lt;style type=&quot;text/css&quot;&gt;
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 &lt;/style&gt;
 
@@ -52,7 +508,7 @@ MathJax.Hub.Queue(function() {
 });
 &lt;/script&gt;
 
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;&lt;strong&gt;Bandit Algorithms&lt;/strong&gt;&lt;/p&gt;
 

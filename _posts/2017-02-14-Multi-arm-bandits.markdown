@@ -2,7 +2,7 @@
 layout: post
 title:  "Multi Arm Bandit"
 date:   2017-02-14 11:00:30 +0530
-categories: RL 
+categories: Reinforcement-Learning
 excerpt : Multi Arm Bandit Experiment
 ---
 
