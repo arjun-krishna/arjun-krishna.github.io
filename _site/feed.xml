@@ -1,5 +1,146 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-02T19:55:45+05:30</updated><id>http://localhost:4000//</id><title type="html">Arjun Krishna Blog</title><subtitle>In this blog I will explain my projects put up on github, report some data analysis I perform and also put up notes on some interesting topics.
-</subtitle><entry><title type="html">Multi Layer Perceptron</title><link href="http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron.html" rel="alternate" type="text/html" title="Multi Layer Perceptron" /><published>2017-08-27T11:00:30+05:30</published><updated>2017-08-27T11:00:30+05:30</updated><id>http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron</id><content type="html" xml:base="http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron.html">&lt;style type=&quot;text/css&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-26T13:33:32+05:30</updated><id>http://localhost:4000//</id><title type="html">Arjun Krishna Blog</title><subtitle>In this blog I will explain my projects put up on github, report some data analysis I perform and also put up notes on some interesting topics.
+</subtitle><entry><title type="html">Lossy Compression using SVD</title><link href="http://localhost:4000/svd/2017/09/26/Lossy-Compression-using-SVD.html" rel="alternate" type="text/html" title="Lossy Compression using SVD" /><published>2017-09-26T11:00:30+05:30</published><updated>2017-09-26T11:00:30+05:30</updated><id>http://localhost:4000/svd/2017/09/26/Lossy-Compression-using-SVD</id><content type="html" xml:base="http://localhost:4000/svd/2017/09/26/Lossy-Compression-using-SVD.html">&lt;style type=&quot;text/css&quot;&gt;
+table, th, td {
+   border: 1px solid black;
+}
+table {
+    border-collapse: collapse;
+}
+td, th {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;  /* Round any decimal pixels so it'll render nicely */
+}
+
+&lt;/style&gt;
+
+&lt;script type=&quot;text/x-mathjax-config&quot;&gt;
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i &lt; all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;CONTENTS&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#singular-value-decomposition-svd&quot; id=&quot;markdown-toc-singular-value-decomposition-svd&quot;&gt;Singular Value Decomposition (SVD)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#svd-used-for-compression-of-an-image&quot; id=&quot;markdown-toc-svd-used-for-compression-of-an-image&quot;&gt;SVD used for compression of an image&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#eckartyoung-mirsky-theorem-low-rank-matrix-approximation&quot; id=&quot;markdown-toc-eckartyoung-mirsky-theorem-low-rank-matrix-approximation&quot;&gt;Eckart–Young-Mirsky theorem (Low-rank matrix approximation)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#connecting-this-to-image-compression&quot; id=&quot;markdown-toc-connecting-this-to-image-compression&quot;&gt;Connecting this to Image Compression&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#svd-based-compression-visualization&quot; id=&quot;markdown-toc-svd-based-compression-visualization&quot;&gt;SVD based compression Visualization&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#code&quot; id=&quot;markdown-toc-code&quot;&gt;Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;singular-value-decomposition-svd&quot;&gt;Singular Value Decomposition (SVD)&lt;/h1&gt;
+
+&lt;p&gt;Let $\mathbf{M} = \mathbb{R}^{m \times n}$ , then there exists a factorization of $\mathbf{M}$ (called the singular decomposition of $\mathbf{M}$) which of the form :&lt;/p&gt;
+&lt;center&gt;
+  $\mathbf{M} = \mathbf{U} \Sigma \mathbf{V}^T$
+&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;
+where, $\mathbf{U}$ is a $m \times m$ orthogonal matrix, $\Sigma$ is a $m \times n$ diagonal matrix with non-negative real numbers on the diagonal and $\mathbf{V}$ is a $n \times n$ orthogonal matrix.&lt;/p&gt;
+
+&lt;p&gt;The diagonal entries ($\sigma_i$) of $\Sigma$ are called the singular values of $\mathbf{M}$.&lt;/p&gt;
+
+&lt;p&gt;SVD has a lot of applications in statistics and signal processing. See the &lt;a href=&quot;https://en.wikipedia.org/wiki/Singular-value_decomposition&quot;&gt;wiki-page&lt;/a&gt; for SVD for more details and interpretation.&lt;/p&gt;
+
+&lt;h1 id=&quot;svd-used-for-compression-of-an-image&quot;&gt;SVD used for compression of an image&lt;/h1&gt;
+
+&lt;p&gt;The image is a matrix $\mathbf{M}$, of size $m \times n$, we can obtain the Singular Value Decomposition of $\mathbf{M}$ i.e we get $\mathbf{U}$, $\Sigma$, $\mathbf{V}$. Now we get $d = \min(m, n)$ singular values $\rightarrow$ [$\sigma_1$, $\sigma_2$, $\sigma_3$, …, $\sigma_d$], such that $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_d$. We also have left-singular vector $u_i$ ($i^{th}$ column of $\mathbf{U}$) and right-singular vector $v_i$ ($i^{th}$ column of $\mathbf{V}$)  associated with $\sigma_i$&lt;/p&gt;
+
+&lt;h4 id=&quot;eckartyoung-mirsky-theorem-low-rank-matrix-approximation&quot;&gt;Eckart–Young-Mirsky theorem (Low-rank matrix approximation)&lt;/h4&gt;
+
+&lt;p&gt;For a matrix $\mathbf{M} \in \mathbb{R}^{m \times n}$, we have $\mathbf{M} = \mathbf{U} \Sigma \mathbf{V}^T$ from SVD of $\mathbf{M}$. The best $k$ rank approximation to $\mathbf{M}$ in the Frobenius norm is given by&lt;/p&gt;
+&lt;center&gt;
+  $\mathbf{M}_k = \displaystyle\sum_{i=1}^{k} \sigma_i u_i v_i^T$
+&lt;/center&gt;
+
+&lt;p&gt;See this &lt;a href=&quot;https://en.wikipedia.org/wiki/Low-rank_approximation&quot;&gt;wiki-article&lt;/a&gt; for the proof.&lt;/p&gt;
+
+&lt;h4 id=&quot;connecting-this-to-image-compression&quot;&gt;Connecting this to Image Compression&lt;/h4&gt;
+
+&lt;p&gt;We can do a lossy compression of the image, by doing a SVD of the image $\mathbf{M}$. Pick the top $k$ singular values (a parameter in the compression). We can reconstruct the approximation of the image, using   [$u_1$, $u_2$, …, $u_k$], [$\sigma_1$, $\sigma_2$, …, $\sigma_k$], [$v_1$, $v_2$, …, $v_k$]  ( follows from the above discussed theorem). The total size of this representation of the image is $ m \times k + k + k \times n$.&lt;/p&gt;
+
+&lt;p&gt;The achieved compression ratio is&lt;/p&gt;
+&lt;center&gt;$ CR = \frac{m \times n}{m \times k + k + k \times n} $&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;The following section provides a visualization that illustrates the original image , reconstructed image and the absolute difference in pixel values between the two for different values of $k$.&lt;/p&gt;
+
+&lt;h1 id=&quot;svd-based-compression-visualization&quot;&gt;SVD based compression Visualization&lt;/h1&gt;
+&lt;!-- VIS_1 --&gt;
+
+&lt;center&gt;&lt;svg id=&quot;graph_1&quot;&gt;&lt;/svg&gt;&lt;/center&gt;
+&lt;center&gt;
+  &lt;table border=&quot;1&quot; style=&quot;table-layout:fixed;&quot;&gt;
+  &lt;col width=&quot;200&quot; /&gt;
+  &lt;col width=&quot;200&quot; /&gt;
+  &lt;col width=&quot;200&quot; /&gt;
+  &lt;tr&gt;
+    &lt;th&gt; Original Image &lt;/th&gt;
+    &lt;th&gt; Reconstructed Image &lt;/th&gt;
+    &lt;th&gt; Pixel Difference &lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; &lt;img id=&quot;real_1&quot; width=&quot;200&quot; height=&quot;267&quot; src=&quot;/assets/SVD_compress/vis/test.JPEG&quot; /&gt; &lt;/td&gt;
+    &lt;td&gt; &lt;img id=&quot;recn_1&quot; width=&quot;200&quot; height=&quot;267&quot; src=&quot;/assets/SVD_compress/vis/none.png&quot; alt=&quot;Hover over the points in the above graph to view the Reconstructed Image.&quot; /&gt; &lt;/td&gt;
+    &lt;td&gt; &lt;img id=&quot;diff_1&quot; width=&quot;200&quot; height=&quot;267&quot; src=&quot;/assets/SVD_compress/vis/none.png&quot; alt=&quot;Hover over the points in the above graph to view the difference between Reconstructed Image and Original Image.&quot; /&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/center&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;/assets/SVD_compress/vis/index.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- DONE_VIS1 --&gt;
+
+&lt;!-- VIS2 --&gt;
+
+&lt;center&gt;&lt;svg id=&quot;graph_2&quot;&gt;&lt;/svg&gt;&lt;/center&gt;
+&lt;center&gt;
+  &lt;table border=&quot;1&quot; style=&quot;table-layout:fixed;&quot;&gt;
+  &lt;col width=&quot;200&quot; /&gt;
+  &lt;col width=&quot;200&quot; /&gt;
+  &lt;col width=&quot;200&quot; /&gt;
+  &lt;tr&gt;
+    &lt;th&gt; Original Image &lt;/th&gt;
+    &lt;th&gt; Reconstructed Image &lt;/th&gt;
+    &lt;th&gt; Pixel Difference &lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; &lt;img id=&quot;real_2&quot; width=&quot;200&quot; height=&quot;267&quot; src=&quot;/assets/SVD_compress/vis_bk/test.JPEG&quot; /&gt; &lt;/td&gt;
+    &lt;td&gt; &lt;img id=&quot;recn_2&quot; width=&quot;200&quot; height=&quot;267&quot; src=&quot;/assets/SVD_compress/vis_bk/none.png&quot; alt=&quot;Hover over the points in the above graph to view the Reconstructed Image.&quot; /&gt; &lt;/td&gt;
+    &lt;td&gt; &lt;img id=&quot;diff_2&quot; width=&quot;200&quot; height=&quot;267&quot; src=&quot;/assets/SVD_compress/vis_bk/none.png&quot; alt=&quot;Hover over the points in the above graph to view the difference between Reconstructed Image and Original Image.&quot; /&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/assets/SVD_compress/vis_bk/index.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;!-- DONE VIS2 --&gt;
+
+&lt;h1 id=&quot;code&quot;&gt;Code&lt;/h1&gt;
+&lt;p&gt;The code that generates the above visualization is available &lt;a href=&quot;https://github.com/arjun-krishna/Compression_using_SVD&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><summary type="html">Lossy compression of images using SVD.</summary></entry><entry><title type="html">Multi Layer Perceptron</title><link href="http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron.html" rel="alternate" type="text/html" title="Multi Layer Perceptron" /><published>2017-08-27T11:00:30+05:30</published><updated>2017-08-27T11:00:30+05:30</updated><id>http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron</id><content type="html" xml:base="http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron.html">&lt;style type=&quot;text/css&quot;&gt;
 table, th, td {
    border: 1px solid black;
 }
