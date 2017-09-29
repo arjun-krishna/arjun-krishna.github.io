@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-26T13:33:32+05:30</updated><id>http://localhost:4000//</id><title type="html">Arjun Krishna Blog</title><subtitle>In this blog I will explain my projects put up on github, report some data analysis I perform and also put up notes on some interesting topics.
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-29T16:51:44+05:30</updated><id>http://localhost:4000//</id><title type="html">Arjun Krishna Blog</title><subtitle>In this blog I will explain my projects put up on github, report some data analysis I perform and also put up notes on some interesting topics.
 </subtitle><entry><title type="html">Lossy Compression using SVD</title><link href="http://localhost:4000/svd/2017/09/26/Lossy-Compression-using-SVD.html" rel="alternate" type="text/html" title="Lossy Compression using SVD" /><published>2017-09-26T11:00:30+05:30</published><updated>2017-09-26T11:00:30+05:30</updated><id>http://localhost:4000/svd/2017/09/26/Lossy-Compression-using-SVD</id><content type="html" xml:base="http://localhost:4000/svd/2017/09/26/Lossy-Compression-using-SVD.html">&lt;style type=&quot;text/css&quot;&gt;
 table, th, td {
    border: 1px solid black;
@@ -37,7 +37,7 @@ MathJax.Hub.Queue(function() {
 
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
 
-&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://d3js.org/d3.v3.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;CONTENTS&lt;/p&gt;
 
@@ -422,7 +422,7 @@ lot of fluctuations in the test loss. The learning rate scheduling works best,
 initially moves rapidly (taking larger steps) and then lowers the
 learning rate to steadily move to an optimum.&lt;/p&gt;
 
-&lt;p&gt;&lt;span&gt;&lt;strong&gt;Training Loss vs Epoch for different Learning rates&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;&lt;strong&gt;Training Loss vs Iterations for different Learning rates&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;
@@ -458,10 +458,10 @@ test-accuracy of $96.8$%&lt;/p&gt;
 &lt;p&gt;The performance of ReLU activated network is better than that of
 sigmoid, it achieves a higher accuracy and also has a lower test loss.
 However, observe that the sigmoid activated MLP approximately reaches
-close to the least loss it achieves in about $1000$ epochs whereas the
-ReLU activated MLP takes approximately $2000$ epochs.&lt;/p&gt;
+close to the least loss it achieves in about $1000$ iterations whereas the
+ReLU activated MLP takes approximately $2000$ iterations.&lt;/p&gt;
 
-&lt;p&gt;&lt;span&gt;&lt;strong&gt;Training Loss vs Epoch for different Learning rates&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;&lt;strong&gt;Training Loss vs Iterations for different Learning rates&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;

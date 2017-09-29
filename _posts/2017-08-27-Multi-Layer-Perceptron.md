@@ -211,7 +211,7 @@ lot of fluctuations in the test loss. The learning rate scheduling works best,
 initially moves rapidly (taking larger steps) and then lowers the
 learning rate to steadily move to an optimum.
 
-<span>**Training Loss vs Epoch for different Learning rates**</span>
+<span>**Training Loss vs Iterations for different Learning rates**</span>
 
  |  ![image](/assets/MLP/plots/sig_3.png)  | ![image](/assets/MLP/plots/sig_4.png) |
  |  ![image](/assets/MLP/plots/sig_5.png)  |  ![image](/assets/MLP/plots/sig_6.png) |
@@ -237,10 +237,10 @@ test-accuracy of $96.8$%
 The performance of ReLU activated network is better than that of
 sigmoid, it achieves a higher accuracy and also has a lower test loss.
 However, observe that the sigmoid activated MLP approximately reaches
-close to the least loss it achieves in about $1000$ epochs whereas the
-ReLU activated MLP takes approximately $2000$ epochs.
+close to the least loss it achieves in about $1000$ iterations whereas the
+ReLU activated MLP takes approximately $2000$ iterations.
 
-<span>**Training Loss vs Epoch for different Learning rates**</span>
+<span>**Training Loss vs Iterations for different Learning rates**</span>
 
   
   | ![image](/assets/MLP/plots/rel_3.png)  | ![image](/assets/MLP/plots/rel_4.png) |
