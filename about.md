@@ -45,10 +45,15 @@ You can find the source code for Jekyll at
 <img src="/assets/about/arjun.JPG" />
 </td>
 <td style="padding-left: 50px">
-I am Arjun Krishna, an undergraduate student of Computer Science and Engineering at IIT Madras.
-My interests include Machine Learning, Reinforcement Learning, Deep Learning, Artificial Intelligence and Algorithms.
+I am currently working as a Software Engineer in the Recommendations team at Indeed, Tokyo. 
+My research interests include Machine Learning, Reinforcement Learning. I am very passionate about
+applying ML techniques at scale. <br> <br>
 
-In this blog I have explained some code I have written for projects put up on my github profile and also some notes on interesting topics.
+I recently graduated from IIT Madras with a B.Tech (Hons) in Computer Science. I had the
+honour of working with Prof. Balaraman Ravindran my thesis guide on the fascinating topic 
+of hierarchical model based reinforcement learning.  <br> <br>
+
+In this blog I provide summaries of papers I found interesting and also explain some projects put up on my github.
 </td>
 </tr>
 </table>
@@ -61,10 +66,15 @@ In this blog I have explained some code I have written for projects put up on my
 </tr>
 <tr>
 <td >
-I am Arjun Krishna, an undergraduate student of Computer Science and Engineering at IIT Madras.
-My interests include Machine Learning, Reinforcement Learning, Deep Learning, Artificial Intelligence and Algorithms.
+I am currently working as a Software Engineer in the Recommendations team at Indeed, Tokyo. 
+My research interests include Machine Learning, Reinforcement Learning. I am very passionate about
+applying ML techniques at scale. <br> <br>
 
-In this blog I have explained some code I have written for projects put up on my github profile and also some notes on interesting topics.
+I recently graduated from IIT Madras with a B.Tech (Hons) in Computer Science. I had the
+honour of working with Prof. Balaraman Ravindran my thesis guide on the fascinating topic 
+of hierarchical model based reinforcement learning.  <br> <br>
+
+In this blog I provide summaries of papers I found interesting and also explain some projects put up on my github.
 </td>
 </tr>
 </table>

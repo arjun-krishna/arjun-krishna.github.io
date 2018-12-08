@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-29T16:51:44+05:30</updated><id>http://localhost:4000//</id><title type="html">Arjun Krishna Blog</title><subtitle>In this blog I will explain my projects put up on github, report some data analysis I perform and also put up notes on some interesting topics.
-</subtitle><entry><title type="html">Lossy Compression using SVD</title><link href="http://localhost:4000/svd/2017/09/26/Lossy-Compression-using-SVD.html" rel="alternate" type="text/html" title="Lossy Compression using SVD" /><published>2017-09-26T11:00:30+05:30</published><updated>2017-09-26T11:00:30+05:30</updated><id>http://localhost:4000/svd/2017/09/26/Lossy-Compression-using-SVD</id><content type="html" xml:base="http://localhost:4000/svd/2017/09/26/Lossy-Compression-using-SVD.html">&lt;style type=&quot;text/css&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-12-08T17:13:08+09:00</updated><id>http://localhost:4000//</id><title type="html">Arjun Krishna Blog</title><subtitle>In this blog I provide summaries of papers I found interesting and also explain some projects put up on my github.
+</subtitle><entry><title type="html">Lossy Compression using SVD</title><link href="http://localhost:4000/svd/2017/09/26/Lossy-Compression-using-SVD.html" rel="alternate" type="text/html" title="Lossy Compression using SVD" /><published>2017-09-26T14:30:30+09:00</published><updated>2017-09-26T14:30:30+09:00</updated><id>http://localhost:4000/svd/2017/09/26/Lossy-Compression-using-SVD</id><content type="html" xml:base="http://localhost:4000/svd/2017/09/26/Lossy-Compression-using-SVD.html">&lt;style type=&quot;text/css&quot;&gt;
 table, th, td {
    border: 1px solid black;
 }
@@ -140,7 +140,29 @@ where, $\mathbf{U}$ is a $m \times m$ orthogonal matrix, $\Sigma$ is a $m \times
 &lt;!-- DONE VIS2 --&gt;
 
 &lt;h1 id=&quot;code&quot;&gt;Code&lt;/h1&gt;
-&lt;p&gt;The code that generates the above visualization is available &lt;a href=&quot;https://github.com/arjun-krishna/Compression_using_SVD&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><summary type="html">Lossy compression of images using SVD.</summary></entry><entry><title type="html">Multi Layer Perceptron</title><link href="http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron.html" rel="alternate" type="text/html" title="Multi Layer Perceptron" /><published>2017-08-27T11:00:30+05:30</published><updated>2017-08-27T11:00:30+05:30</updated><id>http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron</id><content type="html" xml:base="http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron.html">&lt;style type=&quot;text/css&quot;&gt;
+&lt;p&gt;The code that generates the above visualization is available &lt;a href=&quot;https://github.com/arjun-krishna/Compression_using_SVD&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://arjun-krishna.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><summary type="html">Lossy compression of images using SVD.</summary></entry><entry><title type="html">Multi Layer Perceptron</title><link href="http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron.html" rel="alternate" type="text/html" title="Multi Layer Perceptron" /><published>2017-08-27T14:30:30+09:00</published><updated>2017-08-27T14:30:30+09:00</updated><id>http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron</id><content type="html" xml:base="http://localhost:4000/deep-learning/2017/08/27/Multi-Layer-Perceptron.html">&lt;style type=&quot;text/css&quot;&gt;
 table, th, td {
    border: 1px solid black;
 }
@@ -596,7 +618,29 @@ ReLU and Sigmoid activation might give better results. (Will experiment with thi
 
 &lt;h1 id=&quot;link-to-the-code&quot;&gt;Link to the code&lt;/h1&gt;
 
-&lt;p&gt;Checkout the code @ &lt;a href=&quot;https://www.github.com/arjun-krishna/Multi-Layered-Perceptron&quot;&gt;MLP-code&lt;/a&gt;&lt;/p&gt;</content><summary type="html">Multi Layer Perceptron (implemented in python). Experimented on the MNIST data</summary></entry><entry><title type="html">Computation Models of Cognition</title><link href="http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition.html" rel="alternate" type="text/html" title="Computation Models of Cognition" /><published>2017-08-10T11:00:30+05:30</published><updated>2017-08-10T11:00:30+05:30</updated><id>http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition</id><content type="html" xml:base="http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition.html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note : This post contains my notes from the CMC course at IITM 
+&lt;p&gt;Checkout the code @ &lt;a href=&quot;https://www.github.com/arjun-krishna/Multi-Layered-Perceptron&quot;&gt;MLP-code&lt;/a&gt;&lt;/p&gt;
+
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://arjun-krishna.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><summary type="html">Multi Layer Perceptron (implemented in python). Experimented on the MNIST data</summary></entry><entry><title type="html">Computation Models of Cognition</title><link href="http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition.html" rel="alternate" type="text/html" title="Computation Models of Cognition" /><published>2017-08-10T14:30:30+09:00</published><updated>2017-08-10T14:30:30+09:00</updated><id>http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition</id><content type="html" xml:base="http://localhost:4000/ai/cognitive-science/2017/08/10/Computational-Models-Of-Cognition.html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note : This post contains my notes from the CMC course at IITM 
        and also some views I have on the topic.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -630,7 +674,7 @@ engineer than debate about philosophical aspects.&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;“If our brains were simple enough for us to understand them, we’d be so simple that we couldn’t.”  &lt;br /&gt;
 –  Ian Stewart, The Collapse of Chaos: Discovering Simplicity in a Complex World&lt;/p&gt;
-&lt;/blockquote&gt;</content><summary type="html">Can we really model Human level intelligence? Can machines think like Humans ? What are the current tools we have that tries to model some sort of intelligence? Are they sufficient? Modeling human mind is a very challenging problem. The key challenge in this area is that the Human mind itself is used in studying the 'Mind'. The area has a major philosophical component, it is important to ponder on these but it is also very interesting to see what we can engineer. With the human-machine interface becoming better everyday, there are still miles to go for a true Artificial Human-Like Intelligence to be created.</summary></entry><entry><title type="html">Multi Arm Bandit</title><link href="http://localhost:4000/reinforcement-learning/2017/02/14/Multi-arm-bandits.html" rel="alternate" type="text/html" title="Multi Arm Bandit" /><published>2017-02-14T11:00:30+05:30</published><updated>2017-02-14T11:00:30+05:30</updated><id>http://localhost:4000/reinforcement-learning/2017/02/14/Multi-arm-bandits</id><content type="html" xml:base="http://localhost:4000/reinforcement-learning/2017/02/14/Multi-arm-bandits.html">&lt;style type=&quot;text/css&quot;&gt;
+&lt;/blockquote&gt;</content><summary type="html">Can we really model Human level intelligence? Can machines think like Humans ? What are the current tools we have that tries to model some sort of intelligence? Are they sufficient? Modeling human mind is a very challenging problem. The key challenge in this area is that the Human mind itself is used in studying the 'Mind'. The area has a major philosophical component, it is important to ponder on these but it is also very interesting to see what we can engineer. With the human-machine interface becoming better everyday, there are still miles to go for a true Artificial Human-Like Intelligence to be created.</summary></entry><entry><title type="html">Multi Arm Bandit</title><link href="http://localhost:4000/reinforcement-learning/2017/02/14/Multi-arm-bandits.html" rel="alternate" type="text/html" title="Multi Arm Bandit" /><published>2017-02-14T14:30:30+09:00</published><updated>2017-02-14T14:30:30+09:00</updated><id>http://localhost:4000/reinforcement-learning/2017/02/14/Multi-arm-bandits</id><content type="html" xml:base="http://localhost:4000/reinforcement-learning/2017/02/14/Multi-arm-bandits.html">&lt;style type=&quot;text/css&quot;&gt;
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 &lt;/style&gt;
 
@@ -811,7 +855,29 @@ softmax algorithm.&lt;/p&gt;
 &lt;hr /&gt;
 
 &lt;p&gt;As we see from the experiment’s result, the UCB1 algorithm performs the
-best.&lt;/p&gt;</content><summary type="html">Multi Arm Bandit Experiment</summary></entry><entry><title type="html">My R toolset</title><link href="http://localhost:4000/r/2017/01/09/My-R-toolset.html" rel="alternate" type="text/html" title="My R toolset" /><published>2017-01-09T11:00:30+05:30</published><updated>2017-01-09T11:00:30+05:30</updated><id>http://localhost:4000/r/2017/01/09/My-R-toolset</id><content type="html" xml:base="http://localhost:4000/r/2017/01/09/My-R-toolset.html">&lt;p&gt;In this post I will share a few standard R snippets that would be useful for some Machine 
+best.&lt;/p&gt;
+
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://arjun-krishna.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><summary type="html">Multi Arm Bandit Experiment</summary></entry><entry><title type="html">My R toolset</title><link href="http://localhost:4000/r/2017/01/09/My-R-toolset.html" rel="alternate" type="text/html" title="My R toolset" /><published>2017-01-09T14:30:30+09:00</published><updated>2017-01-09T14:30:30+09:00</updated><id>http://localhost:4000/r/2017/01/09/My-R-toolset</id><content type="html" xml:base="http://localhost:4000/r/2017/01/09/My-R-toolset.html">&lt;p&gt;In this post I will share a few standard R snippets that would be useful for some Machine 
 Learning Problems. I learnt these from the &lt;a href=&quot;http://www-bcf.usc.edu/~gareth/ISL/&quot;&gt;ISLR&lt;/a&gt; by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani, most examples are taken directly from this book.&lt;/p&gt;
 
 &lt;p&gt;CONTENTS&lt;/p&gt;
