@@ -46,12 +46,10 @@ You can find the source code for Jekyll at
 </td>
 <td style="padding-left: 50px">
 I am currently working as a Software Engineer in the Recommendations team at Indeed, Tokyo. 
-My research interests include Machine Learning, Reinforcement Learning. I am very passionate about
-applying ML techniques at scale. <br> <br>
+My research interests include Machine Learning, Reinforcement Learning. I am passionate about Artificial Intelligence and its innumerable applications for social good. <br> <br>
 
 I recently graduated from IIT Madras with a B.Tech (Hons) in Computer Science. I had the
-honour of working with Prof. Balaraman Ravindran my thesis guide on the fascinating topic 
-of hierarchical model based reinforcement learning.  <br> <br>
+honour of working with Prof. Balaraman Ravindran my thesis guide on hierarchical model based reinforcement learning for robotic tasks.  <br> <br>
 
 In this blog I provide summaries of papers I found interesting and also explain some projects put up on my github.
 </td>
@@ -67,12 +65,10 @@ In this blog I provide summaries of papers I found interesting and also explain 
 <tr>
 <td >
 I am currently working as a Software Engineer in the Recommendations team at Indeed, Tokyo. 
-My research interests include Machine Learning, Reinforcement Learning. I am very passionate about
-applying ML techniques at scale. <br> <br>
+My research interests include Machine Learning, Reinforcement Learning. I am passionate about Artificial Intelligence and its innumerable applications for social good. <br> <br>
 
 I recently graduated from IIT Madras with a B.Tech (Hons) in Computer Science. I had the
-honour of working with Prof. Balaraman Ravindran my thesis guide on the fascinating topic 
-of hierarchical model based reinforcement learning.  <br> <br>
+honour of working with Prof. Balaraman Ravindran my thesis guide on hierarchical model based reinforcement learning for robotic tasks.  <br> <br>
 
 In this blog I provide summaries of papers I found interesting and also explain some projects put up on my github.
 </td>
