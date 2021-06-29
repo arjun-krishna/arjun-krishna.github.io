@@ -1,6 +1,6 @@
 ---
 layout: post
-comments: true
+comments: false
 title:  "Multi Layer Perceptron"
 date:   2017-08-27 11:00:30 +0530
 categories: Deep-Learning

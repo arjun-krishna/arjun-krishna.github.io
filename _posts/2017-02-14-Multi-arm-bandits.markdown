@@ -1,6 +1,6 @@
 ---
 layout: post
-comments: true
+comments: false
 title:  "Multi Arm Bandit"
 date:   2017-02-14 11:00:30 +0530
 categories: Reinforcement-Learning

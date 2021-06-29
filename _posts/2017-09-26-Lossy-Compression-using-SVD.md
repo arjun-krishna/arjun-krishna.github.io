@@ -1,6 +1,6 @@
 ---
 layout: post
-comments: true
+comments: false
 title:  "Lossy Compression using SVD"
 date:   2017-09-26 11:00:30 +0530
 categories: SVD
