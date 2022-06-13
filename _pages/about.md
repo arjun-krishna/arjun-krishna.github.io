@@ -8,5 +8,4 @@ redirect_from:
   - /about.html
 ---
 
-I'm a graduate student in the College of Computing at Georgia Tech. I interested in the 
-area of robot learning.
+I'm an MS-CS student at Georgia Tech specializing in Computational Perception and Robotics. I am interested in applying reinforcement learning to learn effective controllers on complex robotic tasks.
