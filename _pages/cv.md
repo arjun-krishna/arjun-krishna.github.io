@@ -11,31 +11,43 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.Tech in Computer Science and Engineering, IIT Madras, 2018
+* M.S. in Computer Science, Georgia Institute of Technology, 2023 (expected)
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
+* Graduate Research Assistant @ CORE Robotics (May 2022 - )
   * Duties included: Tagging issues
-  * Supervisor: Professor Git
+  * Supervisor: Prof. Gombolay
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
+* Software Engineer, Indeed Japan K.K (Jul 2018 - Apr 2021)
+  * Teams: Advertisement Bidding Algorithms, Recommendation Systems
+ 
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Languages
+  * Python
+  * C/C++
+  * Java
+* Robot Learning
+  * ROS
+  * Simulators: PyBullet, IsaacGym/Sim
+* Machine Learning
+  * NumPy, JAX
+  * PyTorch
+  * scikit-learn, xgboost
+  * W&B reporting
 
+Courses
+========
+* Interactive Robot Learning
+* Deep Reinforcement Learning
+* Robot Intelligence and Planning
+* Computer Vision
+* Machine Learning
+* Computer Animation
+
+<!-- 
 Publications
 ======
   <ul>{% for post in site.publications %}
@@ -53,7 +65,4 @@ Teaching
   <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+   -->
