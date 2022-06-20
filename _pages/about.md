@@ -8,4 +8,4 @@ redirect_from:
   - /about.html
 ---
 
-I'm an MS-CS student at Georgia Tech specializing in Computational Perception and Robotics. I am interested in applying reinforcement learning to learn effective controllers on complex robotic tasks.
+I'm an MS-CS student at Georgia Tech specializing in Computational Perception and Robotics. I am interested in the paradigm of learning from demonstrations and reinforcement learning for acquiring in motor skills to achieve complex robotic tasks.

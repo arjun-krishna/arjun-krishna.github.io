@@ -40,12 +40,17 @@ Skills
 
 Courses
 ========
-* Interactive Robot Learning
-* Deep Reinforcement Learning
-* Robot Intelligence and Planning
-* Computer Vision
-* Machine Learning
-* Computer Animation
+
+<div style="column-count: 2; column-gap: 20px;">
+  <ul>
+    <li> Interactive Robot Learning </li>
+    <li> Deep Reinforcement Learning </li>
+    <li> Robot Intelligence and Planning </li>
+    <li> Computer Vision </li>
+    <li> Machine Learning </li>
+    <li> Computer Animation </li>
+  </ul>
+</div>
 
 <!-- 
 Publications
