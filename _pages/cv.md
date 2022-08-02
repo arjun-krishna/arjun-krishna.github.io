@@ -10,21 +10,21 @@ redirect_from:
 {% include base_path %}
 
 Education
-======
-* B.Tech in Computer Science and Engineering, _IIT Madras, 2018_
-* M.S. in Computer Science, _Georgia Institute of Technology, 2023 (expected)_
+-----------
+* M.S. in Computer Science, _Georgia Institute of Technology, 2021 - 2023 (expected)_
+* B.Tech (Hons) in Computer Science and Engineering, _IIT Madras, 2014 - 2018_
 
 Work experience
-======
+----------------
 * Graduate Research Assistant @ CORE Robotics (May 2022 - present)
   * _Supervisor_: Prof. Gombolay
-  * Working on learning robust controllers for Table-Tennis strokes on manipulator.
+  * Working on learning robust controllers for Table-Tennis strokes on Barrett WAM arm
 
 * Software Engineer, Indeed Japan K.K (Jul 2018 - Apr 2021)
   * Teams: Advertisement Bidding Algorithms, Recommendation Systems
  
 Skills
-======
+--------
 <div style="column-count:2; column-gap:20px;">
 <ul>
   <li> Languages </li>
@@ -36,7 +36,8 @@ Skills
   <li> Robot Learning </li>
   <ul> 
     <li> ROS </li>
-    <li> Simulators: IsaacGym/Sim, PyBullet </li>
+    <li> <i> Simulators </i>: IsaacGym/Sim, PyBullet </li>
+    <li> Controller Tuning and experience working with real hardware</li>
   </ul>
   <li> Machine Learning </li>
   <ul>
@@ -48,13 +49,13 @@ Skills
   <li> Software Engineering </li>
   <ul>
     <li> Bash, Git, Docker </li>
-    <li> Backend Development - SpringBoot, MongoDB, DataDog </li>
+    <li> <i>Backend Development</i> - SpringBoot, MongoDB, DataDog </li>
   </ul>
 </ul>
 </div>
 
 Courses
-========
+--------
 
 <div style="column-count: 2; column-gap: 20px;">
   <ul>
