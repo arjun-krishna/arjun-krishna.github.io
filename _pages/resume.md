@@ -1,13 +1,16 @@
 ---
 layout: archive
-title: "CV"
-permalink: /cv/
+title: "Resume"
+permalink: /resume/
 author_profile: true
 redirect_from:
   - /resume
+  - /cv
 ---
-
-{% include base_path %}
+<p style="text-align:left">
+  <b>PDF</b>: <a href="www.google.com">CV</a> 
+  <span style="margin-left:10px">(<i>updated on 22 Aug 2022</i>)</span>
+</p>
 
 Education
 -----------
@@ -54,6 +57,7 @@ Skills
 </ul>
 </div>
 
+<!--
 Courses
 --------
 
@@ -68,7 +72,6 @@ Courses
   </ul>
 </div>
 
-<!-- 
 Publications
 ======
   <ul>{% for post in site.publications %}
