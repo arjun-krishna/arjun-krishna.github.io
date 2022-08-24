@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Arjun Krishna"
+title                    : "Home"
 title_separator          : "-"
 name                     : &name "Arjun Krishna"
 description              : &description "Graduate Student @ Georgia Tech"
