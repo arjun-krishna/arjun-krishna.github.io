@@ -11,7 +11,7 @@ author_profile: true
   <u><i>collaborators</i></u>: Qinsheng Zhang, Prof. Yongxin Chen, Prof. Sehoon Ha <br/>
   <u><i>contributions</i></u>: design and experimentation of the approach on a wide range of benchmarks
 
-    (<i>plan to submit to ICLR 2023; developed as a part of CS8803-DRL Spring 2022 - awarded best paper in class</i>)
+    (<i>plan to submit to ICLR 2023; developed as a part of CS8803-RLR Spring 2022 - awarded best paper in class</i>)
 
 2. <b>Impact of communication and robot skill level on human-robot collaboration for tasks requiring agile behaviors</b> <br/>
     <u><i>collaborators</i></u>: Kin Man Lee, Zulfiqar Zaidi, Prof. Matthew Gombolay <br/>
