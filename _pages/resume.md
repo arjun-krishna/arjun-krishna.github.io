@@ -8,23 +8,23 @@ redirect_from:
   - /cv
 ---
 <p style="text-align:left">
-  <b>PDF</b>: <a href="www.google.com">CV</a> 
-  <span style="margin-left:10px">(<i>updated on 22 Aug 2022</i>)</span>
+  <b>PDF</b>: <a href="#">CV</a> 
+  <span style="margin-left:10px">(<i>to be uploaded shortly</i>)</span>
 </p>
 
 Education
 -----------
-* M.S. in Computer Science, _Georgia Institute of Technology, 2021 - 2023 (expected)_
-* B.Tech (Hons) in Computer Science and Engineering, _IIT Madras, 2014 - 2018_
+* M.S. in Computer Science, _Georgia Institute of Technology_, (2021 - present)
+* B.Tech (Hons) in Computer Science and Engineering, _IIT Madras_, (2014 - 2018)
 
 Work experience
 ----------------
-* Graduate Research Assistant @ CORE Robotics (May 2022 - present)
-  * _Supervisor_: Prof. Gombolay
+* **Graduate Research Assistant**, _CORE Robotics_ (May 2022 - present)
+  * _Advisor_: Prof. Gombolay
   * Working on learning robust controllers for Table-Tennis strokes on Barrett WAM arm
 
-* Software Engineer, Indeed Japan K.K (Jul 2018 - Apr 2021)
-  * Teams: Advertisement Bidding Algorithms, Recommendation Systems
+* **Software Engineer**, _Indeed Japan K.K_ (Jul 2018 - Apr 2021)
+  * _Areas_: Advertisement Bidding Algorithms, Recommendation Systems
  
 Skills
 --------
@@ -32,22 +32,23 @@ Skills
 <ul>
   <li> Languages </li>
   <ul>
-    <li> Python </li>
     <li> C/C++ </li>
+    <li> Python </li>
     <li> Java </li>
+    <li> R </li>
   </ul>
   <li> Robot Learning </li>
   <ul> 
     <li> ROS </li>
-    <li> <i> Simulators </i>: IsaacGym/Sim, PyBullet </li>
-    <li> Controller Tuning and experience working with real hardware</li>
+    <li> <i> Simulators </i>: IsaacGym/Sim, MuJoCo, PyBullet </li>
+    <li> Experience deploying controllers on hardware (Barrett WAM Arm)</li>
   </ul>
   <li> Machine Learning </li>
   <ul>
     <li> NumPy, JAX </li>
     <li> PyTorch </li>
     <li> scikit-learn, xgboost </li>
-    <li> Hydra, WandB reporting </li>
+    <li> Hydra, Tensorboard, WandB </li>
   </ul>
   <li> Software Engineering </li>
   <ul>
@@ -57,7 +58,7 @@ Skills
 </ul>
 </div>
 
-<!--
+
 Courses
 --------
 
@@ -69,9 +70,12 @@ Courses
     <li> Computer Vision </li>
     <li> Machine Learning </li>
     <li> Computer Animation </li>
+    <li> Multi Robot Systems </li>
+    <li> Advanced Algorithms (Approximation, Randomized) </li>
   </ul>
 </div>
 
+<!--
 Publications
 ======
   <ul>{% for post in site.publications %}

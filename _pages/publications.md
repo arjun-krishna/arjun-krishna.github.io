@@ -7,13 +7,13 @@ author_profile: true
 
 ## Under review
 
-1. <b>AsymQ: Asymmetric Q-Loss to mitigate overestimation bias in off-policy reinforcement learning</b><br/>
-  <small>Qinsheng Zhang, <b>Arjun Krishna</b>, Sehoon Ha, Yongxin Chen<br/>
-  (<i><u>under review at ICLR 2023</u>; developed as a part of CS8803-RLR Spring 2022 - awarded best paper in class</i>)</small>
-
-2. <b>The Effect of Robot Skill Level and Communication in Rapid, Proximate Human-Robot Collaboration</b><br/>
+1. <b>The Effect of Robot Skill Level and Communication in Rapid, Proximate Human-Robot Collaboration</b><br/>
    <small><b>Arjun Krishna\*</b>, Kin Man Lee\*, Zulfiqar Zaidi, Rohan Paleja, Letian Chen, Erin Hedlund-Botti, Mariah Schrum, Matthew Gombolay<br/>
   (<i><u>under review at HRI 2023</u></i>)</small>
+
+2. <b>AsymQ: Asymmetric Q-Loss to mitigate overestimation bias in off-policy reinforcement learning</b><br/>
+  <small>Qinsheng Zhang, <b>Arjun Krishna</b>, Sehoon Ha, Yongxin Chen<br/>
+  (<i><u>under review at ICLR 2023</u>; developed as a part of CS8803-RLR Spring 2022 - awarded best paper in class</i>)</small>
 
 3. <b>Athletic Mobile Manipulator System for Robotic Wheelchair Tennis</b> <br/>
    [[arxiv]](https://arxiv.org/abs/2210.02517v1) [[webpage]](https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/) <br/>
