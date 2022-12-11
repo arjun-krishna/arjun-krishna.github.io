@@ -21,7 +21,7 @@ Work experience
 ----------------
 * **Graduate Research Assistant**, _CORE Robotics_ (May 2022 - present)
   * _Advisor_: Prof. Gombolay
-  * Working on learning robust controllers for Table-Tennis strokes on Barrett WAM arm
+  * Learning stroke controllers for Table-Tennis and Wheelchair Tennis Robots using Barrett WAM 7DoF arm
 
 * **Software Engineer**, _Indeed Japan K.K_ (Jul 2018 - Apr 2021)
   * _Areas_: Advertisement Bidding Algorithms, Recommendation Systems

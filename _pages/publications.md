@@ -14,7 +14,7 @@ author_profile: true
 1. <b>AsymQ: Asymmetric Q-Loss to mitigate overestimation bias in off-policy reinforcement learning</b><br/>
   <small>Qinsheng Zhang*, <b>Arjun Krishna*</b>, Sehoon Ha, Yongxin Chen<br/>
   (accepted at NeurIPS-W 2022 - Deep RL workshop ; <i><u>under review at ICLR 2023</u></i>)<br/>
-  [**[pre-print]**](/files/asymq_preprint.pdf) [**[poster]**](/files/asymq-poster.png) <br/>
+  [**[pre-print]**](https://openreview.net/forum?id=KoRdlJjgiQ) [**[poster]**](/files/asymq-poster.png) <br/>
   [<i>developed as a part of CS8803-RLR Spring 2022 - awarded best paper in class</i>]</small>
 
 1. <b>The Effect of Robot Skill Level and Communication in Rapid, Proximate Human-Robot Collaboration</b><br/>
@@ -25,7 +25,7 @@ author_profile: true
 1. <b>Utilizing Human Feedback for Primitive Optimization in Wheelchair Tennis</b><br/>
    <small><b>Arjun Krishna</b>, Zulfiqar Haider Zaidi, Letian Chen, Rohan R Paleja, Esmaeil Seraj, Matthew Gombolay<br/>
    (accepted at CoRL-W 2022 - Learning for Agile Robots)<br/>
-   [**[pre-print]**](/files/ProMP_WTR.pdf) [**[project-page]**](/project/promp_utilize_feedback)</small>
+   [**[poster]**](/files/poster-ESTHER-ProMP.png) [**[pre-print]**](/files/ProMP_WTR.pdf) [**[project-page]**](/project/promp_utilize_feedback)</small>
 
 ## Under review
 

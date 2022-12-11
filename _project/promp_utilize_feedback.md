@@ -1,6 +1,6 @@
 ---
 title: "Utilizing Human Feedback for Primitive Optimization in Wheelchair Tennis"
-excerpt: ""
+excerpt: "<img style='width:50%' src='/files/poster-ESTHER-ProMP.png'>"
 collection: project
 ---
 
@@ -10,5 +10,9 @@ Agile robotics presents a difficult challenge with robots moving at high speeds 
 **Links**:
 - Pre-print : [[pdf]](/files/ProMP_WTR.pdf)
 - Robot Design : [[webpage]](https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/) [[arxiv]](https://arxiv.org/abs/2210.02517)
+
+## Poster
+
+![poster](/files/poster-ESTHER-ProMP.png)
 
 ## Videos
