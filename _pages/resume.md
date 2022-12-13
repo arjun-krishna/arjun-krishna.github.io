@@ -8,8 +8,8 @@ redirect_from:
   - /cv
 ---
 <p style="text-align:left">
-  <b>PDF</b>: <a href="#">CV</a> 
-  <span style="margin-left:10px">(<i>to be uploaded shortly</i>)</span>
+  <b>PDF</b>: <a href="/files/akrishna-cv.pdf">CV</a> 
+  <span style="margin-left:10px">(<i>updated 12 Dec 2022</i>)</span>
 </p>
 
 Education
