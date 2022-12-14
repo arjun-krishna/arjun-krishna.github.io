@@ -15,4 +15,6 @@ Agile robotics presents a difficult challenge with robots moving at high speeds 
 
 ![poster](/files/poster-ESTHER-ProMP.png)
 
-## Videos
+## Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QhBxJBmuZy4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
