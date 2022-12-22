@@ -16,4 +16,4 @@ Before starting my Master's program, I worked as a Software Engineer at Indeed J
 
 <hr style="height:3px"/>
 
-<i>I am seeking Ph.D. opportunities to continue exploring the field of robot learning!</i>
+<!-- <i>I am seeking Ph.D. opportunities to continue exploring the field of robot learning!</i> -->
