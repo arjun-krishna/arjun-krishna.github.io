@@ -6,6 +6,7 @@ author_profile: true
 redirect_from:
   - /resume
   - /cv
+  - /cv/
 ---
 <p style="text-align:left">
   <b>PDF</b>: <a href="/files/akrishna-cv.pdf">CV</a> 
