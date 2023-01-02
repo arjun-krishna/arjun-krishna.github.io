@@ -25,7 +25,7 @@ author_profile: true
 1. <b>Utilizing Human Feedback for Primitive Optimization in Wheelchair Tennis</b><br/>
    <small><b>Arjun Krishna</b>, Zulfiqar Haider Zaidi, Letian Chen, Rohan R Paleja, Esmaeil Seraj, Matthew Gombolay<br/>
    (accepted at CoRL-W 2022 - Learning for Agile Robots)<br/>
-   [**[poster]**](/files/poster-ESTHER-ProMP.png) [**[pre-print]**](/files/ProMP_WTR.pdf) [**[project-page]**](/project/promp_utilize_feedback)</small>
+   [**[poster]**](/files/poster-ESTHER-ProMP.png) [**[arxiv]**](https://arxiv.org/abs/2212.14403) [**[project-page]**](/project/promp_utilize_feedback)</small>
 
 ## Under review
 
