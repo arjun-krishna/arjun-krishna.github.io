@@ -27,11 +27,9 @@ author_profile: true
    (accepted at CoRL-W 2022 - Learning for Agile Robots)<br/>
    [**[poster]**](/files/poster-ESTHER-ProMP.png) [**[arxiv]**](https://arxiv.org/abs/2212.14403) [**[project-page]**](/project/promp_utilize_feedback)</small>
 
-## Under review
-
 1. <b>Athletic Mobile Manipulator System for Robotic Wheelchair Tennis</b> <br/>
    <small>Zulfiqar Zaidi\*, Daniel Martin\*, Nathaniel Belles, Viacheslav Zakharov, <b>Arjun Krishna</b>, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay <br/>
-   (<i><u>under review at RA-L</u></i>)<br/>
+   (accepted at IEEE RA-L)<br/>
    [**[arxiv]**](https://arxiv.org/abs/2210.02517v1) [**[project-page]**](https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/) [**[poster @ IRIM - Industry Day]**](/files/poster-IRIM-ESTHER.png)</small>
 
 
