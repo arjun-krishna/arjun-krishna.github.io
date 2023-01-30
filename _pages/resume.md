@@ -9,8 +9,8 @@ redirect_from:
   - /cv/
 ---
 <p style="text-align:left">
-  <b>PDF</b>: <a href="/files/akrishna-cv.pdf">CV</a> 
-  <span style="margin-left:10px">(<i>updated 15 Jan 2023</i>)</span>
+  <b>PDF</b>: <a href="/files/akrishna_CV.pdf">CV</a> 
+  <span style="margin-left:10px">(<i>updated 29 Jan 2023</i>)</span>
 </p>
 
 Education
