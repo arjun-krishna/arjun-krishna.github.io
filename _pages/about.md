@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-<u>_Life Update_</u>: I will be joining <a href="https://www.seas.upenn.edu/~dineshj/">Prof. Dinesh Jayaraman's group</a> at the University of Pennsylvania as a Ph.D. student in Fall 2023!
+<u><i>Life Update</i></u>: I will be joining <a href="https://www.seas.upenn.edu/~dineshj/">Prof. Dinesh Jayaraman's group</a> at the University of Pennsylvania as a Ph.D. student in Fall 2023!
 
 ----
 
