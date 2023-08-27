@@ -82,12 +82,12 @@ analytics:
 author:
   name             : "Arjun Krishna"
   avatar           : "thumbnail.png"
-  bio              : "PhD CS student\nUniversity of Pennsylvania"
-  location         : "Atlanta"
+  bio              : "PhD CS Student<br/>University of Pennsylvania"
+  location         : "Philadelphia, PA"
   employer         :
   pubmed           : 
   googlescholar    : https://scholar.google.com/citations?user=XsYoY2QAAAAJ&hl=en #
-  email            : arjunkris96@gmail.com
+  email            : arjk@seas.upenn.edu
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
