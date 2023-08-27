@@ -18,8 +18,9 @@ main:
   - title: "Resume"
     url: /resume/
 
-  - title: "Presentations"  
-    url: /presentations/
+  #  - title: "Presentations"  
+  #    url: /presentations/
+
   # - title: "Guide"
   #   url: /markdown/
 
