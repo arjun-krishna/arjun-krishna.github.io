@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Home"
 title_separator          : "-"
 name                     : &name "Arjun Krishna"
-description              : &description "Graduate Student @ Georgia Tech"
+description              : &description "Graduate Student @ UPenn"
 url                      : https://arjun-krishna.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "arjun-krishna/arjun-krishna.github.io"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Arjun Krishna"
   avatar           : "thumbnail.png"
-  bio              : "Masters in Computer Science\nGeorgia Institute of Technology"
+  bio              : "PhD CS student\nUniversity of Pennsylvania"
   location         : "Atlanta"
   employer         :
   pubmed           : 
