@@ -15,12 +15,13 @@ redirect_from:
 
 Education
 -----------
-* M.S. in Computer Science, _Georgia Institute of Technology_, (2021 - present)
-* B.Tech (Hons) in Computer Science and Engineering, _IIT Madras_, (2014 - 2018)
+* PhD in Computer and Information Science, _University of Pennsylvania_, (Aug 2023 - Present)
+* M.S. in Computer Science, _Georgia Institute of Technology_, (Aug 2021 - May 2023)
+* B.Tech (Hons) in Computer Science and Engineering, _IIT Madras_, (July 2014 - May 2018)
 
 Work experience
 ----------------
-* **Graduate Research Assistant**, _CORE Robotics_ (May 2022 - present)
+* **Graduate Research Assistant**, _CORE Robotics_ (May 2022 - May 2023)
   * _Advisor_: Prof. Gombolay
   * Learning stroke controllers for Table-Tennis and Wheelchair Tennis Robots using Barrett WAM 7DoF arm
 

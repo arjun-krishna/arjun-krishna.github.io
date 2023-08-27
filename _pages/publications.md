@@ -13,7 +13,7 @@ author_profile: true
 
 1. <b>AsymQ: Asymmetric Q-Loss to mitigate overestimation bias in off-policy reinforcement learning</b><br/>
   <small>Qinsheng Zhang*, <b>Arjun Krishna*</b>, Sehoon Ha, Yongxin Chen<br/>
-  (accepted at NeurIPS-W 2022 - Deep RL workshop ; <i><u>under review at ICML 2023</u></i>)<br/>
+  (accepted at NeurIPS-W 2022 - Deep RL workshop)<br/>
   [**[pre-print]**](https://openreview.net/forum?id=KoRdlJjgiQ) [**[poster]**](/files/asymq-poster.png) <br/>
   [<i>developed as a part of CS8803-RLR Spring 2022 - awarded best paper in class</i>]</small>
 
