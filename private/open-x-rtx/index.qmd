@@ -39,7 +39,7 @@ High-capacity model (RT-X) trained on this dataset* exhibits positive transfer.
 ## <span style="font-size:80%">Data Exploration</span> {.smaller}
 
 ::: {.fragment .fade-in-then-out .absolute}
-The gather 60 existing datasets (22 embodiments) and transform it to a consistent format.
+They gather 60 existing datasets (22 embodiments) and transform it to a consistent format.
 
 ![](assets/df2a.png){width=80% style="display: block; margin: auto;"}
 :::
