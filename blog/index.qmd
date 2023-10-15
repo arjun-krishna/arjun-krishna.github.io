@@ -1,0 +1,27 @@
+---
+sidebar: false
+title: "📮 Blog Posts"
+listing:
+  date-format: short
+  feed: true
+  filter-ui: false
+  type: table
+  sort-ui: false
+  sort: "date desc"
+  categories: false
+  fields: [date, title]
+  id: blog-listings
+  contents: [posts/]
+format:
+  html:
+    anchor-sections: true
+---
+
+[Subscribe here](#subscribe)
+
+::: {#blog-listings}
+:::
+
+## 📬 Subscribe
+
+Subscribe via [<i class="bi bi-rss"></i> RSS](index.xml){.no-highlight}

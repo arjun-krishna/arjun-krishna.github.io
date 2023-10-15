@@ -1,0 +1,382 @@
+---
+title: "<span style=\"font-size: 37%\">Open X-Embodiment: Robotic Learning Datasets and RT-X Models</span>"
+subtitle: "<span style=\"font-size: 60%\">Open X-Embodiment Collaboration</span>"
+categories: [paper-presentations]
+author: "<br/><span style=\"font-size: 50%\"> *Presented by*: Arjun Krishna</span>"
+format: 
+    revealjs:
+        slide-number: true
+draft: True
+---
+
+## <span style="font-size: 80%">The promise of training on diverse datasets</span> {.smaller}
+
+::: {.fragment .fade-in}
+Domains like _NLP_ and _CV_ have greatly benefited from training on diverse datasets to obtain strong performance on downstream tasks.
+:::
+
+::: {.fragment .fade-up}
+::: {.callout-note icon=false}
+### Research Question
+Is it possible to train **"generalist X-robot"** policy that can be adapted efficiently to different robots, tasks, and environments by leveraging a large diverse dataset.
+:::
+:::
+::: {.fragment .fade-in}
+To this end, the authors have curated a dataset from **22** different robots containing demonstrations of **527** skills (_160,266_ tasks)
+
+- This is a unified repository of _existing_ datasets
+- Mostly from real robots (1M+ trajectories); some from simulation
+:::
+::: {.fragment .fade-up}
+::: {.callout-tip icon=false}
+### Key Result
+High-capacity model (RT-X) trained on this dataset* exhibits positive transfer.
+:::
+
+<span style="font-size: 60%">* _trained only on a fraction of the full dataset_</span>
+:::
+
+## <span style="font-size:80%">Data Exploration</span> {.smaller}
+
+::: {.fragment .fade-in-then-out .absolute}
+The gather 60 existing datasets (22 embodiments) and transform it to a consistent format.
+
+![](assets/df2a.png){width=80% style="display: block; margin: auto;"}
+:::
+
+::: {.fragment .fade-in-then-out .absolute}
+![](assets/df2b.png){width=80% style="display: block; margin: auto;"}
+::: 
+
+::: {.fragment .fade-in-then-out .absolute}
+![](assets/df2c.png){width=80% style="display: block; margin: auto;"}
+::: 
+
+::: {.fragment .fade-in-then-out .absolute}
+![](assets/df2d.png){width=80% style="display: block; margin: auto;"}
+::: 
+
+## <span style="display: none;">RTX_VIZ</span>{background-iframe="https://dibyaghosh.com/rtx_viz" background-interactive=true}  
+
+## <span style="font-size:80%">Architecture: RT-1</span> {.smaller}
+
+![](assets/rt1.png){.absolute top=70 left=0 width="400" height="650"}
+
+::: {.absolute top=70 left=500 .nonincremental}
+- 35M param model
+- can run locally at 3Hz
+- actions in RT-1 (_discretized into 256 bins_)
+    - _mode_: (arm; base; terminate)
+    - _base_: (x, y, yaw)
+    - _arm_: (x, y, z, roll, pitch, yaw)
+- open source [implementation + checkpoints](https://github.com/google-research/robotics_transformer/)
+:::
+
+::: {.notes}
+- USE [Cer et al](https://arxiv.org/abs/1803.11175)
+    - Transformer-based (quadratic in number of tokens) / Deep-Averaging Networks (more efficient)
+- BC-Z is a predecessor without the Transformers
+:::
+
+## <span style="font-size:80%">Architecture: RT-2</span> {.smaller}
+::: {.center}
+![](assets/rt2.png)
+:::
+
+<hr/>
+
+::: {.nonincremental style="font-size: 75%"}
+- 7D action space represented as string <span style="font-size:100%">“terminate $\Delta p_x\:\Delta p_y\:\Delta p_z\:\Delta R_x\:\Delta R_y\:\Delta R_z$ gripper_extension”</span> 
+    - <span style="font-size: 90%"> Needs 256 new tokens in the vocabulary to represent actions </span>
+    - <span style="font-size: 90%"> Decoding is constrained to these tokens when actions are needed as specified by prompt </span>
+- 55B parameter model so needs specialized H/W to be queried at 1-3Hz. 
+- Not open-sourced; but recent open-source models like [LLaVA-v1.5-13B](https://llava-vl.github.io/) make this pipeline potentially replicable.
+:::
+
+::: {.notes}
+- Co-fine tuned with internet-scale VQA with appropriate sample weighting
+- 5B param model (PaLI) can be queried at 5Hz
+- based on PaLM-E and PaLI (5B & 55B)
+:::
+
+## <span style="font-size:80%">Training: Data Format Consolidation</span> {.smaller}
+![](assets/rt-x.png){style="display: block; margin: auto;"}
+
+
+::: {style="font-size: 70%"}
+
+::: {.columns}
+::: {.column width="50%"}
+<u>**_Observation Space_**</u>
+
+- **Language Instruction**: 
+    - RT-1: converts into USE embedding 
+    - RT-2: formats it into a VQA prompt template
+- **Image**: select just one-canonical view from each dataset and scale it to a common resolution.
+- **Context**:
+    - RT-1: uses a history of 15 images
+    - RT-2: single-image conditioning 
+
+        (CoT reasoning wasn't explicitly mentioned)
+:::
+::: {.column width="5%"}
+:::
+::: {.column width="45%"}
+<u>**_Action_Space_**</u>
+
+- Convert agent action into a normalized 7-DoF end-effector action
+    - There is no alignment of the coordinate frames
+    - Actions can be absolute or relative
+    - The tokens are de-normalized based on the embodiment
+:::
+:::
+:::
+
+::: {.notes}
+- Observation and action spaces vary significantly across embodiments
+- Same action token can represent different effects on the scene.
+:::
+
+## <span style="font-size:80%">Training: Datasets</span> {.smaller}
+
+::: {style="font-size: 60%"}
+
+::: {.absolute top=100 left=0 width="150px" height="150px"}
+```{=html}
+<center> QT-opt <br/> (580,392 trajs)
+<video src="https://dibyaghosh.com/rtx_viz/kuka/episode0_image.mp4" loop autoplay muted></video>
+<span style="font-size: 70%; display: block; margin: auto">L: pick anything</span>
+</center>
+```
+:::
+
+::: {.absolute top=100 left=160 width="150px" height="150px"}
+```{=html}
+<center> Language Table (442,226 trajs)
+<video src="https://dibyaghosh.com/rtx_viz/language_table/episode0_rgb.mp4" loop autoplay muted></video>
+<span style="font-size: 70%; display: block; margin: auto">L: move yellow cube to the top</span>
+</center>
+```
+:::
+
+::: {.absolute top=100 left=320 width="150px" height="150px"}
+```{=html}
+<center> RT-2<br/> (87,212 trajs)
+<video src="https://dibyaghosh.com/rtx_viz/fractal20220817_data/episode2_image.mp4" loop autoplay muted></video>
+<span style="font-size: 70%; display: block; margin: auto">L: move blue chip bag near water bottle</span>
+</center>
+```
+:::
+
+::: {.absolute top=100 left=480 width="150px" height="150px"}
+```{=html}
+<center> Bridge <br/> (25,460 trajs)
+<video src="https://dibyaghosh.com/rtx_viz/bridge/episode0_image.mp4" loop autoplay muted></video>
+<span style="font-size: 70%; display: block; margin: auto">L: pick up the spoon and put near the vessel</span>
+</center>
+```
+:::
+
+::: {.absolute top=100 left=640 width="150px" height="150px"}
+```{=html}
+<center> Task-Agnostic Play <br/> (3,242 trajs)
+<video src="https://dibyaghosh.com/rtx_viz/taco_play/episode0_rgb_static.mp4" loop autoplay muted></video>
+<span style="font-size: 70%; display: block; margin: auto">L: put the yellow object inside the left cabinet</span>
+</center>
+```
+:::
+
+::: {.absolute top=100 left=800 width="150px" height="150px"}
+```{=html}
+<center> Roboturk<br/> (1,796 trajs)
+<video src="https://dibyaghosh.com/rtx_viz/roboturk/episode0_front_rgb.mp4" loop autoplay muted></video>
+<span style="font-size: 70%; display: block; margin: auto">L: object search</span>
+</center>
+```
+:::
+
+::: {.absolute top=400 left=0 width="150px" height="150px"}
+```{=html}
+<center> Cable routing<br/> (1,482 trajs)
+<video src="https://dibyaghosh.com/rtx_viz/berkeley_cable_routing/episode2_image.mp4" loop autoplay muted></video>
+<span style="font-size: 70%; display: block; margin: auto">L: route cable</span>
+</center>
+```
+:::
+
+::: {.absolute top=400 left=160 width="150px" height="150px"}
+```{=html}
+<center> Jaco Play <br/> (976 trajs)
+<video src="https://dibyaghosh.com/rtx_viz/jaco_play/episode0_image.mp4" loop autoplay muted></video>
+<span style="font-size: 70%; display: block; margin: auto">L: pick up the milk dairy</span>
+</center>
+```
+:::
+
+::: {.absolute top=400 left=320 width="150px" height="150px"}
+```{=html}
+<center> TOTO <br/>(902 trajs)
+<video src="https://dibyaghosh.com/rtx_viz/toto/episode1_image.mp4" loop autoplay muted></video>
+<span style="font-size: 70%; display: block; margin: auto">L: pour</span>
+</center>
+```
+:::
+
+::: {.absolute top=400 left=480 width="150px" height="150px"}
+```{=html}
+<center> Berkley AutoLab UR5 (896 trajs) 
+<video src="https://dibyaghosh.com/rtx_viz/berkeley_autolab_ur5/episode1_image.mp4" loop autoplay muted></video>
+<span style="font-size: 70%; display: block; margin: auto">L: put the ranch bottle into the pot </span>
+</center>
+```
+:::
+
+::: {.absolute top=400 left=640 width="150px" height="150px"}
+```{=html}
+<center> NYU-VINN <br/> (435 trajs)
+<video src="https://dibyaghosh.com/rtx_viz/nyu_door_opening_surprising_effectiveness/episode1_image.mp4" loop autoplay muted></video>
+<span style="font-size: 70%; display: block; margin: auto">L: open door</span>
+</center>
+```
+:::
+
+::: {.absolute top=400 left=800 width="150px" height="150px"}
+```{=html}
+<center> Austin-VIOLA<br/> (135 trajs)
+<video src="https://dibyaghosh.com/rtx_viz/viola/episode0_agentview_rgb.mp4" loop autoplay muted></video>
+<span style="font-size: 70%; display: block; margin: auto">L: arrange plate and fork</span>
+</center>
+```
+:::
+
+::: {.absolute top=90 left=-10 .fragment }
+```{=html}
+<svg width="645" height="250">
+  <rect x="0" y="0" width="645" height="220"
+  style="stroke:red;stroke-width:5;opacity:0.1" />
+</svg> 
+```
+:::
+
+:::
+
+
+
+
+## <span style="font-size:80%">Results: in-distribution evaluation</span> {.smaller}
+
+Evaluate models trained on X-embodiment dataset on in-distribution tasks. 
+
+::: {style="font-size: 80%"}
+_Baselines_: (1) Original Method (2) RT-1 trained only that embodiment specific dataset
+:::
+
+::: {.fragment .fade-out .absolute}
+**Domains with small-scale datasets\***
+![](assets/eval_1.png)
+<center><span style="font-size: 70%">Evaluating Success Rate</span></center>
+:::
+
+::: {.fragment .fade-in .absolute}
+**Domains with large-scale datasets\***
+![](assets/eval_2.png)
+:::
+
+::: {.absolute top=495 left=0 .fragment }
+```{=html}
+<svg width="1000" height="35">
+  <rect x="0" y="0" width="1000" height="35"
+  style="stroke:red;stroke-width:5;opacity:0.1" />
+</svg> 
+```
+:::
+
+::: aside 
+\* Does not report number of evaluations performed to obtain success rates.
+:::
+
+## <span style="font-size:80%">Results: out-of-distribution evaluation</span> {.smaller}
+
+Evaluates RT-2-X on large-scale data domains
+
+::: {.fragment .fade-in-then-out .absolute}
+**Unseen objects, backgrounds and environments**
+
+<span style="font-size:90%">280 evaluation tasks primarily evaluating pick-and-place skills.</span>
+
+![](assets/eval_3g.png)
+
+| Robot | Model | Dataset | Generalization Evaluation |
+|:----|:------|:--------|:-------------------------|
+|Google Robot| RT-2 (55B)  | RT-2    |  **62%** |
+|Google Robot| RT-2-X (55B) | Open-X\* | **61%** |
+
+: {tbl-colwidths="[20,20,15,40]"}
+
+<br/><span style="font-size: 90%">Generalization along these factors is primarily attributed to the VLM backbone.</span>
+
+:::
+
+::: {.fragment .fade-in}
+**Emergent Skills Evaluation**
+
+<span style="font-size:90%">Test on skills present in Bridge-v2 dataset (WidowX) but not present in RT-2 dataset (Google Robot)</span>
+
+::: {.columns}
+::: {.column width="40%"}
+![](assets/eval_4.png)
+:::
+::: {.column width="60%" style="font-size:70%; margin-top: 100px"}
+| Model | Dataset | Emergent Skill Evaluation |
+|:------|:--------|:-------------------------|
+| RT-2 (55B)  | RT-2    |  27.3% |
+| RT-2-X (55B) | Open-X\* | **75.8%** |
+| RT-2-X (55B) | Open-X\* \\ {Bridge-2} | 42.8% | 
+| | | |
+: {tbl-colwidths="[20,50,60]"}
+:::
+:::
+
+:::
+
+## <span style="font-size:80%">Results: RT-2-X ablations</span> {.smaller}
+
+::: {style="font-size: 75%"}
+| \#Params | History | Initial Checkpoint | Co-Trained w/ Web | Emergent Skill Eval | Generalization Eval |
+|:-----|:-----|:----|:----|:---:|:---:|
+| 55B | none | Web-pretrained | Yes | 75.8% | 61% |
+||
+| 5B | none | Web-pretrained | Yes | 14.5% | 30% |
+| 5B | 2 | Web-pretrained | Yes | 44.4% | 52% |
+| 5B | 2 | Web-pretrained | No | 48.7% | 47% |
+| 5B | 2 | From scratch | No | 0% | 1% |
+| | | | | |
+: {tbl-colwidths="[5,5,20,20,20,20]"}
+
+<br/>
+:::
+
+::: {style="font-size: 90%"}
+- <u>_History_</u>: Includes additional images in the context
+- <u>_Co-Trained w/ Web_</u>: Mentioned as important ingredient in training RT-2, where fine-tuning is done with both robot-action dataset and prediction tasks from web-VQA dataset.
+:::
+
+## <span style="font-size:80%">Limitations</span> {.smaller}
+
+_Study Limitations_:
+
+- Does not study generalization to new robots
+- Does not study when positive transfer actually happens
+
+_RT-2 Limitations_:
+
+- Novel motions beyond what is seen in the robot data (wiping/tool use)
+- Dexterous or precise motions (such as folding a towel)
+- Grasping objects by specific parts such as handles
+
+## <span style="font-size:80%">Discussion</span> {.smaller}
+- What is a good unified action representation across modalities?
+
+- Data streams across robots are often captured at different frequencies. This should perhaps be factored in the architecture via position embedding? 
+
+- How much in-domain data is needed for fine-tuning? This also informs how the action normalization & de-normalization happen. 

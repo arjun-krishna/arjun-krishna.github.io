@@ -1,0 +1,31 @@
+---
+sidebar: false
+description: "About: Arjun Krishna"
+toc: true
+format:
+  html:
+    page-layout: full
+    anchor-sections: false
+listing:
+  template: templates/publications.ejs
+  id: pubs-listings
+  contents: 
+    - publications.yml
+  template-params:
+    self: "Arjun Krishna"
+  # field-required: [title, image, authors]
+---
+
+::: {layout="[20,80]" .profile-header}
+
+![](assets/profile-transparent-bg.png){.profile-pic}
+
+[Arjun Krishna]{.subtitle} <br/>
+I am a CS PhD student at the University of Pennsylvania advised by [Prof. Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/). I am broadly interested in the field of Robot Learning. <br style="margin-bottom: 10px"/>
+I received my Master's degree from Georgia Tech where I was fortunate to be advised by [Prof. Matthew Gombolay](https://sites.gatech.edu/matthew-gombolay/). I obtained my bachelor's degree in CS from IIT Madras and was introduced to RL research there by [Prof. Balaraman Ravindran](http://www.cse.iitm.ac.in/~ravi/). I also worked as a Software Engineer in the space of RecSys and Advertisement Bidding at Indeed Japan for about 3 years before returning to academia.
+:::
+
+#### Publications
+
+::: {#pubs-listings}
+:::

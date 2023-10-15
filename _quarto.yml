@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Arjun Krishna"
+  page-footer:
+    #    center:
+      #      - icon: linkedin
+      #        href: https://www.linkedin.com/in/arjun-kris/
+      #      - icon: twitter
+      #        href: https://twitter.com/akrishna42
+      #      - icon: github
+        #        href: https://github.com/arjun-krishna/
+    left:
+      - text: Arjun Krishna © 2023.
+  favicon: assets/favicon.ico
+  open-graph: true
+  twitter-card:
+    creator: "@akrishna42"
+  site-url: "https://arjun-krishna.github.io/"
+  description: "Personal webpage containing blogs and notes on topics in Robotics and Machine Learning."
+  navbar:
+    title: false
+    background: dark
+    left:
+      - text: About
+        href: index.qmd
+      # - text: Blog
+      #  href: blog/index.qmd
+    right:
+      - icon: envelope-fill
+        href: mailto:arjk@seas.upenn.edu
+      - icon: mortarboard-fill
+        href: https://scholar.google.com/citations?user=XsYoY2QAAAAJ&hl=en
+#      - icon: 0-circle-fill
+#        href: https://orcid.org/0000-0001-8558-281X
+      - icon: twitter
+        href: https://twitter.com/akrishna42
+      - icon: github
+        href: https://github.com/arjun-krishna/
+
+format:
+  html:
+    theme: lux
+    css: styles.css
+    toc: true

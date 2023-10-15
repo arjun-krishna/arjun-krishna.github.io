@@ -1,0 +1,80 @@
+- title: "The Effect of Robot Skill Level and Communication in Rapid, Proximate Human-Robot Collaboration"
+  thumbnail: assets/pub-thumbnails/agileHRC_VAIN_HRI23.png
+  authors:
+    - Kin Man Lee*
+    - Arjun Krishna*
+    - Zulfiqar Zaidi
+    - Rohan Paleja
+    - Letian Chen
+    - Erin Hedlund-Botti
+    - Mariah Schrum
+    - Matthew Gombolay
+  links:
+    - name: article
+      href: https://dl.acm.org/doi/10.1145/3568162.3577002
+  pub_venue: "HRI '23: Proceedings of the 2023 ACM/IEEE International Conference on Human-Robot Interaction"
+
+- title: "Athletic Mobile Manipulator System for Robotic Wheelchair Tennis"
+  thumbnail: assets/pub-thumbnails/ESTHER_RAL23.png
+  authors:
+    - Zulfiqar Zaidi*
+    - Daniel Martin*
+    - Nathaniel Belles
+    - Viacheslav Zakharov
+    - Arjun Krishna
+    - Kin Man Lee
+    - Peter Wagstaff
+    - Sumedh Naik
+    - Matthew Sklar
+    - Sugju Choi
+    - Yoshiki Kakehi
+    - Ruturaj Patil
+    - Divya Mallemadugula
+    - Florian Pesce
+    - Peter Wilson
+    - Wendell Hom
+    - Matan Diamond
+    - Bryan Zhao
+    - Nina Moorman
+    - Rohan Paleja
+    - Letian Chen
+    - Esmaeil Seraj
+    - Matthew Gombolay
+  links:
+    - name: arxiv
+      href: https://browse.arxiv.org/abs/2210.02517
+    - name: overview-video
+      href: https://www.youtube.com/watch?v=3T9Yd8NddcI
+    - name: promo-video
+      href: https://www.youtube.com/watch?v=plUktbRLfQw
+  pub_venue: IEEE Robotics and Automation Letters (presented at IROS'23)
+
+- title: "AsymQ: Asymmetric Q-Loss to mitigate overestimation bias in off-policy reinforcement learning"
+  thumbnail: assets/pub-thumbnails/AsymQ_NeurIPS22W.png
+  authors:
+    - Qinsheng Zhang*
+    - Arjun Krishna*
+    - Sehoon Ha
+    - Yongxin Chen
+  links:
+    - name: pre-print
+      href: https://openreview.net/forum?id=KoRdlJjgiQ
+  pub_venue: NeurIPS-W 2022 (DeepRL workshop)
+
+- title: Utilizing Human Feedback for Primitive Optimization in Wheelchair Tennis
+  thumbnail: assets/pub-thumbnails/HF_PMP_CORLW22.png
+  authors:
+    - Arjun Krishna
+    - Zulfiqar Zaidi
+    - Letian Chen
+    - Rohan Paleja
+    - Esmaeil Seraj
+    - Matthew Gombolay
+  links:
+    - name: arxiv
+      href: https://arxiv.org/pdf/2212.14403.pdf 
+    - name: poster
+      href: https://drive.google.com/file/d/1DsU0_m540SkkC3elMymjkHqZSAqCtqP1/view
+    - name: video
+      href: https://drive.google.com/file/d/1fb3KhxwTog417WCYGIrSlV_HsBz5fBEY/view
+  pub_venue: CoRL-W 2022 (Learning for Agile Robots workshop)

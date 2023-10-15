@@ -1,0 +1,41 @@
+```{=html}
+
+<div class="grid">
+<% for (const item of items) { %>
+	<div class="card g-col-12">
+		<div class="grid">
+			<% if (item.thumbnail ) { %>
+			<div class="g-col-2" style="display: flex;">
+				<img src="<%= item.thumbnail %>" style="width: 92%; margin: auto; display: block;" alt="<%= item.title %>"/>
+			</div>
+			<div class="g-col-10">
+			<% } else { %>
+			<div class="g-col-12">
+			<% } %>
+				<div class="card-body">
+					<span class="pub-title"><%= item.title %></span><br/>
+					<% n = item.authors.length - 1 %>
+					<% for ([i, author] of item.authors.entries()) { %>
+						<span class="pub-author" style="font-weight: <% if (author.includes(templateParams.self)) { %>bold<% } else { %>lighter<% } %>">
+							<!-- <%= item.authors.join(", ") %> -->
+							<%= author %><% if (i < n) { %>,<% } %>
+						</span>
+					<% } %>
+					<% if (item.pub_venue) { %>
+						<br style="margin-bottom: 5px;"/>
+						<span class="pub-venue"><%= item.pub_venue %></span>
+					<% } %>
+					<% if (item.links) { %>
+						<br style="margin-bottom: 5px;"/>
+						<% for (const link of item.links) { %>
+							<a href="<%= link.href %>" class="pub-link">[<%= link.name %>]</a>
+						<% } %>
+					<% } %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% } %>
+</div>
+
+```
