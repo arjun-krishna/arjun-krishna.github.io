@@ -285,8 +285,8 @@ They gather 60 existing datasets (22 embodiments) and transform it to a consiste
 ::: {.incremental style="font-size: 90%"}
 - In-distribution: 
     - Evaluates how the models perform on the same tasks as in the training distribution.
-    - Would it be beneficial to train with cross-embodiment data? 
-        - If so, would it's impact on a task be different based on the _quantity_ of data available?
+    - Would it be beneficial to train with data from other robots? 
+        - If so, would it's impact on a task be different based on the initial _quantity_ of data available?
 - Out-of-distribution:
     - Tests generalization on unseen objects, backgrounds, and environments
     - Studies if emergent skills (not in the original dataset) appear by the virtue of training with other datasets
