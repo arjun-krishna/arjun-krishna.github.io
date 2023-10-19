@@ -324,7 +324,7 @@ _Baselines_: (1) Original Method (2) RT-1 trained only that embodiment specific 
 
 ## <span style="font-size:80%">Results: out-of-distribution evaluation</span> {.smaller}
 
-Evaluates RT-2-X on large-scale data domains
+Evaluates out-of-distribution performance of RT-2-X on the Google Robot.
 
 ::: {.fragment .fade-in-then-out .absolute}
 **Unseen objects, backgrounds and environments**
