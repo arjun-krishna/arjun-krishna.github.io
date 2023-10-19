@@ -380,7 +380,7 @@
 </div>
 </div>
 </div>
-<p><span style="font-size: 60%">* <em>trained only on a fraction of the full dataset</em></span></p>
+<p><span style="font-size: 60%">* <em>trained only on a fraction of the full dataset (20%)</em></span></p>
 </div>
 </section>
 <section id="data-exploration" class="slide level2 smaller">
@@ -391,16 +391,25 @@
 </div>
 <div class="fragment fade-in-then-out absolute" style="">
 <p><img data-src="assets/df2b.png" style="display: block; margin: auto;;width:80.0%"></p>
+<p><span style="font-size: 70%">“Scene” information is obtained from dataset metadata</span></p>
 </div>
 <div class="fragment fade-in-then-out absolute" style="">
 <p><img data-src="assets/df2c.png" style="display: block; margin: auto;;width:80.0%"></p>
+<p><span style="font-size: 70%">“Skill” extracted from language instructions via a LM</span></p>
 </div>
 <div class="fragment fade-in-then-out absolute" style="">
 <p><img data-src="assets/df2d.png" style="display: block; margin: auto;;width:80.0%"></p>
+<p><span style="font-size: 70%">“Object” extracted from language instructions via a LM</span></p>
 </div>
 </section>
 <section id="rtx_viz" class="slide level2" data-background-iframe="https://dibyaghosh.com/rtx_viz" data-background-interactive="true">
 <h2><span style="display: none;">RTX_VIZ</span></h2>
+</section>
+<section id="architectures" class="slide level2 smaller">
+<h2><span style="display: none;"> Architectures</span></h2>
+<div class="absolute" style="top: 300px; ">
+<p><strong>RT-x Architecture Overview</strong></p>
+</div>
 </section>
 <section id="architecture-rt-1" class="slide level2 smaller">
 <h2><span style="font-size:80%">Architecture: RT-1</span></h2>
@@ -452,7 +461,7 @@
 <li><span style="font-size: 90%"> Decoding is constrained to these tokens when actions are needed as specified by prompt </span></li>
 </ul></li>
 <li>55B parameter model so needs specialized H/W to be queried at 1-3Hz.</li>
-<li>Not open-sourced; but recent open-source models like <a href="https://llava-vl.github.io/">LLaVA-v1.5-13B</a> make this pipeline potentially replicable.</li>
+<li>Not open-sourced; but recent models like <a href="https://llava-vl.github.io/">LLaVA-v1.5-13B</a>, <a href="https://www.adept.ai/blog/fuyu-8b">Fuyu-8B</a> make this pipeline potentially replicable.</li>
 </ul>
 </div>
 <aside class="notes">
@@ -472,6 +481,12 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="open-x-training" class="slide level2 smaller">
+<h2><span style="display: none;"> Open-X Training</span></h2>
+<div class="absolute" style="top: 300px; ">
+<p><strong>Training on the Open-X dataset</strong></p>
+</div>
 </section>
 <section id="training-data-format-consolidation" class="slide level2 smaller">
 <h2><span style="font-size:80%">Training: Data Format Consolidation</span></h2>
@@ -609,30 +624,48 @@
 </div>
 </div>
 </section>
+<section id="evaluations" class="slide level2 smaller">
+<h2><span style="display: none;"> Evaluations</span></h2>
+<h3 id="evaluations-1">Evaluations</h3>
+<div style="font-size: 90%">
+<ul>
+<li class="fragment">In-distribution:
+<ul>
+<li class="fragment">Evaluates how the models perform on the same tasks as in the training distribution.</li>
+<li class="fragment">Would it be beneficial to train with cross-embodiment data?
+<ul>
+<li class="fragment">If so, would it’s impact on a task be different based on the <em>quantity</em> of data available?</li>
+</ul></li>
+</ul></li>
+<li class="fragment">Out-of-distribution:
+<ul>
+<li class="fragment">Tests generalization on unseen objects, backgrounds, and environments</li>
+<li class="fragment">Studies if emergent skills (not in the original dataset) appear by the virtue of training with other datasets</li>
+</ul></li>
+</ul>
+</div>
+</section>
 <section id="results-in-distribution-evaluation" class="slide level2 smaller">
 <h2><span style="font-size:80%">Results: in-distribution evaluation</span></h2>
 <p>Evaluate models trained on X-embodiment dataset on in-distribution tasks.</p>
 <div style="font-size: 80%">
 <p><em>Baselines</em>: (1) Original Method (2) RT-1 trained only that embodiment specific dataset</p>
 </div>
-<div class="fragment fade-out absolute" style="">
-<strong>Domains with small-scale datasets*</strong> <img data-src="assets/eval_1.png">
+<div class="fragment fade-in-then-out absolute" style="">
+<strong>Domains with small-scale datasets</strong> <img data-src="assets/eval_1.png">
 <center>
 <span style="font-size: 70%">Evaluating Success Rate</span>
 </center>
 </div>
 <div class="fragment fade-in absolute" style="">
-<p><strong>Domains with large-scale datasets*</strong> <img data-src="assets/eval_2.png"></p>
+<p><strong>Domains with large-scale datasets</strong> <img data-src="assets/eval_2.png"></p>
 </div>
 <div class="absolute fragment" style="top: 495px; left: 0px; ">
 <svg width="1000" height="35">
   <rect x="0" y="0" width="1000" height="35" style="stroke:red;stroke-width:5;opacity:0.1"></rect>
 </svg> 
 </div>
-
-<aside><div>
-<p>* Does not report number of evaluations performed to obtain success rates.</p>
-</div></aside></section>
+</section>
 <section id="results-out-of-distribution-evaluation" class="slide level2 smaller">
 <h2><span style="font-size:80%">Results: out-of-distribution evaluation</span></h2>
 <p>Evaluates RT-2-X on large-scale data domains</p>
@@ -719,8 +752,8 @@
 </div>
 </div>
 </section>
-<section id="results-rt-2-x-ablations" class="slide level2 smaller">
-<h2><span style="font-size:80%">Results: RT-2-X ablations</span></h2>
+<section id="results-rt-2-x-5b-ablations" class="slide level2 smaller">
+<h2><span style="font-size:80%">Results: RT-2-X (5B) ablations</span></h2>
 <div style="font-size: 75%">
 <table style="width:90%;">
 <colgroup>
@@ -827,7 +860,7 @@
 <h2><span style="font-size:80%">Discussion</span></h2>
 <ul>
 <li><p>What is a good unified action representation across modalities?</p></li>
-<li><p>Data streams across robots are often captured at different frequencies. This should perhaps be factored in the architecture via position embedding?</p></li>
+<li><p>Data streams across robots are often captured at different frequencies. This should perhaps be factored in the architecture?</p></li>
 <li><p>How much in-domain data is needed for fine-tuning? This also informs how the action normalization &amp; de-normalization happen.</p></li>
 </ul>
 

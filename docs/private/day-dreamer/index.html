@@ -339,20 +339,27 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-<br><span style="font-size: 70%"> <em>Presented by</em>: Arjun Krishna</span> 
+<br><span style="font-size: 60%"> <em>Presented by</em>: Arjun Krishna</span> 
 </div>
 </div>
 </div>
 
 </section>
-<section id="the-promise-of-model-based-rl" class="slide level2">
-<h2>The promise of model-based RL</h2>
-<ul>
-<li>Model-free Deep RL requires a lot of trials-and-errors to learn!
-<ul>
-<li>As a consequence it applicability is limited to scenarios with a simulator</li>
-</ul></li>
-</ul>
+<section id="the-promise-of-model-based-rl" class="slide level2 smaller">
+<h2><span style="font-size: 70%">The promise of model-based RL</span></h2>
+<p>Model-based RL (MBRL) algorithms show great promise as sample-efficient learners.</p>
+<div class="fragment fade-up">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Research Question</strong></p>
+</div>
+<div class="callout-content">
+<p>Can Dreamer be deployed on real robots to have them acquire motor skills with few experiences?</p>
+</div>
+</div>
+</div>
+</div>
 <aside class="notes">
 <ul>
 <li>But real-world is often hard to capture accurately and the learning algorithm but be adaptable to changing worlds!</li>
@@ -369,11 +376,51 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="applying-dreamer-on-robots" class="slide level2">
-<h2>Applying Dreamer on robots</h2>
+<section id="applying-dreamer-on-robots" class="slide level2 smaller">
+<h2><span style="font-size: 70%">Applying Dreamer on robots</span></h2>
 <video loop="" controls="" autoplay="" muted="">
 <source src="https://danijar.com/asset/daydreamer/robots.mp4" type="video/mp4">
 </video>
+</section>
+<section id="dreamer" class="slide level2 smaller">
+<h2><span style="font-size: 70%">Dreamer</span></h2>
+</section>
+<section id="learning-to-walk-in-1-hour" class="slide level2 smaller">
+<h2><span style="font-size: 70%">Learning to Walk in 1 Hour</span></h2>
+<div id="player" style="margin: auto; display: block;"></div>
+<script>
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '500',
+        width: '800',
+        videoId: 'xAXvfVTgqr0',
+        playerVars: { 'autoplay': 1, 'controls': 1 , 'rel': 0, 'playsinline': 1},
+        events: {
+            'onReady': onPlayerReady,
+        }
+    });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+    event.target.setVolume(0);
+    player.setPlaybackRate(2);
+    event.target.playVideo();
+}
+</script>
+</section>
+<section id="test" class="slide level2">
+<h2>Test</h2>
+<!-- https://www.youtube.com/watch?v=m9u93_55jhQ -->
 
 <div class="footer footer-default">
 

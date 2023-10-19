@@ -33,7 +33,7 @@ To this end, the authors have curated a dataset from **22** different robots con
 High-capacity model (RT-X) trained on this dataset* exhibits positive transfer.
 :::
 
-<span style="font-size: 60%">* _trained only on a fraction of the full dataset_</span>
+<span style="font-size: 60%">* _trained only on a fraction of the full dataset (20%)_</span>
 :::
 
 ## <span style="font-size:80%">Data Exploration</span> {.smaller}
@@ -46,17 +46,29 @@ They gather 60 existing datasets (22 embodiments) and transform it to a consiste
 
 ::: {.fragment .fade-in-then-out .absolute}
 ![](assets/df2b.png){width=80% style="display: block; margin: auto;"}
+
+<span style="font-size: 70%">"Scene" information is obtained from dataset metadata</span>
 ::: 
 
 ::: {.fragment .fade-in-then-out .absolute}
 ![](assets/df2c.png){width=80% style="display: block; margin: auto;"}
+
+<span style="font-size: 70%">"Skill" extracted from language instructions via a LM</span>
 ::: 
 
 ::: {.fragment .fade-in-then-out .absolute}
 ![](assets/df2d.png){width=80% style="display: block; margin: auto;"}
+
+<span style="font-size: 70%">"Object" extracted from language instructions via a LM</span>
 ::: 
 
 ## <span style="display: none;">RTX_VIZ</span>{background-iframe="https://dibyaghosh.com/rtx_viz" background-interactive=true}  
+
+## <span style="display: none;"> Architectures</span> {.smaller}
+
+::: {.absolute top=300}
+**RT-x Architecture Overview**
+:::
 
 ## <span style="font-size:80%">Architecture: RT-1</span> {.smaller}
 
@@ -90,13 +102,19 @@ They gather 60 existing datasets (22 embodiments) and transform it to a consiste
     - <span style="font-size: 90%"> Needs 256 new tokens in the vocabulary to represent actions </span>
     - <span style="font-size: 90%"> Decoding is constrained to these tokens when actions are needed as specified by prompt </span>
 - 55B parameter model so needs specialized H/W to be queried at 1-3Hz. 
-- Not open-sourced; but recent open-source models like [LLaVA-v1.5-13B](https://llava-vl.github.io/) make this pipeline potentially replicable.
+- Not open-sourced; but recent models like [LLaVA-v1.5-13B](https://llava-vl.github.io/), [Fuyu-8B](https://www.adept.ai/blog/fuyu-8b) make this pipeline potentially replicable.
 :::
 
 ::: {.notes}
 - Co-fine tuned with internet-scale VQA with appropriate sample weighting
 - 5B param model (PaLI) can be queried at 5Hz
 - based on PaLM-E and PaLI (5B & 55B)
+:::
+
+## <span style="display: none;"> Open-X Training</span> {.smaller}
+
+::: {.absolute top=300}
+**Training on the Open-X dataset**
 :::
 
 ## <span style="font-size:80%">Training: Data Format Consolidation</span> {.smaller}
@@ -260,7 +278,19 @@ They gather 60 existing datasets (22 embodiments) and transform it to a consiste
 
 :::
 
+## <span style="display: none;"> Evaluations</span> {.smaller}
 
+### Evaluations
+
+::: {.incremental style="font-size: 90%"}
+- In-distribution: 
+    - Evaluates how the models perform on the same tasks as in the training distribution.
+    - Would it be beneficial to train with cross-embodiment data? 
+        - If so, would it's impact on a task be different based on the _quantity_ of data available?
+- Out-of-distribution:
+    - Tests generalization on unseen objects, backgrounds, and environments
+    - Studies if emergent skills (not in the original dataset) appear by the virtue of training with other datasets
+:::
 
 
 ## <span style="font-size:80%">Results: in-distribution evaluation</span> {.smaller}
@@ -271,14 +301,14 @@ Evaluate models trained on X-embodiment dataset on in-distribution tasks.
 _Baselines_: (1) Original Method (2) RT-1 trained only that embodiment specific dataset
 :::
 
-::: {.fragment .fade-out .absolute}
-**Domains with small-scale datasets\***
+::: {.fragment .fade-in-then-out .absolute}
+**Domains with small-scale datasets**
 ![](assets/eval_1.png)
 <center><span style="font-size: 70%">Evaluating Success Rate</span></center>
 :::
 
 ::: {.fragment .fade-in .absolute}
-**Domains with large-scale datasets\***
+**Domains with large-scale datasets**
 ![](assets/eval_2.png)
 :::
 
@@ -291,9 +321,6 @@ _Baselines_: (1) Original Method (2) RT-1 trained only that embodiment specific 
 ```
 :::
 
-::: aside 
-\* Does not report number of evaluations performed to obtain success rates.
-:::
 
 ## <span style="font-size:80%">Results: out-of-distribution evaluation</span> {.smaller}
 
@@ -339,7 +366,7 @@ Evaluates RT-2-X on large-scale data domains
 
 :::
 
-## <span style="font-size:80%">Results: RT-2-X ablations</span> {.smaller}
+## <span style="font-size:80%">Results: RT-2-X (5B) ablations</span> {.smaller}
 
 ::: {style="font-size: 75%"}
 | \#Params | History | Initial Checkpoint | Co-Trained w/ Web | Emergent Skill Eval | Generalization Eval |
@@ -377,6 +404,6 @@ _RT-2 Limitations_:
 ## <span style="font-size:80%">Discussion</span> {.smaller}
 - What is a good unified action representation across modalities?
 
-- Data streams across robots are often captured at different frequencies. This should perhaps be factored in the architecture via position embedding? 
+- Data streams across robots are often captured at different frequencies. This should perhaps be factored in the architecture?
 
 - How much in-domain data is needed for fine-tuning? This also informs how the action normalization & de-normalization happen. 

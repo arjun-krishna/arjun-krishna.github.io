@@ -1,0 +1,67 @@
+---
+title: "<span style=\"font-size: 44%\">DayDreamer: World Models for Physical Robot Learning</span>"
+subtitle: "<span style=\"font-size: 60%\"> Philipp Wu\\*, Alejandro Escontrela\\*, Danijar Hafner\\*, Ken Goldberg, Pieter Abbeel<br/>University of California, Berkeley</span>"
+categories: [paper-presentations]
+author: "<br/><span style=\"font-size: 60%\"> *Presented by*: Arjun Krishna</span>"
+format: revealjs
+draft: True
+---
+
+## <span style="font-size: 70%">The promise of model-based RL</span> {.smaller}
+
+Model-based RL (MBRL) algorithms show great promise as sample-efficient learners. 
+
+::: {.fragment .fade-up}
+::: {.callout-note icon=false}
+### Research Question
+Can Dreamer be deployed on real robots to have them acquire motor skills with few experiences?
+:::
+:::
+
+::: {.notes}
+- But real-world is often hard to capture accurately and the learning algorithm but be adaptable to changing worlds!
+:::
+
+## <span style="font-size: 70%">Applying Dreamer on robots</span> {.smaller}
+<video loop controls autoplay muted><source src="https://danijar.com/asset/daydreamer/robots.mp4" type="video/mp4" /></video>
+
+## <span style="font-size: 70%">Dreamer</span> {.smaller}
+
+
+## <span style="font-size: 70%">Learning to Walk in 1 Hour</span> {.smaller}
+
+```{=html}
+<div id="player" style="margin: auto; display: block;"></div>
+<script>
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '500',
+        width: '800',
+        videoId: 'xAXvfVTgqr0',
+        playerVars: { 'autoplay': 1, 'controls': 1 , 'rel': 0, 'playsinline': 1},
+        events: {
+            'onReady': onPlayerReady,
+        }
+    });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+    event.target.setVolume(0);
+    player.setPlaybackRate(2);
+    event.target.playVideo();
+}
+</script>
+```
+
+## Test
+<!-- https://www.youtube.com/watch?v=m9u93_55jhQ -->
