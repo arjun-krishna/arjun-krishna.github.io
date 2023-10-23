@@ -496,13 +496,25 @@ V_{\psi'}(\hat{z}_H) &amp; \text{if $t=H$} \end{cases}\]</span></p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Observations:</p>
-<pre><code>- joint position, orientation, angular velocity</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>joint position, orientation, angular velocity</li>
+</ul>
+</div>
 <p>Actions:</p>
-<pre><code>- joint position control @ 20Hz (filtered)</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>joint position control @ 20Hz (filtered)</li>
+</ul>
+</div>
 <p>Rewards:</p>
-<pre><code>- should be upright
-- match standing pose (hip, shoulder, knee)
-- forward velocity</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>should be upright</li>
+<li>match standing pose (hip, shoulder, knee)</li>
+<li>forward velocity</li>
+</ul>
+</div>
 </div><div class="column" style="width:50%;">
 <div id="player" style="margin: auto; display: block;"></div>
 <script>
@@ -558,28 +570,35 @@ function onPlayerStateChange(event) {
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Observations:</p>
-<pre><code>- joint position, gripper position, end-eff position, 3rd-person view (RGB)</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>joint position, gripper position, end-eff position, 3rd-person view (RGB)</li>
+</ul>
+</div>
 <p>Actions:</p>
-<pre><code>- discrete movements in (X, Y, Z) @ 2Hz
-    - Z movement enabled only when object grasped
-
-- gripper toggle
-    - auto opens when object above correct bin</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>discrete movements in (X, Y, Z) @ 2Hz
+<ul>
+<li>Z movement enabled only when object grasped</li>
+</ul></li>
+<li>gripper toggle
+<ul>
+<li>auto opens when object above correct bin</li>
+</ul></li>
+</ul>
+</div>
 <p>Rewards:</p>
-<pre><code>- successful object grasp +1
-- drop object in same bin -1
-- place object in opposite bin +10</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>successful object grasp +1</li>
+<li>drop object in same bin -1</li>
+<li>place object in opposite bin +10</li>
+</ul>
+</div>
 </div><div class="column" style="width:50%;">
 <p><img data-src="assets/ur5-task.png" style="display:block;margin:auto;;width:60.0%"></p>
 </div>
-</div>
-<p><strong>Notes:</strong></p>
-<div width="100%" style="font-size: 80%">
-<ul>
-<li>Struggles initially as the rewards are very sparse</li>
-<li>Dreamer achieves performance of 2.5 objects / minute in 8hrs</li>
-<li>Baselines learn grasping the object and dropping it in the same bin.</li>
-</ul>
 </div>
 <div class="absolute" style="top: 400px; left: 660px; width: 30%; ">
 <p><img data-src="assets/ur5-result.png"></p>
@@ -588,6 +607,9 @@ function onPlayerStateChange(event) {
 <ul>
 <li>3 demonstrators - 20mins on joystick</li>
 <li>grasp detected by partial grip closure</li>
+<li>Struggles initially as the rewards are very sparse</li>
+<li>Dreamer achieves performance of 2.5 objects / minute in 8hrs</li>
+<li>Baselines learn grasping the object and dropping it in the same bin.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -606,30 +628,42 @@ function onPlayerStateChange(event) {
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Observations:</p>
-<pre><code>- joint position, gripper position, end-eff position, 3rd-person view (RGB-D)</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>joint position, gripper position, end-eff position, 3rd-person view (RGB-D)</li>
+</ul>
+</div>
 <p>Actions:</p>
-<pre><code>- discrete movements in (X, Y, Z) @ 0.5Hz
-    - Z movement enabled only when object grasped
-
-- gripper toggle
-    - auto opens when object above correct bin
-
-- object tied to the gripper with string
-    - makes it unlikely for it to get stuck in corners</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>discrete movements in (X, Y, Z) @ 0.5Hz
+<ul>
+<li>Z movement enabled only when object grasped</li>
+</ul></li>
+<li>gripper toggle
+<ul>
+<li>auto opens when object above correct bin</li>
+</ul></li>
+<li>object tied to the gripper with string
+<ul>
+<li>makes it unlikely for it to get stuck in corners</li>
+</ul></li>
+</ul>
+</div>
 <p>Rewards:</p>
-<pre><code>- successful object grasp +1
-- drop object in same bin -1
-- place object in opposite bin +10</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>successful object grasp +1</li>
+<li>drop object in same bin -1</li>
+<li>place object in opposite bin +10</li>
+</ul>
+</div>
 </div><div class="column" style="width:50%;">
 <p><img data-src="assets/xarm-task.png" style="display:block;margin:auto;;width:60.0%"></p>
 </div>
 </div>
-<p><strong>Notes:</strong></p>
-<div width="100%" style="font-size: 80%">
-<ul>
-<li>Dreamer achieves performance of 3.5 objects / minute in 10hrs</li>
-<li>Sometimes used the string to pull the object out of a corner.</li>
-</ul>
+<div style="font-size: 70%">
+<p><em>Notes:</em> sometimes the robot used the string to pull the object out of a corner for grasping</p>
 </div>
 <div class="absolute" style="top: 400px; left: 660px; width: 30%; ">
 <p><img data-src="assets/xarm-result.png"></p>
@@ -637,6 +671,7 @@ function onPlayerStateChange(event) {
 </section>
 <section id="experiments-xarm-adaptation" class="slide level2 smaller">
 <h2><span style="font-size: 70%">Experiments: XArm Adaptation</span></h2>
+<div style="font-size: 80%">
 <ul>
 <li>Real world learning has challenges of changing environmental conditions and time varying dynamics.</li>
 <li>XArm situated near large windows and experiences changing lighting conditions.</li>
@@ -653,25 +688,42 @@ function onPlayerStateChange(event) {
 <ul>
 <li>Dreamer is capable of recovering original performance faster than training from scratch</li>
 </ul>
+</div>
 </section>
 <section id="experiments-sphero-navigation" class="slide level2 smaller">
 <h2><span style="font-size: 70%">Experiments: Sphero Navigation</span></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Observations:</p>
-<pre><code>- 3rd-person view (RGB)</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>3rd-person view (RGB)</li>
+</ul>
+</div>
 <p>Actions:</p>
-<pre><code>- torque commands @ 2Hz</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>torque commands @ 2Hz</li>
+</ul>
+</div>
 <p>Rewards:</p>
-<pre><code>- negative L2 distance from fixed goal</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>negative L2 distance from fixed goal</li>
+</ul>
+</div>
 <p>Reset:</p>
-<pre><code>- after 100 steps; robot's start position is randomized</code></pre>
+<div style="font-size: 70%">
+<ul>
+<li>after 100 steps; robot’s start position is randomized</li>
+</ul>
+</div>
 </div><div class="column" style="width:50%;">
 <p><img data-src="assets/sphero-task.png" style="display:block;margin:auto;;width:60.0%"></p>
 </div>
 </div>
-<p><strong>Notes:</strong></p>
 <div width="100%" style="font-size: 80%">
+<p><strong>Notes:</strong></p>
 <ul>
 <li>In 2hr, Dreamer reaches the goal and stays there.</li>
 <li>DrQv2 (DDPG + Data-Augmentation) achieves similar performance.</li>
@@ -683,6 +735,7 @@ function onPlayerStateChange(event) {
 </section>
 <section id="discussion" class="slide level2 smaller">
 <h2><span style="font-size: 70%">Discussion</span></h2>
+<div style="font-size: 90%">
 <ul>
 <li>Is model-based RL the magic-bullet for sample-efficient online RL?
 <ul>
@@ -690,6 +743,7 @@ function onPlayerStateChange(event) {
 <li>Recent work (Smith et al.) demonstrate model-free RL is also capable of learning quadruped locomotion gait from online experiences.</li>
 </ul></li>
 </ul>
+</div>
 
 <div class="footer footer-default">
 

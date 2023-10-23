@@ -163,17 +163,23 @@ $$ \mathcal{L}(\theta) = - \: \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{t=1}^{H
 ::: {.column width="50%"}
 Observations: 
 
-    - joint position, orientation, angular velocity
+::: {style="font-size: 70%"}
+- joint position, orientation, angular velocity
+:::
 
 Actions: 
 
-    - joint position control @ 20Hz (filtered)
+::: {style="font-size: 70%"}
+- joint position control @ 20Hz (filtered)
+:::
 
 Rewards:
 
-    - should be upright
-    - match standing pose (hip, shoulder, knee)
-    - forward velocity
+::: {style="font-size: 70%"}
+- should be upright
+- match standing pose (hip, shoulder, knee)
+- forward velocity
+:::
 
 :::
 ::: {.column width="50%"}
@@ -234,33 +240,32 @@ function onPlayerStateChange(event) {
 ::: {.column width="50%"}
 Observations: 
 
-    - joint position, gripper position, end-eff position, 3rd-person view (RGB)
+::: {style="font-size: 70%"}
+- joint position, gripper position, end-eff position, 3rd-person view (RGB)
+:::
 
 Actions: 
 
-    - discrete movements in (X, Y, Z) @ 2Hz
-        - Z movement enabled only when object grasped
+::: {style="font-size: 70%"}
+- discrete movements in (X, Y, Z) @ 2Hz
+    - Z movement enabled only when object grasped
 
-    - gripper toggle
-        - auto opens when object above correct bin
+- gripper toggle
+    - auto opens when object above correct bin
+:::
 
 Rewards:
 
-    - successful object grasp +1
-    - drop object in same bin -1
-    - place object in opposite bin +10
+::: {style="font-size: 70%"}
+- successful object grasp +1
+- drop object in same bin -1
+- place object in opposite bin +10
+:::
 
 :::
 ::: {.column width="50%"}
 ![](assets/ur5-task.png){width="60%" style="display:block;margin:auto;"}
 :::
-:::
-**Notes:**
-
-::: {width="100%" style="font-size: 80%"}
-- Struggles initially as the rewards are very sparse
-- Dreamer achieves performance of 2.5 objects / minute in 8hrs
-- Baselines learn grasping the object and dropping it in the same bin.
 :::
 
 ::: {.absolute left=660 top=400 width="30%"}
@@ -270,6 +275,9 @@ Rewards:
 ::: {.notes}
 - 3 demonstrators - 20mins on joystick
 - grasp detected by partial grip closure
+- Struggles initially as the rewards are very sparse
+- Dreamer achieves performance of 2.5 objects / minute in 8hrs
+- Baselines learn grasping the object and dropping it in the same bin.
 :::
 
 ## <span style="font-size: 70%">Experiments: XArm Pick & Place</span> {.smaller}
@@ -277,35 +285,38 @@ Rewards:
 ::: {.column width="50%"}
 Observations: 
 
-    - joint position, gripper position, end-eff position, 3rd-person view (RGB-D)
+::: {style="font-size: 70%"}
+- joint position, gripper position, end-eff position, 3rd-person view (RGB-D)
+:::
 
 Actions: 
 
-    - discrete movements in (X, Y, Z) @ 0.5Hz
-        - Z movement enabled only when object grasped
+::: {style="font-size: 70%"}
+- discrete movements in (X, Y, Z) @ 0.5Hz
+    - Z movement enabled only when object grasped
 
-    - gripper toggle
-        - auto opens when object above correct bin
-    
-    - object tied to the gripper with string
-        - makes it unlikely for it to get stuck in corners
+- gripper toggle
+    - auto opens when object above correct bin
+
+- object tied to the gripper with string
+    - makes it unlikely for it to get stuck in corners
+:::
 
 Rewards:
 
-    - successful object grasp +1
-    - drop object in same bin -1
-    - place object in opposite bin +10
+::: {style="font-size: 70%"}
+- successful object grasp +1
+- drop object in same bin -1
+- place object in opposite bin +10
+:::
 
 :::
 ::: {.column width="50%"}
 ![](assets/xarm-task.png){width="60%" style="display:block;margin:auto;"}
 :::
 :::
-**Notes:**
-
-::: {width="100%" style="font-size: 80%"}
-- Dreamer achieves performance of 3.5 objects / minute in 10hrs
-- Sometimes used the string to pull the object out of a corner.
+::: {style="font-size: 70%"}
+_Notes:_ sometimes the robot used the string to pull the object out of a corner for grasping
 :::
 
 ::: {.absolute left=660 top=400 width="30%"}
@@ -313,6 +324,7 @@ Rewards:
 :::
 
 ## <span style="font-size: 70%">Experiments: XArm Adaptation</span> {.smaller}
+::: {style="font-size: 80%"}
 - Real world learning has challenges of changing environmental conditions and time varying dynamics.
 - XArm situated near large windows and experiences changing lighting conditions.
 
@@ -328,34 +340,44 @@ Rewards:
 :::
 
 - Dreamer is capable of recovering original performance faster than training from scratch
+:::
 
 ## <span style="font-size: 70%">Experiments: Sphero Navigation</span> {.smaller}
 ::: {.columns}
 ::: {.column width="50%"}
 Observations: 
 
-    - 3rd-person view (RGB)
+::: {style="font-size: 70%"}
+- 3rd-person view (RGB)
+:::
 
 Actions: 
 
-    - torque commands @ 2Hz
+::: {style="font-size: 70%"}
+- torque commands @ 2Hz
+:::
 
 Rewards:
 
-    - negative L2 distance from fixed goal
+::: {style="font-size: 70%"}
+- negative L2 distance from fixed goal
+:::
 
 Reset:
 
-    - after 100 steps; robot's start position is randomized
+::: {style="font-size: 70%"}
+- after 100 steps; robot's start position is randomized
+:::
 
 :::
 ::: {.column width="50%"}
 ![](assets/sphero-task.png){width="60%" style="display:block;margin:auto;"}
 :::
 :::
-**Notes:**
 
 ::: {width="100%" style="font-size: 80%"}
+**Notes:**
+
 - In 2hr, Dreamer reaches the goal and stays there.
 - DrQv2 (DDPG + Data-Augmentation) achieves similar performance.
 :::
@@ -365,7 +387,8 @@ Reset:
 :::
 
 ## <span style="font-size: 70%">Discussion</span> {.smaller}
-
+::: {style="font-size: 90%"}
 - Is model-based RL the magic-bullet for sample-efficient online RL?
     - Maybe we need more careful evaluation + benchmarks
     - Recent work (Smith et al.) demonstrate model-free RL is also capable of learning quadruped locomotion gait from online experiences.
+:::
