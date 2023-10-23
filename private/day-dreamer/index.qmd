@@ -327,8 +327,7 @@ Rewards:
 :::
 :::
 
-- Dreamer is capable of recovering original performance 
-    - Faster than training from scratch
+- Dreamer is capable of recovering original performance faster than training from scratch
 
 ## <span style="font-size: 70%">Experiments: Sphero Navigation</span> {.smaller}
 ::: {.columns}
