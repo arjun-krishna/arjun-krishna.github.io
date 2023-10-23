@@ -3,32 +3,180 @@ title: "<span style=\"font-size: 44%\">DayDreamer: World Models for Physical Rob
 subtitle: "<span style=\"font-size: 60%\"> Philipp Wu\\*, Alejandro Escontrela\\*, Danijar Hafner\\*, Ken Goldberg, Pieter Abbeel<br/>University of California, Berkeley</span>"
 categories: [paper-presentations]
 author: "<br/><span style=\"font-size: 60%\"> *Presented by*: Arjun Krishna</span>"
-format: revealjs
-draft: True
+format: 
+    revealjs:
+        slide-number: true
+draft: true
 ---
 
-## <span style="font-size: 70%">The promise of model-based RL</span> {.smaller}
+## <span style="font-size: 70%"> Last Week </span> {.smaller}
+We saw a few representative papers of model-free RL applied in robotics
 
-Model-based RL (MBRL) algorithms show great promise as sample-efficient learners. 
+::: {.incremental}
+- Model-free RL typically is very data hungry and needs millions of environment interactions
+- Needs engineered domain randomization to address Sim2Real challenges.
+- Operates under the premise that the real-world is in the hull of what is seen in simulation.
+:::
 
 ::: {.fragment .fade-up}
+**But, what if something changes drastically in the real world? It is unclear if these methods can cope with such changes online in a sample-efficient manner**
+:::
+
+## <span style="font-size: 70%">The promise of learning world models</span> {.smaller}
+
+Model-based RL (MBRL) algorithms show great promise as online sample-efficient learners.
+
+::: {.absolute .fragment .fade-in-then-out width="100%"}
+![](https://danijar.com/asset/dreamerv3/header.gif){ width="60%" style="display: block; margin: auto;" }
+
+::: {.callout-note icon=false}
+### Dreamer
+MBRL algorithm that performs quite well on multiple-tasks with a single set of hyperparameters!
+:::
+
+:::
+
+::: {.absolute .fragment .fade-in width="100%" .columns}
+::: {.column width="33%"}
+![](https://danijar.com/asset/dreamerv3/eff.png){style="display: block; margin: auto; padding-top: 30px;"}
+:::
+::: {.column width="33%"}
+```{=html}
+<video autoplay loop controls style="display: block; margin: auto; padding-top: 30px;">
+    <source src="https://user-images.githubusercontent.com/2111293/212435069-0845fe09-b3d8-4518-9172-daaac5092b2d.mp4" type="video/mp4">
+</video>
+```
+:::
+::: {.column width="33%"}
+```{=html}
+<video autoplay loop controls style="display: block; margin: auto; padding-top: 30px;">
+    <source src="https://user-images.githubusercontent.com/2111293/212435049-5d66a543-8dba-42ff-83fe-50774e6c8cda.mp4" type="video/mp4">
+</video>
+```
+:::
+<br/>
+**100x** more sample-efficient than a model-free baseline.
+:::
+
+::: {.absolute .fragment .fade-up top=560 width="100%"}
 ::: {.callout-note icon=false}
 ### Research Question
-Can Dreamer be deployed on real robots to have them acquire motor skills with few experiences?
+Can we directly deploy _Dreamer_ on real robots to have them acquire desired skills with few experiences?
+:::
+:::
+
+## <span style="font-size: 70%">DayDreamer on robots</span> {.smaller}
+<video loop controls autoplay muted><source src="https://danijar.com/asset/daydreamer/robots.mp4" type="video/mp4" /></video>
+
+## <span style="font-size: 70%">Dreamer: Interaction Pipeline</span> {.smaller}
+::: {width="100%"}
+![](assets/flow-diag.png){width="50%" style="display: block; margin: auto;"}
+:::
+
+<center>
+Learner and Actor is decoupled and operates asynchronously on separate threads.
+</center>
+
+## <span style="font-size: 70%">Dreamer: World Model Learning</span> {.smaller}
+
+::: {.columns}
+
+::: {.column width="65%"}
+![](assets/wm-learn.png){width="100%" style="display: block; margin: auto;"}
+:::
+
+::: {.column width="35%"}
+::: {style="font-size: 70%"}
+**Recurrent State-Space Model (RSSM)**
+
+- Recurrent Model: $h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})$
+- Representation Model: $z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)$
+- Transition Predictor: <br/> $\hat{z}_t \sim p_\phi(\hat{z}_t \,\vert\, h_t)$
+
+**Predictors**
+
+- State: <br/> $\hat{x}_t \sim u_\phi(\hat{x}_t \,\vert\, h_t, z_t)$
+- Reward: <br/> $\hat{r}_t \sim v_\phi(\hat{r}_t \,\vert\, h_t, z_t)$
+:::
+:::
+
+:::
+
+::: {.fragment .absolute top=550 width="100%" .fade-in}
+::: {style="font-size: 70%; display: block; margin: auto; background-color: rgba(45, 107, 225, 0.1); padding: 10px;width: fit-content" }
+$$ \mathcal{L}(\phi) = \mathtt{E}_{q_\phi(\,z_{1:T} \,\vert\, a_{1:T},\, x_{1:T})} \Big[ \sum_{t=1}^T \mathcal{L}_{\text{pred}}(x_t, r_t) + \beta\,D_{KL}\big(q_\phi \mathrel{\Vert} p_\phi \big) \Big] $$
 :::
 :::
 
 ::: {.notes}
-- But real-world is often hard to capture accurately and the learning algorithm but be adaptable to changing worlds!
+- ~$10^{48}$ unique codes
 :::
 
-## <span style="font-size: 70%">Applying Dreamer on robots</span> {.smaller}
-<video loop controls autoplay muted><source src="https://danijar.com/asset/daydreamer/robots.mp4" type="video/mp4" /></video>
+## <span style="font-size: 70%">Dreamer: Actor-Critic Learning</span> {.smaller}
 
-## <span style="font-size: 70%">Dreamer</span> {.smaller}
+::: {.columns}
+::: {.column width="60%"}
+![](assets/ac-learn.png){width="90%" style="display: block; margin: auto;"}
+:::
+::: {.column width="40%"}
+::: {style="font-size: 65%"}
+$H$-step rollout obtained from a starting state.
+<br/>
+
+**Actor**: <br/> $\hat{a}_t \sim \pi_\theta(\hat{a}_t \vert \hat{z}_t)$
+<br/>
 
 
-## <span style="font-size: 70%">Learning to Walk in 1 Hour</span> {.smaller}
+**Critic**: <br/> $\displaystyle V_\psi(\hat{z}_t) \approx \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{\tau \geq t} \gamma^{\tau - t} \hat{r}_\tau \big]$
+:::
+:::
+:::
+
+::: {width="100%" style="font-size: 65%; margin-top: -20px;"}
+::: {.columns}
+::: {.column width="60%"}
+Compute $\lambda$-target:  
+$$ V^\lambda_t = \hat{r}_t + \gamma \, \begin{cases} (1 - \lambda) V_{\psi'}(\hat{z}_{t+1}) + \lambda V^\lambda_{t+1} & \text{if $t < H$}\\
+V_{\psi'}(\hat{z}_H) & \text{if $t=H$} \end{cases}$$
+:::
+::: {.column width="40%"}
+Critic Loss:
+
+::: {style="display: block; margin: auto; background-color: rgba(213, 201, 33, 0.1); padding: 10px; width: fit-content" }
+$$ \mathcal{L}(\psi) = \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{t=1}^{H-1} \big( V_\psi(\hat{z}_t) - V^\lambda_t \big)^2 \big]$$
+:::
+:::
+
+::: {style="margin-top: -30px;"}
+Actor Loss:
+
+::: {style="display: block; margin: auto; background-color: rgba(255, 45, 45, 0.1); padding: 10px; width: fit-content" }
+$$ \mathcal{L}(\theta) = - \: \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{t=1}^{H-1} \underbrace{\rho \big( \ln \pi(\hat{a}_t\,\vert\,\hat{z}_t) \: \textrm{sg}[V^\lambda_t - V_\psi(\hat{z}_t)] \big)}_{\text{reinforce}} + \underbrace{(1 - \rho) V^\lambda_t}_{\text{dynamics backprop}} + \underbrace{\eta H(a_t | \hat{z}_t)}_{\text{entropy regularizer}} \big]$$
+:::
+:::
+:::
+:::
+
+## <span style="font-size: 70%">Experiments: A1 Quadruped Walking</span> {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+Observations: 
+
+    - joint position, orientation, angular velocity
+
+Actions: 
+
+    - joint position control @ 20Hz (filtered)
+
+Rewards:
+
+    - should be upright
+    - match standing pose (hip, shoulder, knee)
+    - forward velocity
+
+:::
+::: {.column width="50%"}
 
 ```{=html}
 <div id="player" style="margin: auto; display: block;"></div>
@@ -39,29 +187,186 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
 var player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-        height: '500',
-        width: '800',
+        height: '300',
+        width: '500',
         videoId: 'xAXvfVTgqr0',
-        playerVars: { 'autoplay': 1, 'controls': 1 , 'rel': 0, 'playsinline': 1},
+        playerVars: { 'autoplay': 1, 'controls': 1 , 'rel': 0, 'playsinline': 0},
         events: {
             'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange,
         }
     });
 }
 
-// 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
     event.target.setVolume(0);
     player.setPlaybackRate(2);
     event.target.playVideo();
 }
+
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) {
+        player.seekTo(0);
+        event.target.playVideo();
+    }
+}
 </script>
 ```
+:::
+:::
+**Notes:**
 
-## Test
-<!-- https://www.youtube.com/watch?v=m9u93_55jhQ -->
+::: {width="100%" style="font-size: 80%"}
+- When the robot goes out of the training area they manually intervene.
+- In ~1hr the robot learns a pronking gait. They then start perturbing the robot.
+- Within 10 minutes it learns to withstand pushes or quickly rolls back up.
+:::
+
+::: {.absolute left=780 top=400 width="30%"}
+![](assets/a1-result.png)
+:::
+
+## <span style="font-size: 70%">Experiments: UR5 Multi-Object Pick & Place</span> {.smaller}
+::: {.columns}
+::: {.column width="50%"}
+Observations: 
+
+    - joint position, gripper position, end-eff position, 3rd-person view (RGB)
+
+Actions: 
+
+    - discrete movements in (X, Y, Z) @ 2Hz
+        - Z movement enabled only when object grasped
+
+    - gripper toggle
+        - auto opens when object above correct bin
+
+Rewards:
+
+    - successful object grasp +1
+    - drop object in same bin -1
+    - place object in opposite bin +10
+
+:::
+::: {.column width="50%"}
+![](assets/ur5-task.png){width="60%" style="display:block;margin:auto;"}
+:::
+:::
+**Notes:**
+
+::: {width="100%" style="font-size: 80%"}
+- Struggles initially as the rewards are very sparse
+- Dreamer achieves performance of 2.5 objects / minute in 8hrs
+- Baselines learn grasping the object and dropping it in the same bin.
+:::
+
+::: {.absolute left=660 top=400 width="30%"}
+![](assets/ur5-result.png)
+:::
+
+::: {.notes}
+- 3 demonstrators - 20mins on joystick
+- grasp detected by partial grip closure
+:::
+
+## <span style="font-size: 70%">Experiments: XArm Pick & Place</span> {.smaller}
+::: {.columns}
+::: {.column width="50%"}
+Observations: 
+
+    - joint position, gripper position, end-eff position, 3rd-person view (RGB-D)
+
+Actions: 
+
+    - discrete movements in (X, Y, Z) @ 0.5Hz
+        - Z movement enabled only when object grasped
+
+    - gripper toggle
+        - auto opens when object above correct bin
+    
+    - object tied to the gripper with string
+        - makes it unlikely for it to get stuck in corners
+
+Rewards:
+
+    - successful object grasp +1
+    - drop object in same bin -1
+    - place object in opposite bin +10
+
+:::
+::: {.column width="50%"}
+![](assets/xarm-task.png){width="60%" style="display:block;margin:auto;"}
+:::
+:::
+**Notes:**
+
+::: {width="100%" style="font-size: 80%"}
+- Dreamer achieves performance of 3.5 objects / minute in 10hrs
+- Sometimes used the string to pull the object out of a corner.
+:::
+
+::: {.absolute left=660 top=400 width="30%"}
+![](assets/xarm-result.png)
+:::
+
+## <span style="font-size: 70%">Experiments: XArm Adaptation</span> {.smaller}
+- Real world learning has challenges of changing environmental conditions and time varying dynamics.
+- XArm situated near large windows and experiences changing lighting conditions.
+
+::: {.columns}
+::: {.column width="40%"}
+::: {style="display: block; margin: auto;"}
+![](assets/xarm-adapt.png)
+:::
+:::
+::: {.column width="60%"}
+![](assets/xarm-adapt-result.png){width="82%"}
+:::
+:::
+
+- Dreamer is capable of recovering original performance 
+    - Faster than training from scratch
+
+## <span style="font-size: 70%">Experiments: Sphero Navigation</span> {.smaller}
+::: {.columns}
+::: {.column width="50%"}
+Observations: 
+
+    - 3rd-person view (RGB)
+
+Actions: 
+
+    - torque commands @ 2Hz
+
+Rewards:
+
+    - negative L2 distance from fixed goal
+
+Reset:
+
+    - after 100 steps; robot's start position is randomized
+
+:::
+::: {.column width="50%"}
+![](assets/sphero-task.png){width="60%" style="display:block;margin:auto;"}
+:::
+:::
+**Notes:**
+
+::: {width="100%" style="font-size: 80%"}
+- In 2hr, Dreamer reaches the goal and stays there.
+- DrQv2 (DDPG + Data-Augmentation) achieves similar performance.
+:::
+
+::: {.absolute left=660 top=400 width="30%"}
+![](assets/sphero-result.png)
+:::
+
+## <span style="font-size: 70%">Discussion</span> {.smaller}
+
+- Is model-based RL the magic-bullet for sample-efficient online RL?
+    - Maybe we need more careful evaluation + benchmarks
+    - Recent work (Smith et al.) demonstrate model-free RL is also capable of learning quadruped locomotion gait from online experiences.
