@@ -549,11 +549,11 @@ Task needs history of image observations and localize the robot for control.
 ## <span style="font-size: 70%">Limitations</span> {.smaller}
 
 ::: {.incremental}
-- (Alan, Jason) While Dreamer used fixed hyperparameters, how much tuning effort was spent in reward/task setup? 
-    - (Yunshuang) What would the performance look like without handcrafted action space of pick-and-place task?
-- (Fiona, Hungju) Are these best baselines to compare against?
+- (_Alan, Jason_) While Dreamer used fixed hyperparameters, how much tuning effort was spent in reward/task setup? 
+    - (_Yunshuang_) What would the performance look like without handcrafted action space of pick-and-place task?
+- (_Fiona, Hungju_) Are these the best baselines to compare against?
     - did they tune the baselines for the task?
-- (Will, Tasos, Yunshuang) Details about the compute needs to setup physical-robot learning is missing
+- (_Will, Tasos, Yunshuang_) Details about the compute needs to setup physical-robot learning is missing
 :::
 
 ## <span style="font-size: 70%">Discussion</span> {.smaller}
