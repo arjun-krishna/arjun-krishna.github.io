@@ -631,7 +631,7 @@ Notes:
 ::: {.fragment .fade-in .absolute left=0 top=550}
 ::: {.callout-important icon="false"}
 ## Takeaway
-Task needs history of image observations for localizing the robot
+Task needs history of image observations to localize the robot
 
 (Probably one of the fairer comparisions to a model-free RL baseline)
 :::
