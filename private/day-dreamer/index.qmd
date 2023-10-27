@@ -155,8 +155,8 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 ::: {style="font-size: 70%"}
 **Recurrent State-Space Model (RSSM)**
 
-- Recurrent Model: $h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})$
-- Representation Model: $z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)$
+- Recurrent Model: <br/> $h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})$
+- Representation Model: <br/> $z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)$
 :::
 :::
 
@@ -172,8 +172,8 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 ::: {style="font-size: 70%"}
 **Recurrent State-Space Model (RSSM)**
 
-- Recurrent Model: $h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})$
-- Representation Model: $z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)$
+- Recurrent Model: <br/> $h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})$
+- Representation Model: <br/> $z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)$
 - Transition Predictor: <br/> $\hat{z}_t \sim p_\phi(\hat{z}_t \,\vert\, h_t)$
 :::
 :::
@@ -190,8 +190,8 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 ::: {style="font-size: 70%"}
 **Recurrent State-Space Model (RSSM)**
 
-- Recurrent Model: $h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})$
-- Representation Model: $z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)$
+- Recurrent Model: <br/> $h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})$
+- Representation Model: <br/> $z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)$
 - Transition Predictor: <br/> $\hat{z}_t \sim p_\phi(\hat{z}_t \,\vert\, h_t)$
 
 **Predictors**
