@@ -440,9 +440,9 @@ Notes:
 ::: {.fragment .fade-in style="width:60%"}
 ::: {.callout-important icon="false"}
 ## Takeaway
-(1) Dreamer learns to consistently flip the robot, stand, and walk forward. 
+(1) Dreamer learns to consistently flip the robot, stand, and walk forward 
 
-(2) Dreamer learns to adapt to perturbations a changed environment.
+(2) Dreamer learns to adapt to perturbations (a changed environment)
 :::
 :::
 
