@@ -376,7 +376,7 @@
 </section>
 <section id="this-week" class="slide level2 smaller">
 <h2><span style="font-size: 70%">This Week</span></h2>
-<p><strong><em>Theme</em></strong>: Leveraging a learned world models</p>
+<p><strong><em>Theme</em></strong>: Leveraging learned world models</p>
 <div>
 <ul>
 <li class="fragment">World models offer an explicit way to represent an agent’s knowledge of the world and allows for reasoning about the future.</li>
@@ -508,11 +508,44 @@
 Learner and Actor is decoupled and operates asynchronously on separate threads.
 </center>
 </section>
-<section id="dreamer-world-model-learning" class="slide level2 smaller">
+<section id="dreamer-world-model-learning" class="slide level2 smaller" data-visibilty="uncounted">
 <h2><span style="font-size: 70%">Dreamer: World Model Learning</span></h2>
 <div class="columns">
 <div class="column" style="width:65%;">
-<p><img data-src="assets/wm-learn.png" style="display: block; margin: auto;;width:100.0%"></p>
+<p><img data-src="assets/wm-learn1.png" style="display: block; margin: auto;;width:100.0%"></p>
+</div><div class="column" style="width:35%;">
+<div style="font-size: 70%">
+<p><strong>Recurrent State-Space Model (RSSM)</strong></p>
+<ul>
+<li>Recurrent Model: <span class="math inline">\(h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})\)</span></li>
+<li>Representation Model: <span class="math inline">\(z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="dreamer-world-model-learning-1" class="slide level2 smaller" data-visibilty="uncounted">
+<h2><span style="font-size: 70%">Dreamer: World Model Learning</span></h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p><img data-src="assets/wm-learn2.png" style="display: block; margin: auto;;width:100.0%"></p>
+</div><div class="column" style="width:35%;">
+<div style="font-size: 70%">
+<p><strong>Recurrent State-Space Model (RSSM)</strong></p>
+<ul>
+<li>Recurrent Model: <span class="math inline">\(h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})\)</span></li>
+<li>Representation Model: <span class="math inline">\(z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)\)</span></li>
+<li>Transition Predictor: <br> <span class="math inline">\(\hat{z}_t \sim p_\phi(\hat{z}_t \,\vert\, h_t)\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="dreamer-world-model-learning-2" class="slide level2 smaller" data-visibilty="uncounted">
+<h2><span style="font-size: 70%">Dreamer: World Model Learning</span></h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p><img data-src="assets/wm-learn3.png" style="display: block; margin: auto;;width:100.0%"></p>
 </div><div class="column" style="width:35%;">
 <div style="font-size: 70%">
 <p><strong>Recurrent State-Space Model (RSSM)</strong></p>
@@ -529,7 +562,29 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 </div>
 </div>
 </div>
-<div class="fragment absolute fade-in" style="top: 550px; width: 100%; ">
+</section>
+<section id="dreamer-world-model-learning-3" class="slide level2 smaller">
+<h2><span style="font-size: 70%">Dreamer: World Model Learning</span></h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p><img data-src="assets/wm-learn.png" style="display: block; margin: auto;;width:100.0%"></p>
+</div><div class="column" style="width:35%;">
+<div style="font-size: 70%">
+<p><strong>Recurrent State-Space Model (RSSM)</strong></p>
+<ul>
+<li>Recurrent Model: <br><span class="math inline">\(h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})\)</span></li>
+<li>Representation Model: <br><span class="math inline">\(z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)\)</span></li>
+<li>Transition Predictor: <br> <span class="math inline">\(\hat{z}_t \sim p_\phi(\hat{z}_t \,\vert\, h_t)\)</span></li>
+</ul>
+<p><strong>Predictors</strong></p>
+<ul>
+<li>State: <br> <span class="math inline">\(\hat{x}_t \sim D_\phi(\hat{x}_t \,\vert\, h_t, z_t)\)</span></li>
+<li>Reward: <br> <span class="math inline">\(\hat{r}_t \sim R_\phi(\hat{r}_t \,\vert\, h_t, z_t)\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="absolute fade-in" style="top: 550px; width: 100%; ">
 <div style="font-size: 70%; display: block; margin: auto; background-color: rgba(45, 107, 225, 0.1); padding: 10px;width: fit-content">
 <center>
 <strong>World Model Loss</strong>
@@ -553,7 +608,33 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
           display:block!important;
       }</style></aside>
 </section>
-<section id="dreamer-actor-critic-learning" class="slide level2 smaller">
+<section id="dreamer-actor-critic-learning" class="slide level2 smaller" data-visibilty="uncounted">
+<h2><span style="font-size: 70%">Dreamer: Actor-Critic Learning</span></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="assets/ac-learn1.png" style="display: block; margin: auto;;width:90.0%"></p>
+</div><div class="column" style="width:40%;">
+<div style="font-size: 65%">
+<p><span class="math inline">\(H\)</span>-step rollout obtained from a starting state. <br></p>
+</div>
+</div>
+</div>
+</section>
+<section id="dreamer-actor-critic-learning-1" class="slide level2 smaller" data-visibilty="uncounted">
+<h2><span style="font-size: 70%">Dreamer: Actor-Critic Learning</span></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="assets/ac-learn2.png" style="display: block; margin: auto;;width:90.0%"></p>
+</div><div class="column" style="width:40%;">
+<div style="font-size: 65%">
+<p><span class="math inline">\(H\)</span>-step rollout obtained from a starting state. <br></p>
+<p><strong>Actor</strong>: <br> <span class="math inline">\(\hat{a}_t \sim \pi_\theta(\hat{a}_t \vert \hat{z}_t)\)</span> <br></p>
+<p><strong>Critic</strong>: <br> <span class="math inline">\(\displaystyle V_\psi(\hat{z}_t) \approx \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{\tau \geq t} \gamma^{\tau - t} \hat{r}_\tau \big]\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="dreamer-actor-critic-learning-2" class="slide level2 smaller">
 <h2><span style="font-size: 70%">Dreamer: Actor-Critic Learning</span></h2>
 <div class="columns">
 <div class="column" style="width:60%;">

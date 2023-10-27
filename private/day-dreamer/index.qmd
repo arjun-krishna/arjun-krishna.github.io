@@ -27,7 +27,7 @@ We saw a few representative papers of model-free RL applied in robotics
 :::
 
 ## <span style="font-size: 70%">This Week</span> {.smaller}
-**_Theme_**: Leveraging a learned world models
+**_Theme_**: Leveraging learned world models
 
 ::: {.incremental}
 - World models offer an explicit way to represent an agent's knowledge of the world and allows for reasoning about the future.
@@ -145,12 +145,45 @@ Dreamer serves as a compelling baseline for physical robot learning without simu
 Learner and Actor is decoupled and operates asynchronously on separate threads.
 </center>
 
-## <span style="font-size: 70%">Dreamer: World Model Learning</span> {.smaller}
-
+## <span style="font-size: 70%">Dreamer: World Model Learning</span> {.smaller visibilty="uncounted"}
 ::: {.columns}
-
 ::: {.column width="65%"}
-![](assets/wm-learn.png){width="100%" style="display: block; margin: auto;"}
+![](assets/wm-learn1.png){width="100%" style="display: block; margin: auto;"}
+:::
+
+::: {.column width="35%"}
+::: {style="font-size: 70%"}
+**Recurrent State-Space Model (RSSM)**
+
+- Recurrent Model: $h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})$
+- Representation Model: $z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)$
+:::
+:::
+
+:::
+
+## <span style="font-size: 70%">Dreamer: World Model Learning</span> {.smaller visibilty="uncounted"}
+::: {.columns}
+::: {.column width="65%"}
+![](assets/wm-learn2.png){width="100%" style="display: block; margin: auto;"}
+:::
+
+::: {.column width="35%"}
+::: {style="font-size: 70%"}
+**Recurrent State-Space Model (RSSM)**
+
+- Recurrent Model: $h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})$
+- Representation Model: $z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)$
+- Transition Predictor: <br/> $\hat{z}_t \sim p_\phi(\hat{z}_t \,\vert\, h_t)$
+:::
+:::
+
+:::
+
+## <span style="font-size: 70%">Dreamer: World Model Learning</span> {.smaller visibilty="uncounted"}
+::: {.columns}
+::: {.column width="65%"}
+![](assets/wm-learn3.png){width="100%" style="display: block; margin: auto;"}
 :::
 
 ::: {.column width="35%"}
@@ -170,8 +203,33 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 
 :::
 
+## <span style="font-size: 70%">Dreamer: World Model Learning</span> {.smaller}
 
-::: {.fragment .absolute top=550 width="100%" .fade-in}
+::: {.columns}
+
+::: {.column width="65%"}
+![](assets/wm-learn.png){width="100%" style="display: block; margin: auto;"}
+:::
+
+::: {.column width="35%"}
+::: {style="font-size: 70%"}
+**Recurrent State-Space Model (RSSM)**
+
+- Recurrent Model: <br/>$h_t = f_\phi(h_{t-1}, z_{t-1}, a_{t-1})$
+- Representation Model: <br/>$z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)$
+- Transition Predictor: <br/> $\hat{z}_t \sim p_\phi(\hat{z}_t \,\vert\, h_t)$
+
+**Predictors**
+
+- State: <br/> $\hat{x}_t \sim D_\phi(\hat{x}_t \,\vert\, h_t, z_t)$
+- Reward: <br/> $\hat{r}_t \sim R_\phi(\hat{r}_t \,\vert\, h_t, z_t)$
+:::
+:::
+
+:::
+
+
+::: {.absolute top=550 width="100%" .fade-in}
 ::: {style="font-size: 70%; display: block; margin: auto; background-color: rgba(45, 107, 225, 0.1); padding: 10px;width: fit-content" }
 <center>**World Model Loss**</center>
 $$ \mathcal{L}(\phi) = \mathtt{E}_{q_\phi(\,z_{1:T} \,\vert\, a_{1:T},\, x_{1:T})} \Big[ \sum_{t=1}^T \mathcal{L}_{\text{pred}}(x_t, r_t) + \beta\,D_{KL}\big(q_\phi \mathrel{\Vert} p_\phi \big) \Big] $$
@@ -181,6 +239,40 @@ $$ \mathcal{L}(\phi) = \mathtt{E}_{q_\phi(\,z_{1:T} \,\vert\, a_{1:T},\, x_{1:T}
 ::: {.notes}
 - ~$10^{48}$ unique codes
 :::
+
+## <span style="font-size: 70%">Dreamer: Actor-Critic Learning</span> {.smaller visibilty="uncounted"}
+
+::: {.columns}
+::: {.column width="60%"}
+![](assets/ac-learn1.png){width="90%" style="display: block; margin: auto;"}
+:::
+::: {.column width="40%"}
+::: {style="font-size: 65%"}
+$H$-step rollout obtained from a starting state.
+<br/>
+:::
+:::
+:::
+
+## <span style="font-size: 70%">Dreamer: Actor-Critic Learning</span> {.smaller visibilty="uncounted"}
+
+::: {.columns}
+::: {.column width="60%"}
+![](assets/ac-learn2.png){width="90%" style="display: block; margin: auto;"}
+:::
+::: {.column width="40%"}
+::: {style="font-size: 65%"}
+$H$-step rollout obtained from a starting state.
+<br/>
+
+**Actor**: <br/> $\hat{a}_t \sim \pi_\theta(\hat{a}_t \vert \hat{z}_t)$
+<br/>
+
+**Critic**: <br/> $\displaystyle V_\psi(\hat{z}_t) \approx \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{\tau \geq t} \gamma^{\tau - t} \hat{r}_\tau \big]$
+:::
+:::
+:::
+
 
 ## <span style="font-size: 70%">Dreamer: Actor-Critic Learning</span> {.smaller}
 
@@ -195,7 +287,6 @@ $H$-step rollout obtained from a starting state.
 
 **Actor**: <br/> $\hat{a}_t \sim \pi_\theta(\hat{a}_t \vert \hat{z}_t)$
 <br/>
-
 
 **Critic**: <br/> $\displaystyle V_\psi(\hat{z}_t) \approx \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{\tau \geq t} \gamma^{\tau - t} \hat{r}_\tau \big]$
 :::
