@@ -638,6 +638,7 @@ Task needs history of image observations and localize the robot for control.
 :::
 
 ## <span style="font-size: 70%">Limitations</span> {.smaller}
+::: {style="font-size: 90%"}
 
 ::: {.incremental}
 - (_Alan, Jason_) While Dreamer used fixed hyperparameters, how much tuning effort was spent in reward/task setup? 
@@ -645,6 +646,7 @@ Task needs history of image observations and localize the robot for control.
 - (_Fiona, Hungju_) Are these the best baselines to compare against?
     - did they tune the baselines for the task?
 - (_Will, Tasos, Yunshuang_) Details about the compute needs to setup physical-robot learning is missing
+:::
 :::
 
 ## <span style="font-size: 70%">Discussion</span> {.smaller}
