@@ -358,10 +358,92 @@
 <div class="fragment fade-up">
 <p><strong>But, what if something changes drastically in the real world? It is unclear if these methods can cope with such changes online in a sample-efficient manner</strong></p>
 </div>
+<aside class="notes">
+<ul>
+<li>Before we begin let’s quickly ground the overarching theme for this week’s papers</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="this-week" class="slide level2 smaller">
+<h2><span style="font-size: 70%">This Week</span></h2>
+<p><strong><em>Theme</em></strong>: Leveraging a learned world models</p>
+<div>
+<ul>
+<li class="fragment">World models offer an explicit way to represent an agent’s knowledge of the world and allows for reasoning about the future.</li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<p><em>Humans also develop mental models of the world which they use to take decisions.</em></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center" style="display: block; margin: auto;">
+<figure>
+<p><img data-src="https://worldmodels.github.io/assets/world_model_comic.jpeg" style="width:90.0%"></p>
+<figcaption>Art © Scott McCloud.</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:55%;">
+<p><img data-src="https://worldmodels.github.io/assets/mccloud_baseball.jpeg" style="display: block; margin: auto;;width:100.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="model-based-rl" class="slide level2 smaller">
+<h2><span style="font-size: 70%">Model-based RL</span></h2>
+<div style="font-size: 90%">
+<div>
+<ul>
+<li class="fragment"><p>Consider the following agent interaction loop</p>
+<center>
+<p><img src="data:image/png;base64,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"></p>
+</center></li>
+<li class="fragment"><p>Model-free RL relies only on samples from environment to update the policy/value. <span style="font-size: 80%"><span class="math display">\[ Q(s_t, a_t) := Q(s_t, a_t) + \alpha \big(r_t + \gamma \max_{a_{t+1}} Q(s_{t+1}, a_{t+1}) - Q(s_t, a_t) \big)\]</span></span></p></li>
+<li class="fragment"><p>Model-based RL (MBRL) agents additionally learn environment transition function <span style="font-size: 80%"><span class="math inline">\(\hat{T}(s_t, a_t, s_{t+1})\)</span></span> and reward function <span style="font-size: 80%"><span class="math inline">\(\hat{r}(s_t, a_t)\)</span></span> from its experiences</p>
+<ul>
+<li class="fragment">Given sampled states <span class="math inline">\(\{s_t\}\)</span> from the agent’s experience</li>
+<li class="fragment">We can synthesize lots of imagined transitions <span class="math inline">\(\{(s_t, a_t, \hat{r}_t, \hat{s}_{t+1})\}\)</span> to learn from using the same model-free RL updates</li>
+</ul></li>
+<li class="fragment"><p>MBRL hopes to gain more from the same experiences so it tends to more sample-efficient at the cost of added computation</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="model-based-rl-1" class="slide level2 smaller">
+<h2><span style="font-size: 70%">Model-based RL</span></h2>
+<div class="fragment fade-in-then-out absolute" style="">
+<ul>
+<li>To operate on high-dimensional observation spaces (like pixels)</li>
+</ul>
+<p><img data-src="assets/dreamer-inputs.png" style="display:block; margin:auto;;width:50.0%"></p>
+</div>
+<div class="fragment fade-in-then-out absolute" style="">
+<ul>
+<li>Models are learned over compact latent encodings of the observation</li>
+</ul>
+<p><img data-src="assets/dreamer-wm.png" style="display:block; margin:auto;;width:50.0%"></p>
+</div>
+<div class="fragment fade-in absolute" style="">
+<div>
+<ul>
+<li class="fragment"><p>Behaviors are often learned by maximing the rewards in imagined rollouts <img data-src="assets/dreamer-ac.png" style="display:block;margin:auto;margin-top: 20px;;width:40.0%"></p></li>
+<li class="fragment"><p>As the latent dynamics is modelled by a differentiable function – latent imagination is essentially a differentiable simulator</p></li>
+</ul>
+</div>
+</div>
 </section>
 <section id="the-promise-of-learning-world-models" class="slide level2 smaller">
 <h2><span style="font-size: 70%">The promise of learning world models</span></h2>
-<p>Model-based RL (MBRL) algorithms show great promise as online sample-efficient learners.</p>
+<p>Model-based RL (MBRL) algorithms show great promise as online sample-efficient learners in challenging vision-based environments.</p>
 <div class="absolute fragment fade-in-then-out" style="width: 100%; ">
 <p><img data-src="https://danijar.com/asset/dreamerv3/header.gif" style="display: block; margin: auto;;width:60.0%"></p>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -370,7 +452,7 @@
 <p><strong>Dreamer</strong></p>
 </div>
 <div class="callout-content">
-<p>MBRL algorithm that performs quite well on multiple-tasks with a single set of hyperparameters!</p>
+<p>An MBRL algorithm that performs quite well on multiple-tasks with a single set of hyperparameters!</p>
 </div>
 </div>
 </div>
@@ -406,6 +488,16 @@
 <video loop="" controls="" autoplay="" muted="">
 <source src="https://danijar.com/asset/daydreamer/robots.mp4" type="video/mp4">
 </video>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Key Result</strong></p>
+</div>
+<div class="callout-content">
+<p>Dreamer serves as a compelling baseline for physical robot learning without simulators.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="dreamer-interaction-pipeline" class="slide level2 smaller">
 <h2><span style="font-size: 70%">Dreamer: Interaction Pipeline</span></h2>
@@ -431,14 +523,17 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 </ul>
 <p><strong>Predictors</strong></p>
 <ul>
-<li>State: <br> <span class="math inline">\(\hat{x}_t \sim u_\phi(\hat{x}_t \,\vert\, h_t, z_t)\)</span></li>
-<li>Reward: <br> <span class="math inline">\(\hat{r}_t \sim v_\phi(\hat{r}_t \,\vert\, h_t, z_t)\)</span></li>
+<li>State: <br> <span class="math inline">\(\hat{x}_t \sim D_\phi(\hat{x}_t \,\vert\, h_t, z_t)\)</span></li>
+<li>Reward: <br> <span class="math inline">\(\hat{r}_t \sim R_\phi(\hat{r}_t \,\vert\, h_t, z_t)\)</span></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="fragment absolute fade-in" style="top: 550px; width: 100%; ">
 <div style="font-size: 70%; display: block; margin: auto; background-color: rgba(45, 107, 225, 0.1); padding: 10px;width: fit-content">
+<center>
+<strong>World Model Loss</strong>
+</center>
 <p><span class="math display">\[ \mathcal{L}(\phi) = \mathtt{E}_{q_\phi(\,z_{1:T} \,\vert\, a_{1:T},\, x_{1:T})} \Big[ \sum_{t=1}^T \mathcal{L}_{\text{pred}}(x_t, r_t) + \beta\,D_{KL}\big(q_\phi \mathrel{\Vert} p_\phi \big) \Big] \]</span></p>
 </div>
 </div>
@@ -473,17 +568,16 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 </div>
 <div width="100%" style="font-size: 65%; margin-top: -20px;">
 <div class="columns">
-<div class="column" style="width:60%;">
-<p>Compute <span class="math inline">\(\lambda\)</span>-target:<br>
-<span class="math display">\[ V^\lambda_t = \hat{r}_t + \gamma \, \begin{cases} (1 - \lambda) V_{\psi'}(\hat{z}_{t+1}) + \lambda V^\lambda_{t+1} &amp; \text{if $t &lt; H$}\\
+<div class="column fragment fade-in" style="padding-top: 5px;">
+<p><strong>Compute <span class="math inline">\(\text{TD}(\lambda)\)</span>-target:</strong> <span class="math display">\[ V^\lambda_t = \hat{r}_t + \gamma \, \begin{cases} (1 - \lambda) V_{\psi'}(\hat{z}_{t+1}) + \lambda V^\lambda_{t+1} &amp; \text{if $t &lt; H$}\\
 V_{\psi'}(\hat{z}_H) &amp; \text{if $t=H$} \end{cases}\]</span></p>
-</div><div class="column" style="width:40%;">
-<p>Critic Loss:</p>
+</div><div class="column fragment fade-in" style="width:40%;">
+<p><strong>Critic Loss:</strong></p>
 <div style="display: block; margin: auto; background-color: rgba(213, 201, 33, 0.1); padding: 10px; width: fit-content">
 <p><span class="math display">\[ \mathcal{L}(\psi) = \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{t=1}^{H-1} \big( V_\psi(\hat{z}_t) - V^\lambda_t \big)^2 \big]\]</span></p>
 </div>
-</div><div style="margin-top: -30px;">
-<p>Actor Loss:</p>
+</div><div class="fragment fade-in" style="margin-top: -30px;">
+<p><strong>Actor Loss:</strong></p>
 <div style="display: block; margin: auto; background-color: rgba(255, 45, 45, 0.1); padding: 10px; width: fit-content">
 <p><span class="math display">\[ \mathcal{L}(\theta) = - \: \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{t=1}^{H-1} \underbrace{\rho \big( \ln \pi(\hat{a}_t\,\vert\,\hat{z}_t) \: \textrm{sg}[V^\lambda_t - V_\psi(\hat{z}_t)] \big)}_{\text{reinforce}} + \underbrace{(1 - \rho) V^\lambda_t}_{\text{dynamics backprop}} + \underbrace{\eta H(a_t | \hat{z}_t)}_{\text{entropy regularizer}} \big]\]</span></p>
 </div>
@@ -495,28 +589,40 @@ V_{\psi'}(\hat{z}_H) &amp; \text{if $t=H$} \end{cases}\]</span></p>
 <h2><span style="font-size: 70%">Experiments: A1 Quadruped Walking</span></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div class="fragment fade-in">
 <p>Observations:</p>
 <div style="font-size: 70%">
 <ul>
 <li>joint position, orientation, angular velocity</li>
 </ul>
 </div>
+</div>
+<div class="fragment fade-in">
 <p>Actions:</p>
 <div style="font-size: 70%">
 <ul>
-<li>joint position control @ 20Hz (filtered)</li>
+<li>joint position control @ 20Hz (low-pass filtered)</li>
 </ul>
 </div>
-<p>Rewards:</p>
+</div>
+<div class="fragment fade-in">
+<p>Rewards: <br><span style="font-size: 70%">(<em>terms become active after 70% satisfaction of previous terms</em>)</span></p>
 <div style="font-size: 70%">
 <ul>
-<li>should be upright</li>
-<li>match standing pose (hip, shoulder, knee)</li>
-<li>forward velocity</li>
+<li class="fragment">should be upright</li>
+<li class="fragment">match standing pose (hip, shoulder, knee)</li>
+<li class="fragment">forward velocity</li>
 </ul>
 </div>
+</div>
 </div><div class="column" style="width:50%;">
-<div id="player" style="margin: auto; display: block;"></div>
+<div class="absolute" style="top: 100px; left: 600px; ">
+<video loop="" controls="" autoplay="" muted="" width="70%" style="display:block;margin:auto;">
+<source src="assets/a1.mp4" type="video/mp4">
+</video>
+</div>
+<div class="absolute fragment fade-in" style="top: 100px; left: 550px; ">
+<div id="player1" style="margin: auto; display: block;"></div>
 <script>
 var tag = document.createElement('script');
 
@@ -524,12 +630,34 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var player;
+var player1;
+var player2;
+var player3;
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
+    player1 = new YT.Player('player1', {
         height: '300',
         width: '500',
         videoId: 'xAXvfVTgqr0',
+        playerVars: { 'autoplay': 1, 'controls': 1 , 'rel': 0, 'playsinline': 0},
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange,
+        }
+    });
+    player2 = new YT.Player('player2', {
+        height: '300',
+        width: '500',
+        videoId: 'YO1USfn6sHY',
+        playerVars: { 'autoplay': 1, 'controls': 1 , 'rel': 0, 'playsinline': 0},
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange,
+        }
+    });
+    player3 = new YT.Player('player3', {
+        height: '300',
+        width: '500',
+        videoId: 'AGLAC_IWfss',
         playerVars: { 'autoplay': 1, 'controls': 1 , 'rel': 0, 'playsinline': 0},
         events: {
             'onReady': onPlayerReady,
@@ -540,68 +668,107 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     event.target.setVolume(0);
-    player.setPlaybackRate(2);
+    event.target.setPlaybackRate(2);
     event.target.playVideo();
 }
 
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.ENDED) {
-        player.seekTo(0);
+        event.target.seekTo(0);
         event.target.playVideo();
     }
 }
+
 </script>
 </div>
 </div>
-<p><strong>Notes:</strong></p>
-<div width="100%" style="font-size: 80%">
+</div>
+<div class="absolute fragment fade-in" style="top: 400px; left: 750px; width: 30%; ">
+<p><img data-src="assets/a1-result.png"></p>
+</div>
+<div class="absolute fragment fade-in-then-out" style="top: 520px; left: 0px; ">
+<p>Notes:</p>
+<div width="100%" style="font-size: 70%">
 <ul>
 <li>When the robot goes out of the training area they manually intervene.</li>
 <li>In ~1hr the robot learns a pronking gait. They then start perturbing the robot.</li>
 <li>Within 10 minutes it learns to withstand pushes or quickly rolls back up.</li>
 </ul>
 </div>
-<div class="absolute" style="top: 400px; left: 780px; width: 30%; ">
-<p><img data-src="assets/a1-result.png"></p>
+</div>
+<div class="fragment fade-in" style="width:60%">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Takeaway</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li><p>Dreamer learns to consistently flip the robot, stand, and walk forward.</p></li>
+<li><p>Dreamer learns to adapt to perturbations a changed environment.</p></li>
+</ol>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="experiments-ur5-multi-object-pick-place" class="slide level2 smaller">
 <h2><span style="font-size: 70%">Experiments: UR5 Multi-Object Pick &amp; Place</span></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div class="fragment fade-in">
 <p>Observations:</p>
 <div style="font-size: 70%">
 <ul>
 <li>joint position, gripper position, end-eff position, 3rd-person view (RGB)</li>
 </ul>
 </div>
+</div>
+<div class="fragment fade-in">
 <p>Actions:</p>
 <div style="font-size: 70%">
 <ul>
-<li>discrete movements in (X, Y, Z) @ 2Hz
+<li class="fragment">discrete movements in (X, Y, Z) @ 2Hz
 <ul>
-<li>Z movement enabled only when object grasped</li>
+<li class="fragment">Z movement enabled only when object grasped</li>
 </ul></li>
-<li>gripper toggle
+<li class="fragment">gripper toggle
 <ul>
-<li>auto opens when object above correct bin</li>
+<li class="fragment">auto opens when object above correct bin</li>
 </ul></li>
 </ul>
 </div>
+</div>
+<div class="fragment fade-in">
 <p>Rewards:</p>
 <div style="font-size: 70%">
 <ul>
-<li>successful object grasp +1</li>
-<li>drop object in same bin -1</li>
-<li>place object in opposite bin +10</li>
+<li class="fragment">successful object grasp +1</li>
+<li class="fragment">drop object in same bin -1</li>
+<li class="fragment">place object in opposite bin +10</li>
 </ul>
 </div>
+</div>
 </div><div class="column" style="width:50%;">
-<p><img data-src="assets/ur5-task.png" style="display:block;margin:auto;;width:60.0%"></p>
+<video loop="" controls="" autoplay="" muted="" width="60%" style="display:block;margin:auto;">
+<source src="assets/ur5.mp4" type="video/mp4">
+</video>
 </div>
 </div>
-<div class="absolute" style="top: 400px; left: 660px; width: 30%; ">
+<div class="absolute fragment fade-in" style="top: 400px; left: 660px; width: 30%; ">
 <p><img data-src="assets/ur5-result.png"></p>
+</div>
+<div class="absolute fragment fade-in" style="top: 600px; left: 0px; width: 60%; ">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Takeaway</strong></p>
+</div>
+<div class="callout-content">
+<p>Struggles initially due to sparse rewards, but achieves good performance.</p>
+</div>
+</div>
+</div>
 </div>
 <aside class="notes">
 <ul>
@@ -633,60 +800,63 @@ function onPlayerStateChange(event) {
 <li>joint position, gripper position, end-eff position, 3rd-person view (RGB-D)</li>
 </ul>
 </div>
+<div class="fragment fade-in">
 <p>Actions:</p>
 <div style="font-size: 70%">
 <ul>
-<li>discrete movements in (X, Y, Z) @ 0.5Hz
+<li class="fragment"><p>same as UR5 task but runs at @ 0.5Hz</p></li>
+<li class="fragment"><p>object tied to the gripper with string</p>
 <ul>
-<li>Z movement enabled only when object grasped</li>
-</ul></li>
-<li>gripper toggle
-<ul>
-<li>auto opens when object above correct bin</li>
-</ul></li>
-<li>object tied to the gripper with string
-<ul>
-<li>makes it unlikely for it to get stuck in corners</li>
+<li class="fragment">makes it unlikely for it to get stuck in corners</li>
 </ul></li>
 </ul>
 </div>
+</div>
+<div class="fragment fade-in">
 <p>Rewards:</p>
 <div style="font-size: 70%">
 <ul>
-<li>successful object grasp +1</li>
-<li>drop object in same bin -1</li>
-<li>place object in opposite bin +10</li>
+<li>same as UR5 task</li>
 </ul>
 </div>
+</div>
 </div><div class="column" style="width:50%;">
-<p><img data-src="assets/xarm-task.png" style="display:block;margin:auto;;width:60.0%"></p>
+<video loop="" controls="" autoplay="" muted="" width="60%" style="display:block;margin:auto;">
+<source src="assets/xarm.mp4" type="video/mp4">
+</video>
 </div>
 </div>
-<div style="font-size: 70%">
-<p><em>Notes:</em> sometimes the robot used the string to pull the object out of a corner for grasping</p>
-</div>
-<div class="absolute" style="top: 400px; left: 660px; width: 30%; ">
+<div class="fragment fade-in absolute" style="top: 400px; left: 660px; width: 30%; ">
 <p><img data-src="assets/xarm-result.png"></p>
+</div>
+<div class="absolute fragment fade-in-then-out" style="width: 60%;top: 510px; left: 0px; ">
+<p>Notes:</p>
+<div style="font-size: 70%">
+<ul>
+<li>Sometimes the robot used the string to pull the object out of a corner for grasping it</li>
+</ul>
+</div>
+</div>
+<div class="absolute fragment fade-in" style="width: 60%;top: 510px; left: 0px; ">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Takeaway</strong></p>
+</div>
+<div class="callout-content">
+<p>Dreamer achieves performance comparable to Human demonstrators in 10hrs.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="experiments-xarm-adaptation" class="slide level2 smaller">
 <h2><span style="font-size: 70%">Experiments: XArm Adaptation</span></h2>
-<div style="font-size: 80%">
+<div style="font-size: 85%">
 <ul>
-<li>Real world learning has challenges of changing environmental conditions and time varying dynamics.</li>
-<li>XArm situated near large windows and experiences changing lighting conditions.</li>
-</ul>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div style="display: block; margin: auto;">
-<p><img data-src="assets/xarm-adapt.png"></p>
-</div>
-</div><div class="column" style="width:60%;">
-<p><img data-src="assets/xarm-adapt-result.png" style="width:82.0%"></p>
-</div>
-</div>
-<ul>
-<li>Dreamer is capable of recovering original performance faster than training from scratch</li>
+<li class="fragment"><p>Real world learning has challenges of changing environmental conditions and time varying dynamics.</p></li>
+<li class="fragment"><p>XArm situated near large windows and experiences changing lighting conditions. <img data-src="assets/xarm-adapt.png" style="display: block; margin: auto;margin-top: 10px;;width:50.0%"></p></li>
+<li class="fragment"><p>Dreamer is capable of recovering original performance faster than training from scratch <img data-src="assets/xarm-adapt-result.png" style="display: block; margin: auto;margin-top: 10px;;width:50.0%"></p></li>
 </ul>
 </div>
 </section>
@@ -694,55 +864,114 @@ function onPlayerStateChange(event) {
 <h2><span style="font-size: 70%">Experiments: Sphero Navigation</span></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div class="fragment fade-in">
 <p>Observations:</p>
 <div style="font-size: 70%">
 <ul>
 <li>3rd-person view (RGB)</li>
 </ul>
 </div>
+</div>
+<div class="fragment fade-in">
 <p>Actions:</p>
 <div style="font-size: 70%">
 <ul>
-<li>torque commands @ 2Hz</li>
+<li>torque commands for the two motors @ 2Hz</li>
 </ul>
 </div>
+</div>
+<div class="fragment fade-in">
 <p>Rewards:</p>
 <div style="font-size: 70%">
 <ul>
 <li>negative L2 distance from fixed goal</li>
 </ul>
 </div>
+</div>
+<div class="fragment fade-in">
 <p>Reset:</p>
 <div style="font-size: 70%">
 <ul>
 <li>after 100 steps; robot’s start position is randomized</li>
 </ul>
 </div>
+</div>
 </div><div class="column" style="width:50%;">
-<p><img data-src="assets/sphero-task.png" style="display:block;margin:auto;;width:60.0%"></p>
+<video loop="" controls="" autoplay="" muted="" width="60%" style="display:block;margin:auto;">
+<source src="assets/sphero.mp4" type="video/mp4">
+</video>
 </div>
 </div>
-<div width="100%" style="font-size: 80%">
-<p><strong>Notes:</strong></p>
+<div class="fragment fade-in absolute" style="top: 400px; left: 660px; width: 30%; ">
+<p><img data-src="assets/sphero-result.png"></p>
+</div>
+<div class="fragment fade-in-then-out absolute" style="top: 550px; left: 0px; ">
+<p>Notes:</p>
+<div style="font-size: 70%">
 <ul>
 <li>In 2hr, Dreamer reaches the goal and stays there.</li>
 <li>DrQv2 (DDPG + Data-Augmentation) achieves similar performance.</li>
 </ul>
 </div>
-<div class="absolute" style="top: 400px; left: 660px; width: 30%; ">
-<p><img data-src="assets/sphero-result.png"></p>
+</div>
+<div class="fragment fade-in absolute" style="top: 550px; left: 0px; ">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Takeaway</strong></p>
+</div>
+<div class="callout-content">
+<p>Task needs history of image observations and localize the robot for control.</p>
+<p>(Probably one of the fairer comparisions to a model-free RL baseline)</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="limitations" class="slide level2 smaller">
+<h2><span style="font-size: 70%">Limitations</span></h2>
+<div>
+<ul>
+<li class="fragment">(Alan, Jason) While Dreamer used fixed hyperparameters, how much tuning effort was spent in reward/task setup?
+<ul>
+<li class="fragment">(Yunshuang) What would the performance look like without handcrafted action space of pick-and-place task?</li>
+</ul></li>
+<li class="fragment">(Fiona, Hungju) Are these best baselines to compare against?
+<ul>
+<li class="fragment">did they tune the baselines for the task?</li>
+</ul></li>
+<li class="fragment">(Will, Tasos, Yunshuang) Details about the compute needs to setup physical-robot learning is missing</li>
+</ul>
 </div>
 </section>
 <section id="discussion" class="slide level2 smaller">
 <h2><span style="font-size: 70%">Discussion</span></h2>
 <div style="font-size: 90%">
+<p>Is model-based RL the magic-bullet for sample-efficient online RL?</p>
+<div>
 <ul>
-<li>Is model-based RL the magic-bullet for sample-efficient online RL?
-<ul>
-<li>Maybe we need more careful evaluation + benchmarks</li>
-<li>Recent work (Smith et al.) demonstrate model-free RL is also capable of learning quadruped locomotion gait from online experiences.</li>
-</ul></li>
+<li class="fragment">Maybe we need more careful evaluation + benchmarks</li>
+<li class="fragment">Recent work <a href="https://arxiv.org/abs/2208.07860">Smith et al.</a> demonstrate model-free RL is also capable of learning quadruped locomotion gait from online experiences.</li>
 </ul>
+</div>
+<div class="fragment fade-in">
+<div id="player2" style="margin: auto; display: block;"></div>
+</div>
+</div>
+</section>
+<section id="discussion-1" class="slide level2 smaller">
+<h2><span style="font-size: 70%">Discussion</span></h2>
+<div style="font-size: 90%">
+<p>The cost of learning from scratch in the real world (especially with hardware wear and tear) is just not worth it when compared to training in sim?</p>
+<div class="fragment fade-in">
+<div id="player3" style="margin: auto; display: block;"></div>
+<div style="margin-top: 20px;">
+<ul>
+<li class="fragment">Robots should be allowed <strong>a few</strong> failed attempts to get things right.</li>
+<li class="fragment">What data processing architecture + algorithm enables agents to continually learn online while being sample efficient?</li>
+</ul>
+</div>
+</div>
 </div>
 
 <div class="footer footer-default">

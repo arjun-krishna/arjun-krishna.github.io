@@ -22,16 +22,79 @@ We saw a few representative papers of model-free RL applied in robotics
 **But, what if something changes drastically in the real world? It is unclear if these methods can cope with such changes online in a sample-efficient manner**
 :::
 
+::: {.notes}
+- Before we begin let's quickly ground the overarching theme for this week's papers
+:::
+
+## <span style="font-size: 70%">This Week</span> {.smaller}
+**_Theme_**: Leveraging a learned world models
+
+::: {.incremental}
+- World models offer an explicit way to represent an agent's knowledge of the world and allows for reasoning about the future.
+:::
+
+::: {.fragment .fade-in}
+_Humans also develop mental models of the world which they use to take decisions._
+
+::: {.columns}
+::: {.column width="45%"}
+![Art © Scott McCloud.](https://worldmodels.github.io/assets/world_model_comic.jpeg){width=90% style="display: block; margin: auto;"}
+:::
+::: {.column width="55%"}
+![](https://worldmodels.github.io/assets/mccloud_baseball.jpeg){width=100% style="display: block; margin: auto;"}
+:::
+:::
+:::
+
+## <span style="font-size: 70%">Model-based RL</span> {.smaller}
+::: {style="font-size: 90%"}
+::: {.incremental}
+- Consider the following agent interaction loop
+
+    <center><img src="data:image/png;base64,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"/></center>
+- Model-free RL relies only on samples from environment to update the policy/value.
+<span style="font-size: 80%">$$ Q(s_t, a_t) := Q(s_t, a_t) + \alpha \big(r_t + \gamma \max_{a_{t+1}} Q(s_{t+1}, a_{t+1}) - Q(s_t, a_t) \big)$$</span>
+- Model-based RL (MBRL) agents additionally learn environment transition function <span style="font-size: 80%">$\hat{T}(s_t, a_t, s_{t+1})$</span> and reward function <span style="font-size: 80%">$\hat{r}(s_t, a_t)$</span> from its experiences
+    - Given sampled states $\{s_t\}$ from the agent's experience
+    - We can synthesize lots of imagined transitions $\{(s_t, a_t, \hat{r}_t, \hat{s}_{t+1})\}$ to learn from using the same model-free RL updates
+- MBRL hopes to gain more from the same experiences so it tends to more sample-efficient at the cost of added computation
+:::
+:::
+
+## <span style="font-size: 70%">Model-based RL</span> {.smaller}
+::: {.fragment .fade-in-then-out .absolute}
+- To operate on high-dimensional observation spaces (like pixels)
+
+![](assets/dreamer-inputs.png){width="50%" style="display:block; margin:auto;"}
+:::
+
+::: {.fragment .fade-in-then-out .absolute}
+- Models are learned over compact latent encodings of the observation 
+
+![](assets/dreamer-wm.png){width="50%" style="display:block; margin:auto;"}
+
+:::
+
+::: {.fragment .fade-in .absolute}
+::: {.incremental}
+- Behaviors are often learned by maximing the rewards in imagined rollouts
+![](assets/dreamer-ac.png){width="40%" style="display:block;margin:auto;margin-top: 20px;"}
+
+- As the latent dynamics is modelled by a differentiable function -- latent imagination is essentially a differentiable simulator
+:::
+:::
+
+
 ## <span style="font-size: 70%">The promise of learning world models</span> {.smaller}
 
-Model-based RL (MBRL) algorithms show great promise as online sample-efficient learners.
+Model-based RL (MBRL) algorithms show great promise as online sample-efficient learners in challenging vision-based environments.
 
 ::: {.absolute .fragment .fade-in-then-out width="100%"}
 ![](https://danijar.com/asset/dreamerv3/header.gif){ width="60%" style="display: block; margin: auto;" }
 
 ::: {.callout-note icon=false}
 ### Dreamer
-MBRL algorithm that performs quite well on multiple-tasks with a single set of hyperparameters!
+An MBRL algorithm that performs quite well on multiple-tasks with a single set of hyperparameters! 
 :::
 
 :::
@@ -68,6 +131,11 @@ Can we directly deploy _Dreamer_ on real robots to have them acquire desired ski
 ## <span style="font-size: 70%">DayDreamer on robots</span> {.smaller}
 <video loop controls autoplay muted><source src="https://danijar.com/asset/daydreamer/robots.mp4" type="video/mp4" /></video>
 
+::: { .callout-tip icon="false"}
+### Key Result
+Dreamer serves as a compelling baseline for physical robot learning without simulators.
+:::
+
 ## <span style="font-size: 70%">Dreamer: Interaction Pipeline</span> {.smaller}
 ::: {width="100%"}
 ![](assets/flow-diag.png){width="50%" style="display: block; margin: auto;"}
@@ -95,15 +163,17 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 
 **Predictors**
 
-- State: <br/> $\hat{x}_t \sim u_\phi(\hat{x}_t \,\vert\, h_t, z_t)$
-- Reward: <br/> $\hat{r}_t \sim v_\phi(\hat{r}_t \,\vert\, h_t, z_t)$
+- State: <br/> $\hat{x}_t \sim D_\phi(\hat{x}_t \,\vert\, h_t, z_t)$
+- Reward: <br/> $\hat{r}_t \sim R_\phi(\hat{r}_t \,\vert\, h_t, z_t)$
 :::
 :::
 
 :::
+
 
 ::: {.fragment .absolute top=550 width="100%" .fade-in}
 ::: {style="font-size: 70%; display: block; margin: auto; background-color: rgba(45, 107, 225, 0.1); padding: 10px;width: fit-content" }
+<center>**World Model Loss**</center>
 $$ \mathcal{L}(\phi) = \mathtt{E}_{q_\phi(\,z_{1:T} \,\vert\, a_{1:T},\, x_{1:T})} \Big[ \sum_{t=1}^T \mathcal{L}_{\text{pred}}(x_t, r_t) + \beta\,D_{KL}\big(q_\phi \mathrel{\Vert} p_\phi \big) \Big] $$
 :::
 :::
@@ -134,58 +204,71 @@ $H$-step rollout obtained from a starting state.
 
 ::: {width="100%" style="font-size: 65%; margin-top: -20px;"}
 ::: {.columns}
-::: {.column width="60%"}
-Compute $\lambda$-target:  
+::: {.column width="60%" .fragment .fade-in style="padding-top: 5px;"}
+**Compute $\text{TD}(\lambda)$-target:**
 $$ V^\lambda_t = \hat{r}_t + \gamma \, \begin{cases} (1 - \lambda) V_{\psi'}(\hat{z}_{t+1}) + \lambda V^\lambda_{t+1} & \text{if $t < H$}\\
 V_{\psi'}(\hat{z}_H) & \text{if $t=H$} \end{cases}$$
 :::
-::: {.column width="40%"}
-Critic Loss:
+::: {.column width="40%" .fragment .fade-in}
+**Critic Loss:**
 
 ::: {style="display: block; margin: auto; background-color: rgba(213, 201, 33, 0.1); padding: 10px; width: fit-content" }
 $$ \mathcal{L}(\psi) = \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{t=1}^{H-1} \big( V_\psi(\hat{z}_t) - V^\lambda_t \big)^2 \big]$$
 :::
 :::
 
-::: {style="margin-top: -30px;"}
-Actor Loss:
+::: {.fragment .fade-in style="margin-top: -30px;"}
+**Actor Loss:**
 
 ::: {style="display: block; margin: auto; background-color: rgba(255, 45, 45, 0.1); padding: 10px; width: fit-content" }
 $$ \mathcal{L}(\theta) = - \: \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{t=1}^{H-1} \underbrace{\rho \big( \ln \pi(\hat{a}_t\,\vert\,\hat{z}_t) \: \textrm{sg}[V^\lambda_t - V_\psi(\hat{z}_t)] \big)}_{\text{reinforce}} + \underbrace{(1 - \rho) V^\lambda_t}_{\text{dynamics backprop}} + \underbrace{\eta H(a_t | \hat{z}_t)}_{\text{entropy regularizer}} \big]$$
 :::
 :::
 :::
+
 :::
 
 ## <span style="font-size: 70%">Experiments: A1 Quadruped Walking</span> {.smaller}
 
 ::: {.columns}
 ::: {.column width="50%"}
+
+::: {.fragment .fade-in}
 Observations: 
 
 ::: {style="font-size: 70%"}
 - joint position, orientation, angular velocity
 :::
+:::
 
+::: {.fragment .fade-in}
 Actions: 
 
 ::: {style="font-size: 70%"}
-- joint position control @ 20Hz (filtered)
+- joint position control @ 20Hz (low-pass filtered)
+:::
 :::
 
-Rewards:
+::: {.fragment .fade-in}
+Rewards: 
+<br/><span style="font-size: 70%">(_terms become active after 70% satisfaction of previous terms_)</span>
 
-::: {style="font-size: 70%"}
+::: {.incremental style="font-size: 70%"}
 - should be upright
 - match standing pose (hip, shoulder, knee)
 - forward velocity
 :::
+:::
 
 :::
 ::: {.column width="50%"}
+::: {.absolute top=100 left=600}
+<video loop controls autoplay muted width="70%" style="display:block;margin:auto;"><source src="assets/a1.mp4" type="video/mp4" /></video>
+:::
 
+::: {.absolute .fragment .fade-in top=100 left=550}
 ```{=html}
-<div id="player" style="margin: auto; display: block;"></div>
+<div id="player1" style="margin: auto; display: block;"></div>
 <script>
 var tag = document.createElement('script');
 
@@ -193,12 +276,34 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var player;
+var player1;
+var player2;
+var player3;
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
+    player1 = new YT.Player('player1', {
         height: '300',
         width: '500',
         videoId: 'xAXvfVTgqr0',
+        playerVars: { 'autoplay': 1, 'controls': 1 , 'rel': 0, 'playsinline': 0},
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange,
+        }
+    });
+    player2 = new YT.Player('player2', {
+        height: '300',
+        width: '500',
+        videoId: 'YO1USfn6sHY',
+        playerVars: { 'autoplay': 1, 'controls': 1 , 'rel': 0, 'playsinline': 0},
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange,
+        }
+    });
+    player3 = new YT.Player('player3', {
+        height: '300',
+        width: '500',
+        videoId: 'AGLAC_IWfss',
         playerVars: { 'autoplay': 1, 'controls': 1 , 'rel': 0, 'playsinline': 0},
         events: {
             'onReady': onPlayerReady,
@@ -209,67 +314,98 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     event.target.setVolume(0);
-    player.setPlaybackRate(2);
+    event.target.setPlaybackRate(2);
     event.target.playVideo();
 }
 
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.ENDED) {
-        player.seekTo(0);
+        event.target.seekTo(0);
         event.target.playVideo();
     }
 }
+
 </script>
 ```
 :::
 :::
-**Notes:**
+:::
 
-::: {width="100%" style="font-size: 80%"}
+::: {.absolute .fragment .fade-in left=750 top=400 width="30%"}
+![](assets/a1-result.png)
+:::
+
+
+::: {.absolute .fragment .fade-in-then-out top=520 left=0}
+Notes:
+
+::: {width="100%" style="font-size: 70%"}
 - When the robot goes out of the training area they manually intervene.
 - In ~1hr the robot learns a pronking gait. They then start perturbing the robot.
 - Within 10 minutes it learns to withstand pushes or quickly rolls back up.
 :::
+:::
 
-::: {.absolute left=780 top=400 width="30%"}
-![](assets/a1-result.png)
+::: {.fragment .fade-in style="width:60%"}
+::: {.callout-important icon="false"}
+## Takeaway
+(1) Dreamer learns to consistently flip the robot, stand, and walk forward. 
+
+(2) Dreamer learns to adapt to perturbations a changed environment.
+:::
 :::
 
 ## <span style="font-size: 70%">Experiments: UR5 Multi-Object Pick & Place</span> {.smaller}
 ::: {.columns}
 ::: {.column width="50%"}
+
+::: {.fragment .fade-in}
 Observations: 
 
 ::: {style="font-size: 70%"}
 - joint position, gripper position, end-eff position, 3rd-person view (RGB)
 :::
+:::
 
+::: {.fragment .fade-in}
 Actions: 
 
-::: {style="font-size: 70%"}
+::: {.incremental style="font-size: 70%"}
 - discrete movements in (X, Y, Z) @ 2Hz
     - Z movement enabled only when object grasped
 
 - gripper toggle
     - auto opens when object above correct bin
 :::
+:::
 
+::: {.fragment .fade-in}
 Rewards:
 
-::: {style="font-size: 70%"}
+::: {.incremental style="font-size: 70%"}
 - successful object grasp +1
 - drop object in same bin -1
 - place object in opposite bin +10
 :::
+:::
 
 :::
 ::: {.column width="50%"}
-![](assets/ur5-task.png){width="60%" style="display:block;margin:auto;"}
+<video loop controls autoplay muted width="60%" style="display:block;margin:auto;"><source src="assets/ur5.mp4" type="video/mp4" /></video>
 :::
 :::
 
-::: {.absolute left=660 top=400 width="30%"}
+::: {.absolute .fragment .fade-in left=660 top=400 width="30%"}
 ![](assets/ur5-result.png)
+:::
+
+::: {.absolute .fragment .fade-in top=600 left=0 width="60%"}
+
+::: {.callout-important icon="false"}
+## Takeaway
+Struggles initially due to sparse rewards, but achieves good performance.
+:::
+
 :::
 
 ::: {.notes}
@@ -283,112 +419,174 @@ Rewards:
 ## <span style="font-size: 70%">Experiments: XArm Pick & Place</span> {.smaller}
 ::: {.columns}
 ::: {.column width="50%"}
+
 Observations: 
 
 ::: {style="font-size: 70%"}
 - joint position, gripper position, end-eff position, 3rd-person view (RGB-D)
 :::
 
+::: {.fragment .fade-in}
 Actions: 
 
-::: {style="font-size: 70%"}
-- discrete movements in (X, Y, Z) @ 0.5Hz
-    - Z movement enabled only when object grasped
-
-- gripper toggle
-    - auto opens when object above correct bin
+::: {.incremental style="font-size: 70%"}
+- same as UR5 task but runs at @ 0.5Hz
 
 - object tied to the gripper with string
     - makes it unlikely for it to get stuck in corners
 :::
+:::
 
+::: {.fragment .fade-in}
 Rewards:
 
 ::: {style="font-size: 70%"}
-- successful object grasp +1
-- drop object in same bin -1
-- place object in opposite bin +10
+- same as UR5 task
+:::
 :::
 
 :::
 ::: {.column width="50%"}
-![](assets/xarm-task.png){width="60%" style="display:block;margin:auto;"}
+<video loop controls autoplay muted width="60%" style="display:block;margin:auto;"><source src="assets/xarm.mp4" type="video/mp4" /></video>
 :::
-:::
-::: {style="font-size: 70%"}
-_Notes:_ sometimes the robot used the string to pull the object out of a corner for grasping
 :::
 
-::: {.absolute left=660 top=400 width="30%"}
+::: {.fragment .fade-in .absolute left=660 top=400 width="30%"}
 ![](assets/xarm-result.png)
 :::
 
-## <span style="font-size: 70%">Experiments: XArm Adaptation</span> {.smaller}
-::: {style="font-size: 80%"}
-- Real world learning has challenges of changing environmental conditions and time varying dynamics.
-- XArm situated near large windows and experiences changing lighting conditions.
+::: {.absolute .fragment .fade-in-then-out style="width: 60%;" left=0 top=510}
+Notes: 
 
-::: {.columns}
-::: {.column width="40%"}
-::: {style="display: block; margin: auto;"}
-![](assets/xarm-adapt.png)
+::: {style="font-size: 70%"}
+- Sometimes the robot used the string to pull the object out of a corner for grasping it
 :::
 :::
-::: {.column width="60%"}
-![](assets/xarm-adapt-result.png){width="82%"}
+
+::: {.absolute .fragment .fade-in left=0 top=510 style="width: 60%;"}
+::: {.callout-important icon="false"}
+## Takeaway
+Dreamer achieves performance comparable to Human demonstrators in 10hrs.
 :::
 :::
+
+
+## <span style="font-size: 70%">Experiments: XArm Adaptation</span> {.smaller}
+::: {.incremental style="font-size: 85%"}
+- Real world learning has challenges of changing environmental conditions and time varying dynamics.
+
+- XArm situated near large windows and experiences changing lighting conditions.
+![](assets/xarm-adapt.png){width="50%" style="display: block; margin: auto;margin-top: 10px;"}
 
 - Dreamer is capable of recovering original performance faster than training from scratch
+![](assets/xarm-adapt-result.png){width="50%" style="display: block; margin: auto;margin-top: 10px;"}
+
 :::
 
 ## <span style="font-size: 70%">Experiments: Sphero Navigation</span> {.smaller}
 ::: {.columns}
 ::: {.column width="50%"}
+::: {.fragment .fade-in}
 Observations: 
 
 ::: {style="font-size: 70%"}
 - 3rd-person view (RGB)
 :::
+:::
 
+::: {.fragment .fade-in}
 Actions: 
 
 ::: {style="font-size: 70%"}
-- torque commands @ 2Hz
+- torque commands for the two motors @ 2Hz
+:::
 :::
 
+::: {.fragment .fade-in}
 Rewards:
 
 ::: {style="font-size: 70%"}
 - negative L2 distance from fixed goal
 :::
+:::
 
+::: {.fragment .fade-in}
 Reset:
 
 ::: {style="font-size: 70%"}
 - after 100 steps; robot's start position is randomized
 :::
+:::
 
 :::
 ::: {.column width="50%"}
-![](assets/sphero-task.png){width="60%" style="display:block;margin:auto;"}
+<video loop controls autoplay muted width="60%" style="display:block;margin:auto;"><source src="assets/sphero.mp4" type="video/mp4" /></video>
 :::
 :::
 
-::: {width="100%" style="font-size: 80%"}
-**Notes:**
+::: {.fragment .fade-in .absolute left=660 top=400 width="30%"}
+![](assets/sphero-result.png)
+:::
 
+::: {.fragment .fade-in-then-out .absolute left=0 top=550}
+Notes:
+
+::: {style="font-size: 70%"}
 - In 2hr, Dreamer reaches the goal and stays there.
 - DrQv2 (DDPG + Data-Augmentation) achieves similar performance.
 :::
+:::
 
-::: {.absolute left=660 top=400 width="30%"}
-![](assets/sphero-result.png)
+::: {.fragment .fade-in .absolute left=0 top=550}
+::: {.callout-important icon="false"}
+## Takeaway
+Task needs history of image observations and localize the robot for control.
+
+(Probably one of the fairer comparisions to a model-free RL baseline)
+:::
+:::
+
+## <span style="font-size: 70%">Limitations</span> {.smaller}
+
+::: {.incremental}
+- (Alan, Jason) While Dreamer used fixed hyperparameters, how much tuning effort was spent in reward/task setup? 
+    - (Yunshuang) What would the performance look like without handcrafted action space of pick-and-place task?
+- (Fiona, Hungju) Are these best baselines to compare against?
+    - did they tune the baselines for the task?
+- (Will, Tasos, Yunshuang) Details about the compute needs to setup physical-robot learning is missing
 :::
 
 ## <span style="font-size: 70%">Discussion</span> {.smaller}
 ::: {style="font-size: 90%"}
-- Is model-based RL the magic-bullet for sample-efficient online RL?
-    - Maybe we need more careful evaluation + benchmarks
-    - Recent work (Smith et al.) demonstrate model-free RL is also capable of learning quadruped locomotion gait from online experiences.
+Is model-based RL the magic-bullet for sample-efficient online RL?
+
+::: {.incremental}
+- Maybe we need more careful evaluation + benchmarks
+- Recent work [Smith et al.](https://arxiv.org/abs/2208.07860) demonstrate model-free RL is also capable of learning quadruped locomotion gait from online experiences.
+:::
+
+::: {.fragment .fade-in}
+```{=html}
+<div id="player2" style="margin: auto; display: block;"></div>
+```
+:::
+
+:::
+
+## <span style="font-size: 70%">Discussion</span> {.smaller}
+::: {style="font-size: 90%"}
+
+The cost of learning from scratch in the real world (especially with hardware wear and tear) is just not worth it when compared to training in sim?
+
+::: {.fragment .fade-in}
+```{=html}
+<div id="player3" style="margin: auto; display: block;"></div>
+```
+
+::: {.incremental style="margin-top: 20px;"}
+- Robots should be allowed **a few** failed attempts to get things right.
+- What data processing architecture + algorithm enables agents to continually learn online while being sample efficient?
+:::
+:::
+
 :::
