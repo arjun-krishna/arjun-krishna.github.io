@@ -5,12 +5,12 @@
 	<div class="card g-col-12">
 		<div class="grid">
 			<% if (item.thumbnail ) { %>
-			<div class="g-col-2" style="display: flex;">
+			<div class="g-col-12 g-col-sm-2" style="display: flex;">
 				<img src="<%= item.thumbnail %>" style="width: 92%; margin: auto; display: block;" alt="<%= item.title %>"/>
 			</div>
-			<div class="g-col-10">
+			<div class="g-col-12 g-col-sm-10">
 			<% } else { %>
-			<div class="g-col-12">
+			<div class="g-col-12 g-col-sm-12">
 			<% } %>
 				<div class="card-body">
 					<span class="pub-title"><%= item.title %></span><br/>
