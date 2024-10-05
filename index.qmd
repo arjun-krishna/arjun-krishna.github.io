@@ -22,8 +22,8 @@ listing:
 
 [Arjun Krishna]{.subtitle}
 <br/>
-I am a CS PhD student at the University of Pennsylvania advised by [Prof. Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/). I am broadly interested in the field of Robot Learning. <br/><br/>
-I received my Master's degree from Georgia Tech where I was fortunate to be advised by [Prof. Matthew Gombolay](https://sites.gatech.edu/matthew-gombolay/). I obtained my bachelor's degree in CS from IIT Madras and was introduced to RL research there by [Prof. Balaraman Ravindran](http://www.cse.iitm.ac.in/~ravi/). I also worked as a Software Engineer in the space of RecSys and Advertisement Bidding at Indeed Japan for about 3 years before returning to academia.
+I am a second year CS PhD student at the University of Pennsylvania advised by [Prof. Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/). My research interests lie in Robot Learning, specifically on understanding the nature of information flow in perception-action loops and developing resource-efficient agents.<br/><br/>
+I have a Master's in Computer Science from Georgia Tech, where I had the privileged of being advised by [Prof. Matthew Gombolay](https://sites.gatech.edu/matthew-gombolay/). I completed my Bachelor's in Computer Science at IIT Madras, where I was introduced to reinforcement learning research by [Prof. Balaraman Ravindran](http://www.cse.iitm.ac.in/~ravi/). Before returning to academia, I spent three years as a Software Engineer at Indeed Japan, focusing on recommendation systems and advertisement bidding.
 
 :::
 

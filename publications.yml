@@ -1,3 +1,17 @@
+- title: "Enhancing Safety in Learning from Demonstration Algorithms via Control Barrier Function Shielding"
+  thumbnail: assets/pub-thumbnails/CBFShielding_HRI24.png
+  authors:
+    - Yue Yang*
+    - Letian Chen*
+    - Zulfiqar Zaidi*
+    - Sanne van Waveren
+    - Arjun Krishna
+    - Matthew Gombolay
+  links:
+    - name: article
+      href: https://dl.acm.org/doi/10.1145/3610977.3635002 
+  pub_venue: "HRI '24: Proceedings of the 2024 ACM/IEEE International Conference on Human-Robot Interaction"
+
 - title: "The Effect of Robot Skill Level and Communication in Rapid, Proximate Human-Robot Collaboration"
   thumbnail: assets/pub-thumbnails/agileHRC_VAIN_HRI23.png
   authors:

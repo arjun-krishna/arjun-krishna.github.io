@@ -29,8 +29,8 @@ website:
       # - text: Blog
       #  href: blog/index.qmd
     right:
-      - icon: envelope-fill
-        href: mailto:arjk@seas.upenn.edu
+      # - icon: envelope-fill
+      #   href: mailto:arjk@seas.upenn.edu
       - icon: mortarboard-fill
         href: https://scholar.google.com/citations?user=XsYoY2QAAAAJ&hl=en
 #      - icon: 0-circle-fill

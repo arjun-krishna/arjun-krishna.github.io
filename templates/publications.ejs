@@ -16,7 +16,7 @@
 					<span class="pub-title"><%= item.title %></span><br/>
 					<% n = item.authors.length - 1 %>
 					<% for ([i, author] of item.authors.entries()) { %>
-						<span class="pub-author" style="font-weight: <% if (author.includes(templateParams.self)) { %>bold<% } else { %>lighter<% } %>">
+						<span class="pub-author" style="font-weight: <% if (author.includes(templateParams.self)) { %>900<% } else { %>lighter<% } %>; font-size: <% if (author.includes(templateParams.self)) { %>1.01em<% } else { %>0.88em<% } %>;">
 							<!-- <%= item.authors.join(", ") %> -->
 							<%= author %><% if (i < n) { %>,<% } %>
 						</span>
