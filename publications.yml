@@ -1,3 +1,45 @@
+- title: "The Value of Sensory Information to a Robot"
+  thumbnail: assets/pub-thumbnails/vosi-mocl.png
+  authors:
+    - Arjun Krishna
+    - Edward S Hu
+    - Dinesh Jayaraman
+  links:
+    - name: openreview
+      href: https://openreview.net/forum?id=ikr5XomWHS
+    - name: project-website
+      href: https://sites.google.com/view/vosi-robotics/
+  pub_venue: ICLR 2025
+- title: "Articulate-Anything: Automatic Modeling of Articulated Objects via a Vision-Language Foundation Model"
+  thumbnail: assets/pub-thumbnails/articulate-anything.png
+  authors:
+    - Long Le
+    - Jason Xie
+    - William Liang
+    - Hung-Ju Wang
+    - Yue Yang
+    - Jason Ma
+    - Kyle Vedder
+    - Arjun Krishna
+    - Dinesh Jayaraman
+    - Eric Eaton
+  links:
+    - name: arxiv
+      href: https://arxiv.org/abs/2410.13882
+    - name: project-website
+      href: https://articulate-anything.github.io/
+  pub_venue: ICLR 2025
+- title: "Illustrated Landmark Graphs for Long-horizon Policy Learning"
+  thumbnail: assets/pub-thumbnails/ILG-thumbnail.png
+  authors:
+    - Christopher Watson
+    - Arjun Krishna
+    - Rajeev Alur
+    - Dinesh Jayaraman
+  links:
+    - name: openreview
+      href: https://openreview.net/forum?id=0AOUWC4ss8
+  pub_venue: TMLR 2025, CoRL 2024 Workshop on Learning Effective Abstractions for Planning
 - title: "Enhancing Safety in Learning from Demonstration Algorithms via Control Barrier Function Shielding"
   thumbnail: assets/pub-thumbnails/CBFShielding_HRI24.png
   authors:
