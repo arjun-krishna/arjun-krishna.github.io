@@ -3,6 +3,7 @@ project:
   output-dir: docs
 
 website:
+  google-analytics: "G-T87WCP4N96"
   title: "Arjun Krishna"
   page-footer:
     #    center:
