@@ -1,11 +1,11 @@
 - title: "The Value of Sensory Information to a Robot"
-  thumbnail: assets/pub-thumbnails/vosi-mocl.png
+  thumbnail: assets/pub-thumbnails/vosi-thumbnail.png
   authors:
     - Arjun Krishna
     - Edward S Hu
     - Dinesh Jayaraman
   links:
-    - name: openreview
+    - name: reviews
       href: https://openreview.net/forum?id=ikr5XomWHS
     - name: project-website
       href: https://sites.google.com/view/vosi-robotics/
@@ -37,7 +37,7 @@
     - Rajeev Alur
     - Dinesh Jayaraman
   links:
-    - name: openreview
+    - name: reviews
       href: https://openreview.net/forum?id=0AOUWC4ss8
   pub_venue: TMLR 2025, CoRL 2024 Workshop on Learning Effective Abstractions for Planning
 - title: "Enhancing Safety in Learning from Demonstration Algorithms via Control Barrier Function Shielding"
@@ -50,7 +50,7 @@
     - Arjun Krishna
     - Matthew Gombolay
   links:
-    - name: article
+    - name: paper
       href: https://dl.acm.org/doi/10.1145/3610977.3635002 
   pub_venue: "HRI '24: Proceedings of the 2024 ACM/IEEE International Conference on Human-Robot Interaction"
 
@@ -66,7 +66,7 @@
     - Mariah Schrum
     - Matthew Gombolay
   links:
-    - name: article
+    - name: paper
       href: https://dl.acm.org/doi/10.1145/3568162.3577002
   pub_venue: "HRI '23: Proceedings of the 2023 ACM/IEEE International Conference on Human-Robot Interaction"
 
@@ -98,10 +98,10 @@
     - Matthew Gombolay
   links:
     - name: arxiv
-      href: https://browse.arxiv.org/abs/2210.02517
+      href: https://arxiv.org/abs/2210.02517
     - name: overview-video
       href: https://www.youtube.com/watch?v=3T9Yd8NddcI
-    - name: promo-video
+    - name: promotional-video
       href: https://www.youtube.com/watch?v=plUktbRLfQw
   pub_venue: IEEE Robotics and Automation Letters (presented at IROS'23)
 
@@ -113,7 +113,7 @@
     - Sehoon Ha
     - Yongxin Chen
   links:
-    - name: pre-print
+    - name: paper
       href: https://openreview.net/forum?id=KoRdlJjgiQ
   pub_venue: NeurIPS-W 2022 (DeepRL workshop)
 
@@ -128,9 +128,9 @@
     - Matthew Gombolay
   links:
     - name: arxiv
-      href: https://arxiv.org/pdf/2212.14403.pdf 
+      href: https://arxiv.org/abs/2212.14403
     - name: poster
       href: https://drive.google.com/file/d/1DsU0_m540SkkC3elMymjkHqZSAqCtqP1/view
-    - name: video
+    - name: project-video
       href: https://drive.google.com/file/d/1fb3KhxwTog417WCYGIrSlV_HsBz5fBEY/view
   pub_venue: CoRL-W 2022 (Learning for Agile Robots workshop)
