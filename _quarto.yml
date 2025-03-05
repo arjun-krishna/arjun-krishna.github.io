@@ -29,6 +29,8 @@ website:
         href: index.qmd
       # - text: Blog
       #  href: blog/index.qmd
+      - text: CV
+        href: https://drive.google.com/file/d/1wP5hoQ1Tk6S2Lz4q730viUcCQdL9BIBo/view?usp=sharing
     right:
       # - icon: envelope-fill
       #   href: mailto:arjk@seas.upenn.edu
