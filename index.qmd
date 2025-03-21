@@ -1,7 +1,8 @@
 ---
 sidebar: false
-description: "About: Arjun Krishna"
+description: "Arjun Krishna is a CS PhD student at Penn working on Robot Learning."
 toc: true
+image: ""
 format:
   html:
     page-layout: full
@@ -18,7 +19,7 @@ listing:
 
 ::: {layout="[20,80]" .profile-header}
 
-![](assets/profile-transparent-bg.png){.profile-pic .preview-image}
+![](assets/profile-transparent-bg.png){.profile-pic}
 
 [Arjun Krishna]{.subtitle}
 <br/>

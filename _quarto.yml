@@ -16,7 +16,9 @@ website:
     left:
       - text: Arjun Krishna © 2025.
   favicon: assets/favicon.ico
-  open-graph: true
+  open-graph:
+    image-width: 128
+    image-height: 128
   twitter-card:
     creator: "@akrishna42"
   site-url: "https://arjun-krishna.github.io/"
