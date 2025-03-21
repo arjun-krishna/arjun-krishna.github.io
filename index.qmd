@@ -18,7 +18,7 @@ listing:
 
 ::: {layout="[20,80]" .profile-header}
 
-![](assets/profile-transparent-bg.png){.profile-pic}
+![](assets/profile-transparent-bg.png){.profile-pic .preview-image}
 
 [Arjun Krishna]{.subtitle}
 <br/>
