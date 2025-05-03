@@ -1,0 +1,8 @@
+---
+title: "Visualizing High Dimensional Data"
+categories: [vis-principles]
+author: Arjun Krishna
+# date: 2025-05-03
+draft: true
+description: Notes on visualizing high dimensional data
+---

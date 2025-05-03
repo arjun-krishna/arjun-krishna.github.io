@@ -17,11 +17,7 @@ format:
     anchor-sections: true
 ---
 
-[Subscribe here](#subscribe)
+Subscribe via [<i class="bi bi-rss"></i> RSS 📬](index.xml){.no-highlight}
 
 ::: {#blog-listings}
 :::
-
-## 📬 Subscribe
-
-Subscribe via [<i class="bi bi-rss"></i> RSS](index.xml){.no-highlight}

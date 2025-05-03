@@ -1,0 +1,35 @@
+---
+title: "Estimators of Mutual Information"
+categories: [information theory, neural estimators]
+author: Arjun Krishna
+# date: 2025-05-03
+draft: true
+description: An overview of estimators of mutual information between random variables
+---
+
+## Formulation
+Let $(\Omega, \mathcal{F}, P)$ represent a probability space. 
+Where $\Omega$ denotes the sample space containing all the observable outcomes,
+$\mathcal{F}$ is the $\sigma$-algebra representing a collection of measurable events ($E \subseteq \Omega$), and 
+$P: \mathcal{F} \to [0, 1]$ represents a set function mapping events to probability measures.
+
+[Random Variable:]{.smallcaps} Given a measurable space $(E, \mathcal{E})$, an $(E, \mathcal{E})$-valued random variable is a measurable function $X: \Omega \to E$. Which suggests that $\forall A \in \mathcal{E}: X^{-1}(A) \in \mathcal{F}$, where $X^{-1}(A) = \{\omega: X(\omega) \in A\}$
+
+:::{.callout-note collapse="true"}
+### On the Information Loss from Measurements
+> Informally, the resulting $\sigma$-algebra $\mathcal{E}$ is often coarser than $\mathcal{F}$ suggesting a loss in information.
+:::
+
+[Entropy:]{.smallcaps}
+
+[Mutual Information:]{.smallcaps}
+
+## Estimator Categories
+
+### Variational Formulation
+
+### Entropy-based 
+
+### Normalizing Flow
+
+## Discrete Random Variables

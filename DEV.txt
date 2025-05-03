@@ -1,0 +1,8 @@
+### common commands
+```bash
+# preview
+quarto preview
+
+# render all pages
+quarto render
+```
