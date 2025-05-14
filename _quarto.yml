@@ -34,8 +34,8 @@ website:
       - text: CV
         href: https://drive.google.com/file/d/1wP5hoQ1Tk6S2Lz4q730viUcCQdL9BIBo/view?usp=sharing
     right:
-      # - icon: envelope-fill
-      #   href: mailto:arjk@seas.upenn.edu
+      - icon: envelope-fill
+        href: arjk [at] upenn.edu
       - icon: mortarboard-fill
         href: https://scholar.google.com/citations?user=XsYoY2QAAAAJ&hl=en
 #      - icon: 0-circle-fill
