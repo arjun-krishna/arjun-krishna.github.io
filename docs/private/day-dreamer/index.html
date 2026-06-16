@@ -9,10 +9,10 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.5.56">
 
   <meta name="author" content="  Presented by: Arjun Krishna">
-  <title>Arjun Krishna - DayDreamer: World Models for Physical Robot Learning</title>
+  <title>Arjun Krishna – DayDreamer: World Models for Physical Robot Learning</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -166,7 +166,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -329,15 +330,15 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Arjun Krishna - DayDreamer: World Models for Physical Robot Learning">
+<meta property="og:title" content="DayDreamer: World Models for Physical Robot Learning – Arjun Krishna">
 <meta property="og:description" content=" Philipp Wu*, Alejandro Escontrela*, Danijar Hafner*, Ken Goldberg, Pieter AbbeelUniversity of California, Berkeley">
-<meta property="og:site-name" content="Arjun Krishna">
-<meta property="og:image:height" content="128">
-<meta property="og:image:width" content="128">
-<meta name="twitter:title" content="Arjun Krishna - DayDreamer: World Models for Physical Robot Learning">
+<meta property="og:image" content="https://arjun-krishna.github.io/private/day-dreamer/data:image/png;base64,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">
+<meta property="og:site_name" content="Arjun Krishna">
+<meta name="twitter:title" content="DayDreamer: World Models for Physical Robot Learning – Arjun Krishna">
 <meta name="twitter:description" content=" Philipp Wu*, Alejandro Escontrela*, Danijar Hafner*, Ken Goldberg, Pieter AbbeelUniversity of California, Berkeley">
+<meta name="twitter:image" content="https://arjun-krishna.github.io/private/day-dreamer/data:image/png;base64,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">
 <meta name="twitter:creator" content="@akrishna42">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -405,8 +406,7 @@
 </div>
 </div><div class="column" style="width:55%;">
 <p><img data-src="https://worldmodels.github.io/assets/mccloud_baseball.jpeg" style="display: block; margin: auto;;width:100.0%"></p>
-</div>
-</div>
+</div></div>
 </div>
 </section>
 <section id="model-based-rl" class="slide level2 smaller">
@@ -532,8 +532,7 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 <li>Representation Model: <br> <span class="math inline">\(z_t \sim q_\phi(z_t \,\vert\, h_t, x_t)\)</span></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="dreamer-world-model-learning-1" class="slide level2 smaller" data-visibilty="uncounted">
 <h2><span style="font-size: 70%">Dreamer: World Model Learning</span></h2>
@@ -549,8 +548,7 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 <li>Transition Predictor: <br> <span class="math inline">\(\hat{z}_t \sim p_\phi(\hat{z}_t \,\vert\, h_t)\)</span></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="dreamer-world-model-learning-2" class="slide level2 smaller" data-visibilty="uncounted">
 <h2><span style="font-size: 70%">Dreamer: World Model Learning</span></h2>
@@ -571,8 +569,7 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 <li>Reward: <br> <span class="math inline">\(\hat{r}_t \sim R_\phi(\hat{r}_t \,\vert\, h_t, z_t)\)</span></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="dreamer-world-model-learning-3" class="slide level2 smaller">
 <h2><span style="font-size: 70%">Dreamer: World Model Learning</span></h2>
@@ -593,8 +590,7 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 <li>Reward: <br> <span class="math inline">\(\hat{r}_t \sim R_\phi(\hat{r}_t \,\vert\, h_t, z_t)\)</span></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 <div class="absolute fade-in" style="top: 550px; width: 100%; ">
 <div style="font-size: 70%; display: block; margin: auto; background-color: rgba(45, 107, 225, 0.1); padding: 10px;width: fit-content">
 <center>
@@ -628,8 +624,7 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 <div style="font-size: 65%">
 <p><span class="math inline">\(H\)</span>-step rollout obtained from a starting state. <br></p>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="dreamer-actor-critic-learning-1" class="slide level2 smaller" data-visibilty="uncounted">
 <h2><span style="font-size: 70%">Dreamer: Actor-Critic Learning</span></h2>
@@ -642,8 +637,7 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 <p><strong>Actor</strong>: <br> <span class="math inline">\(\hat{a}_t \sim \pi_\theta(\hat{a}_t \vert \hat{z}_t)\)</span> <br></p>
 <p><strong>Critic</strong>: <br> <span class="math inline">\(\displaystyle V_\psi(\hat{z}_t) \approx \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{\tau \geq t} \gamma^{\tau - t} \hat{r}_\tau \big]\)</span></p>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="dreamer-actor-critic-learning-2" class="slide level2 smaller">
 <h2><span style="font-size: 70%">Dreamer: Actor-Critic Learning</span></h2>
@@ -656,8 +650,7 @@ Learner and Actor is decoupled and operates asynchronously on separate threads.
 <p><strong>Actor</strong>: <br> <span class="math inline">\(\hat{a}_t \sim \pi_\theta(\hat{a}_t \vert \hat{z}_t)\)</span> <br></p>
 <p><strong>Critic</strong>: <br> <span class="math inline">\(\displaystyle V_\psi(\hat{z}_t) \approx \mathtt{E}_{p_\phi, \pi_\theta}\big[ \sum_{\tau \geq t} \gamma^{\tau - t} \hat{r}_\tau \big]\)</span></p>
 </div>
-</div>
-</div>
+</div></div>
 <div width="100%" style="font-size: 65%; margin-top: -20px;">
 <div class="columns">
 <div class="column fragment fade-in" style="padding-top: 5px;">
@@ -773,8 +766,7 @@ function onPlayerStateChange(event) {
 
 </script>
 </div>
-</div>
-</div>
+</div></div>
 <div class="absolute fragment fade-in" style="top: 400px; left: 750px; width: 30%; ">
 <p><img data-src="assets/a1-result.png"></p>
 </div>
@@ -845,8 +837,7 @@ function onPlayerStateChange(event) {
 <video loop="" controls="" autoplay="" muted="" width="60%" style="display:block;margin:auto;">
 <source src="assets/ur5.mp4" type="video/mp4">
 </video>
-</div>
-</div>
+</div></div>
 <div class="absolute fragment fade-in" style="top: 400px; left: 660px; width: 30%; ">
 <p><img data-src="assets/ur5-result.png"></p>
 </div>
@@ -916,8 +907,7 @@ function onPlayerStateChange(event) {
 <video loop="" controls="" autoplay="" muted="" width="60%" style="display:block;margin:auto;">
 <source src="assets/xarm.mp4" type="video/mp4">
 </video>
-</div>
-</div>
+</div></div>
 <div class="fragment fade-in absolute" style="top: 400px; left: 660px; width: 30%; ">
 <p><img data-src="assets/xarm-result.png"></p>
 </div>
@@ -992,8 +982,7 @@ function onPlayerStateChange(event) {
 <video loop="" controls="" autoplay="" muted="" width="60%" style="display:block;margin:auto;">
 <source src="assets/sphero.mp4" type="video/mp4">
 </video>
-</div>
-</div>
+</div></div>
 <div class="fragment fade-in absolute" style="top: 400px; left: 660px; width: 30%; ">
 <p><img data-src="assets/sphero-result.png"></p>
 </div>
@@ -1068,8 +1057,10 @@ function onPlayerStateChange(event) {
 </div>
 </div>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -1098,7 +1089,6 @@ function onPlayerStateChange(event) {
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1315,18 +1305,7 @@ function onPlayerStateChange(event) {
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1358,11 +1337,50 @@ function onPlayerStateChange(event) {
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/arjun-krishna\.github\.io\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1372,8 +1390,17 @@ function onPlayerStateChange(event) {
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1387,7 +1414,11 @@ function onPlayerStateChange(event) {
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

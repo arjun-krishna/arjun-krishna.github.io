@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -48,7 +48,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -101,69 +108,98 @@ gtag('js', new Date());
 gtag('config', 'G-T87WCP4N96', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="">
+<meta property="og:title" content="Arjun Krishna">
 <meta property="og:description" content="Arjun Krishna is a CS PhD student at Penn working on Robot Learning.">
-<meta property="og:image" content="">
-<meta property="og:site-name" content="Arjun Krishna">
-<meta property="og:image:height" content="128">
-<meta property="og:image:width" content="128">
-<meta name="twitter:title" content="">
+<meta property="og:image" content="https://arjun-krishna.github.io/assets/pub-thumbnails/lic-thumbnail.png">
+<meta property="og:site_name" content="Arjun Krishna">
+<meta property="og:image:height" content="468">
+<meta property="og:image:width" content="455">
+<meta name="twitter:title" content="Arjun Krishna">
 <meta name="twitter:description" content="Arjun Krishna is a CS PhD student at Penn working on Robot Learning.">
-<meta name="twitter:image" content="">
+<meta name="twitter:image" content="https://arjun-krishna.github.io/assets/pub-thumbnails/lic-thumbnail.png">
 <meta name="twitter:creator" content="@akrishna42">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="468">
+<meta name="twitter:image-width" content="455">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">About</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://drive.google.com/file/d/1wP5hoQ1Tk6S2Lz4q730viUcCQdL9BIBo/view?usp=sharing" rel="" target="">
- <span class="menu-text">CV</span></a>
+    <a class="nav-link" href="https://drive.google.com/file/d/1wP5hoQ1Tk6S2Lz4q730viUcCQdL9BIBo/view?usp=sharing"> 
+<span class="menu-text">CV</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="mailto:arjk [at] upenn.edu" rel="" target=""><i class="bi bi-envelope-fill" role="img">
+    <a class="nav-link" href="mailto:arjk [at] upenn.edu"> <i class="bi bi-envelope-fill" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=XsYoY2QAAAAJ&amp;hl=en" rel="" target=""><i class="bi bi-mortarboard-fill" role="img">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=XsYoY2QAAAAJ&amp;hl=en"> <i class="bi bi-mortarboard-fill" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/akrishna42" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/akrishna42"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/arjun-krishna/" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/arjun-krishna/"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -179,12 +215,16 @@ gtag('config', 'G-T87WCP4N96', { 'anonymize_ip': true});
 
 
 
-<div class="profile-header quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
+
+<div>
+
+</div>
+<div class="profile-header quarto-layout-panel" data-layout="[20,80]">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 20.0%;justify-content: center;">
 <p><img src="assets/profile-transparent-bg.png" class="profile-pic img-fluid"></p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 80.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 80.0%;justify-content: flex-start;">
 <p><span class="subtitle">Arjun Krishna</span> <br> I am a 3rd year CS PhD student at the University of Pennsylvania advised by <a href="https://www.seas.upenn.edu/~dineshj/">Prof.&nbsp;Dinesh Jayaraman</a>. My research interests broadly lie in area of robot learning, with specific interests in understanding the nature of information flow in perception-action loops and developing resource-efficient agents.<br><br> I previously obtained my Master’s in Computer Science from Georgia Tech, where I had the privileged of being advised by <a href="https://sites.gatech.edu/matthew-gombolay/">Prof.&nbsp;Matthew Gombolay</a>. I received my Bachelor’s in Computer Science at IIT Madras, and was introduced to reinforcement learning research there by <a href="http://www.cse.iitm.ac.in/~ravi/">Prof.&nbsp;Balaraman Ravindran</a>. Before returning to academia, I spent a few years as a Software Engineer at Indeed Japan, working on recommendation systems and advertisement bidding.</p>
 </div>
 </div>
@@ -192,398 +232,601 @@ gtag('config', 'G-T87WCP4N96', { 'anonymize_ip': true});
 <section id="publications" class="level4">
 <h4 data-anchor-id="publications">Publications</h4>
 <div id="listing-pubs-listings" class="quarto-listing quarto-listing-container-custom">
+
 <div class="grid">
+
     <div class="card g-col-12">
         <div class="grid">
+            
             <div class="g-col-12 g-col-sm-2" style="display: flex;">
-                <img src="assets/pub-thumbnails/vosi-thumbnail.png" style="width: 92%; margin: auto; display: block;" alt="The Value of Sensory Information to a Robot">
+                <img src="assets/pub-thumbnails/lic-thumbnail.png" style="width: 92%; margin: auto; display: block;" alt="Let it Cook: Learning to Wait in Sequential Decision Making">
             </div>
             <div class="g-col-12 g-col-sm-10">
+            
                 <div class="card-body">
-                    <span class="pub-title">The Value of Sensory Information to a Robot</span><br>
-                        <span class="pub-author" style="font-weight: 900; font-size: 1.01em;">
-                            <!-- Arjun Krishna, Edward S Hu, Dinesh Jayaraman -->
-                            Arjun Krishna,
-                        </span>
-                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
-                            <!-- Arjun Krishna, Edward S Hu, Dinesh Jayaraman -->
-                            Edward S Hu,
-                        </span>
-                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
-                            <!-- Arjun Krishna, Edward S Hu, Dinesh Jayaraman -->
-                            Dinesh Jayaraman
-                        </span>
-                        <br style="margin-bottom: 5px;">
-                        <span class="pub-venue">ICLR 2025</span>
-                        <br style="margin-bottom: 5px;">
-                            <a href="https://openreview.net/forum?id=ikr5XomWHS" class="pub-link">[reviews]</a>
-                            <a href="https://sites.google.com/view/vosi-robotics/" class="pub-link">[project-website]</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card g-col-12">
-        <div class="grid">
-            <div class="g-col-12 g-col-sm-2" style="display: flex;">
-                <img src="assets/pub-thumbnails/articulate-anything.png" style="width: 92%; margin: auto; display: block;" alt="Articulate-Anything: Automatic Modeling of Articulated Objects via a Vision-Language Foundation Model">
-            </div>
-            <div class="g-col-12 g-col-sm-10">
-                <div class="card-body">
-                    <span class="pub-title">Articulate-Anything: Automatic Modeling of Articulated Objects via a Vision-Language Foundation Model</span><br>
-                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
-                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
-                            Long Le,
-                        </span>
-                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
-                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
-                            Jason Xie,
-                        </span>
-                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
-                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
-                            William Liang,
-                        </span>
-                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
-                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
-                            Hung-Ju Wang,
-                        </span>
-                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
-                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
-                            Yue Yang,
-                        </span>
-                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
-                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
-                            Jason Ma,
-                        </span>
-                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
-                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
-                            Kyle Vedder,
-                        </span>
-                        <span class="pub-author" style="font-weight: 900; font-size: 1.01em;">
-                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
-                            Arjun Krishna,
-                        </span>
-                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
-                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
-                            Dinesh Jayaraman,
-                        </span>
-                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
-                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
-                            Eric Eaton
-                        </span>
-                        <br style="margin-bottom: 5px;">
-                        <span class="pub-venue">ICLR 2025</span>
-                        <br style="margin-bottom: 5px;">
-                            <a href="https://arxiv.org/abs/2410.13882" class="pub-link">[arxiv]</a>
-                            <a href="https://articulate-anything.github.io/" class="pub-link">[project-website]</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card g-col-12">
-        <div class="grid">
-            <div class="g-col-12 g-col-sm-2" style="display: flex;">
-                <img src="assets/pub-thumbnails/ILG-thumbnail.png" style="width: 92%; margin: auto; display: block;" alt="Illustrated Landmark Graphs for Long-horizon Policy Learning">
-            </div>
-            <div class="g-col-12 g-col-sm-10">
-                <div class="card-body">
-                    <span class="pub-title">Illustrated Landmark Graphs for Long-horizon Policy Learning</span><br>
+                    <span class="pub-title">Let it Cook: Learning to Wait in Sequential Decision Making</span><br>
+                    
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Christopher Watson, Arjun Krishna, Rajeev Alur, Dinesh Jayaraman -->
                             Christopher Watson,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: 900; font-size: 1.01em;">
                             <!-- Christopher Watson, Arjun Krishna, Rajeev Alur, Dinesh Jayaraman -->
                             Arjun Krishna,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Christopher Watson, Arjun Krishna, Rajeev Alur, Dinesh Jayaraman -->
                             Rajeev Alur,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Christopher Watson, Arjun Krishna, Rajeev Alur, Dinesh Jayaraman -->
                             Dinesh Jayaraman
                         </span>
+                    
+                    
                         <br style="margin-bottom: 5px;">
-                        <span class="pub-venue">TMLR 2025, CoRL 2024 Workshop on Learning Effective Abstractions for Planning</span>
-                        <br style="margin-bottom: 5px;">
-                            <a href="https://openreview.net/forum?id=0AOUWC4ss8" class="pub-link">[reviews]</a>
+                        <span class="pub-venue">RLC 2026</span>
+                    
+                    
                 </div>
             </div>
         </div>
     </div>
+
     <div class="card g-col-12">
         <div class="grid">
+            
+            <div class="g-col-12 g-col-sm-2" style="display: flex;">
+                <img src="assets/pub-thumbnails/vosi-thumbnail.png" style="width: 92%; margin: auto; display: block;" alt="The Value of Sensory Information to a Robot">
+            </div>
+            <div class="g-col-12 g-col-sm-10">
+            
+                <div class="card-body">
+                    <span class="pub-title">The Value of Sensory Information to a Robot</span><br>
+                    
+                    
+                        <span class="pub-author" style="font-weight: 900; font-size: 1.01em;">
+                            <!-- Arjun Krishna, Edward S Hu, Dinesh Jayaraman -->
+                            Arjun Krishna,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Arjun Krishna, Edward S Hu, Dinesh Jayaraman -->
+                            Edward S Hu,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Arjun Krishna, Edward S Hu, Dinesh Jayaraman -->
+                            Dinesh Jayaraman
+                        </span>
+                    
+                    
+                        <br style="margin-bottom: 5px;">
+                        <span class="pub-venue">ICLR 2025</span>
+                    
+                    
+                        <br style="margin-bottom: 5px;">
+                        
+                            <a href="https://openreview.net/forum?id=ikr5XomWHS" class="pub-link">[reviews]</a>
+                        
+                            <a href="https://sites.google.com/view/vosi-robotics/" class="pub-link">[project-website]</a>
+                        
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card g-col-12">
+        <div class="grid">
+            
+            <div class="g-col-12 g-col-sm-2" style="display: flex;">
+                <img src="assets/pub-thumbnails/articulate-anything.png" style="width: 92%; margin: auto; display: block;" alt="Articulate-Anything: Automatic Modeling of Articulated Objects via a Vision-Language Foundation Model">
+            </div>
+            <div class="g-col-12 g-col-sm-10">
+            
+                <div class="card-body">
+                    <span class="pub-title">Articulate-Anything: Automatic Modeling of Articulated Objects via a Vision-Language Foundation Model</span><br>
+                    
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
+                            Long Le,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
+                            Jason Xie,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
+                            William Liang,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
+                            Hung-Ju Wang,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
+                            Yue Yang,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
+                            Jason Ma,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
+                            Kyle Vedder,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: 900; font-size: 1.01em;">
+                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
+                            Arjun Krishna,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
+                            Dinesh Jayaraman,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Long Le, Jason Xie, William Liang, Hung-Ju Wang, Yue Yang, Jason Ma, Kyle Vedder, Arjun Krishna, Dinesh Jayaraman, Eric Eaton -->
+                            Eric Eaton
+                        </span>
+                    
+                    
+                        <br style="margin-bottom: 5px;">
+                        <span class="pub-venue">ICLR 2025</span>
+                    
+                    
+                        <br style="margin-bottom: 5px;">
+                        
+                            <a href="https://arxiv.org/abs/2410.13882" class="pub-link">[arxiv]</a>
+                        
+                            <a href="https://articulate-anything.github.io/" class="pub-link">[project-website]</a>
+                        
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card g-col-12">
+        <div class="grid">
+            
+            <div class="g-col-12 g-col-sm-2" style="display: flex;">
+                <img src="assets/pub-thumbnails/ILG-thumbnail.png" style="width: 92%; margin: auto; display: block;" alt="Illustrated Landmark Graphs for Long-horizon Policy Learning">
+            </div>
+            <div class="g-col-12 g-col-sm-10">
+            
+                <div class="card-body">
+                    <span class="pub-title">Illustrated Landmark Graphs for Long-horizon Policy Learning</span><br>
+                    
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Christopher Watson, Arjun Krishna, Rajeev Alur, Dinesh Jayaraman -->
+                            Christopher Watson,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: 900; font-size: 1.01em;">
+                            <!-- Christopher Watson, Arjun Krishna, Rajeev Alur, Dinesh Jayaraman -->
+                            Arjun Krishna,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Christopher Watson, Arjun Krishna, Rajeev Alur, Dinesh Jayaraman -->
+                            Rajeev Alur,
+                        </span>
+                    
+                        <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
+                            <!-- Christopher Watson, Arjun Krishna, Rajeev Alur, Dinesh Jayaraman -->
+                            Dinesh Jayaraman
+                        </span>
+                    
+                    
+                        <br style="margin-bottom: 5px;">
+                        <span class="pub-venue">TMLR 2025, CoRL 2024 Workshop on Learning Effective Abstractions for Planning</span>
+                    
+                    
+                        <br style="margin-bottom: 5px;">
+                        
+                            <a href="https://openreview.net/forum?id=0AOUWC4ss8" class="pub-link">[reviews]</a>
+                        
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card g-col-12">
+        <div class="grid">
+            
             <div class="g-col-12 g-col-sm-2" style="display: flex;">
                 <img src="assets/pub-thumbnails/CBFShielding_HRI24.png" style="width: 92%; margin: auto; display: block;" alt="Enhancing Safety in Learning from Demonstration Algorithms via Control Barrier Function Shielding">
             </div>
             <div class="g-col-12 g-col-sm-10">
+            
                 <div class="card-body">
                     <span class="pub-title">Enhancing Safety in Learning from Demonstration Algorithms via Control Barrier Function Shielding</span><br>
+                    
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Yue Yang*, Letian Chen*, Zulfiqar Zaidi*, Sanne van Waveren, Arjun Krishna, Matthew Gombolay -->
                             Yue Yang*,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Yue Yang*, Letian Chen*, Zulfiqar Zaidi*, Sanne van Waveren, Arjun Krishna, Matthew Gombolay -->
                             Letian Chen*,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Yue Yang*, Letian Chen*, Zulfiqar Zaidi*, Sanne van Waveren, Arjun Krishna, Matthew Gombolay -->
                             Zulfiqar Zaidi*,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Yue Yang*, Letian Chen*, Zulfiqar Zaidi*, Sanne van Waveren, Arjun Krishna, Matthew Gombolay -->
                             Sanne van Waveren,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: 900; font-size: 1.01em;">
                             <!-- Yue Yang*, Letian Chen*, Zulfiqar Zaidi*, Sanne van Waveren, Arjun Krishna, Matthew Gombolay -->
                             Arjun Krishna,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Yue Yang*, Letian Chen*, Zulfiqar Zaidi*, Sanne van Waveren, Arjun Krishna, Matthew Gombolay -->
                             Matthew Gombolay
                         </span>
+                    
+                    
                         <br style="margin-bottom: 5px;">
                         <span class="pub-venue">HRI '24: Proceedings of the 2024 ACM/IEEE International Conference on Human-Robot Interaction</span>
+                    
+                    
                         <br style="margin-bottom: 5px;">
+                        
                             <a href="https://dl.acm.org/doi/10.1145/3610977.3635002" class="pub-link">[paper]</a>
+                        
+                    
                 </div>
             </div>
         </div>
     </div>
+
     <div class="card g-col-12">
         <div class="grid">
+            
             <div class="g-col-12 g-col-sm-2" style="display: flex;">
                 <img src="assets/pub-thumbnails/agileHRC_VAIN_HRI23.png" style="width: 92%; margin: auto; display: block;" alt="The Effect of Robot Skill Level and Communication in Rapid, Proximate Human-Robot Collaboration">
             </div>
             <div class="g-col-12 g-col-sm-10">
+            
                 <div class="card-body">
                     <span class="pub-title">The Effect of Robot Skill Level and Communication in Rapid, Proximate Human-Robot Collaboration</span><br>
+                    
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Kin Man Lee*, Arjun Krishna*, Zulfiqar Zaidi, Rohan Paleja, Letian Chen, Erin Hedlund-Botti, Mariah Schrum, Matthew Gombolay -->
                             Kin Man Lee*,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: 900; font-size: 1.01em;">
                             <!-- Kin Man Lee*, Arjun Krishna*, Zulfiqar Zaidi, Rohan Paleja, Letian Chen, Erin Hedlund-Botti, Mariah Schrum, Matthew Gombolay -->
                             Arjun Krishna*,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Kin Man Lee*, Arjun Krishna*, Zulfiqar Zaidi, Rohan Paleja, Letian Chen, Erin Hedlund-Botti, Mariah Schrum, Matthew Gombolay -->
                             Zulfiqar Zaidi,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Kin Man Lee*, Arjun Krishna*, Zulfiqar Zaidi, Rohan Paleja, Letian Chen, Erin Hedlund-Botti, Mariah Schrum, Matthew Gombolay -->
                             Rohan Paleja,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Kin Man Lee*, Arjun Krishna*, Zulfiqar Zaidi, Rohan Paleja, Letian Chen, Erin Hedlund-Botti, Mariah Schrum, Matthew Gombolay -->
                             Letian Chen,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Kin Man Lee*, Arjun Krishna*, Zulfiqar Zaidi, Rohan Paleja, Letian Chen, Erin Hedlund-Botti, Mariah Schrum, Matthew Gombolay -->
                             Erin Hedlund-Botti,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Kin Man Lee*, Arjun Krishna*, Zulfiqar Zaidi, Rohan Paleja, Letian Chen, Erin Hedlund-Botti, Mariah Schrum, Matthew Gombolay -->
                             Mariah Schrum,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Kin Man Lee*, Arjun Krishna*, Zulfiqar Zaidi, Rohan Paleja, Letian Chen, Erin Hedlund-Botti, Mariah Schrum, Matthew Gombolay -->
                             Matthew Gombolay
                         </span>
+                    
+                    
                         <br style="margin-bottom: 5px;">
                         <span class="pub-venue">HRI '23: Proceedings of the 2023 ACM/IEEE International Conference on Human-Robot Interaction</span>
+                    
+                    
                         <br style="margin-bottom: 5px;">
+                        
                             <a href="https://dl.acm.org/doi/10.1145/3568162.3577002" class="pub-link">[paper]</a>
+                        
+                    
                 </div>
             </div>
         </div>
     </div>
+
     <div class="card g-col-12">
         <div class="grid">
+            
             <div class="g-col-12 g-col-sm-2" style="display: flex;">
                 <img src="assets/pub-thumbnails/ESTHER_RAL23.png" style="width: 92%; margin: auto; display: block;" alt="Athletic Mobile Manipulator System for Robotic Wheelchair Tennis">
             </div>
             <div class="g-col-12 g-col-sm-10">
+            
                 <div class="card-body">
                     <span class="pub-title">Athletic Mobile Manipulator System for Robotic Wheelchair Tennis</span><br>
+                    
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Zulfiqar Zaidi*,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Daniel Martin*,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Nathaniel Belles,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Viacheslav Zakharov,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: 900; font-size: 1.01em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Arjun Krishna,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Kin Man Lee,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Peter Wagstaff,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Sumedh Naik,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Matthew Sklar,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Sugju Choi,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Yoshiki Kakehi,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Ruturaj Patil,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Divya Mallemadugula,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Florian Pesce,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Peter Wilson,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Wendell Hom,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Matan Diamond,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Bryan Zhao,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Nina Moorman,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Rohan Paleja,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Letian Chen,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Esmaeil Seraj,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Zulfiqar Zaidi*, Daniel Martin*, Nathaniel Belles, Viacheslav Zakharov, Arjun Krishna, Kin Man Lee, Peter Wagstaff, Sumedh Naik, Matthew Sklar, Sugju Choi, Yoshiki Kakehi, Ruturaj Patil, Divya Mallemadugula, Florian Pesce, Peter Wilson, Wendell Hom, Matan Diamond, Bryan Zhao, Nina Moorman, Rohan Paleja, Letian Chen, Esmaeil Seraj, Matthew Gombolay -->
                             Matthew Gombolay
                         </span>
+                    
+                    
                         <br style="margin-bottom: 5px;">
                         <span class="pub-venue">IEEE Robotics and Automation Letters (presented at IROS'23)</span>
+                    
+                    
                         <br style="margin-bottom: 5px;">
+                        
                             <a href="https://arxiv.org/abs/2210.02517" class="pub-link">[arxiv]</a>
+                        
                             <a href="https://www.youtube.com/watch?v=3T9Yd8NddcI" class="pub-link">[overview-video]</a>
+                        
                             <a href="https://www.youtube.com/watch?v=plUktbRLfQw" class="pub-link">[promotional-video]</a>
+                        
+                    
                 </div>
             </div>
         </div>
     </div>
+
     <div class="card g-col-12">
         <div class="grid">
+            
             <div class="g-col-12 g-col-sm-2" style="display: flex;">
                 <img src="assets/pub-thumbnails/AsymQ_NeurIPS22W.png" style="width: 92%; margin: auto; display: block;" alt="AsymQ: Asymmetric Q-Loss to mitigate overestimation bias in off-policy reinforcement learning">
             </div>
             <div class="g-col-12 g-col-sm-10">
+            
                 <div class="card-body">
                     <span class="pub-title">AsymQ: Asymmetric Q-Loss to mitigate overestimation bias in off-policy reinforcement learning</span><br>
+                    
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Qinsheng Zhang*, Arjun Krishna*, Sehoon Ha, Yongxin Chen -->
                             Qinsheng Zhang*,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: 900; font-size: 1.01em;">
                             <!-- Qinsheng Zhang*, Arjun Krishna*, Sehoon Ha, Yongxin Chen -->
                             Arjun Krishna*,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Qinsheng Zhang*, Arjun Krishna*, Sehoon Ha, Yongxin Chen -->
                             Sehoon Ha,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Qinsheng Zhang*, Arjun Krishna*, Sehoon Ha, Yongxin Chen -->
                             Yongxin Chen
                         </span>
+                    
+                    
                         <br style="margin-bottom: 5px;">
                         <span class="pub-venue">NeurIPS-W 2022 (DeepRL workshop)</span>
+                    
+                    
                         <br style="margin-bottom: 5px;">
+                        
                             <a href="https://openreview.net/forum?id=KoRdlJjgiQ" class="pub-link">[paper]</a>
+                        
+                    
                 </div>
             </div>
         </div>
     </div>
+
     <div class="card g-col-12">
         <div class="grid">
+            
             <div class="g-col-12 g-col-sm-2" style="display: flex;">
                 <img src="assets/pub-thumbnails/HF_PMP_CORLW22.png" style="width: 92%; margin: auto; display: block;" alt="Utilizing Human Feedback for Primitive Optimization in Wheelchair Tennis">
             </div>
             <div class="g-col-12 g-col-sm-10">
+            
                 <div class="card-body">
                     <span class="pub-title">Utilizing Human Feedback for Primitive Optimization in Wheelchair Tennis</span><br>
+                    
+                    
                         <span class="pub-author" style="font-weight: 900; font-size: 1.01em;">
                             <!-- Arjun Krishna, Zulfiqar Zaidi, Letian Chen, Rohan Paleja, Esmaeil Seraj, Matthew Gombolay -->
                             Arjun Krishna,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Arjun Krishna, Zulfiqar Zaidi, Letian Chen, Rohan Paleja, Esmaeil Seraj, Matthew Gombolay -->
                             Zulfiqar Zaidi,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Arjun Krishna, Zulfiqar Zaidi, Letian Chen, Rohan Paleja, Esmaeil Seraj, Matthew Gombolay -->
                             Letian Chen,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Arjun Krishna, Zulfiqar Zaidi, Letian Chen, Rohan Paleja, Esmaeil Seraj, Matthew Gombolay -->
                             Rohan Paleja,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Arjun Krishna, Zulfiqar Zaidi, Letian Chen, Rohan Paleja, Esmaeil Seraj, Matthew Gombolay -->
                             Esmaeil Seraj,
                         </span>
+                    
                         <span class="pub-author" style="font-weight: lighter; font-size: 0.88em;">
                             <!-- Arjun Krishna, Zulfiqar Zaidi, Letian Chen, Rohan Paleja, Esmaeil Seraj, Matthew Gombolay -->
                             Matthew Gombolay
                         </span>
+                    
+                    
                         <br style="margin-bottom: 5px;">
                         <span class="pub-venue">CoRL-W 2022 (Learning for Agile Robots workshop)</span>
+                    
+                    
                         <br style="margin-bottom: 5px;">
+                        
                             <a href="https://arxiv.org/abs/2212.14403" class="pub-link">[arxiv]</a>
+                        
                             <a href="https://drive.google.com/file/d/1DsU0_m540SkkC3elMymjkHqZSAqCtqP1/view" class="pub-link">[poster]</a>
+                        
                             <a href="https://drive.google.com/file/d/1fb3KhxwTog417WCYGIrSlV_HsBz5fBEY/view" class="pub-link">[project-video]</a>
+                        
+                    
                 </div>
             </div>
         </div>
     </div>
+
 </div>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -622,18 +865,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -665,11 +897,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/arjun-krishna\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -679,8 +950,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -692,7 +972,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -736,6 +1139,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -761,6 +1165,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -838,6 +1268,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 
