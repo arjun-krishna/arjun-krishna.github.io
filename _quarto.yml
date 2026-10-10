@@ -14,7 +14,7 @@ website:
       #      - icon: github
         #        href: https://github.com/arjun-krishna/
     left:
-      - text: Arjun Krishna © 2025.
+      - text: Arjun Krishna © 2026.
   favicon: assets/favicon.ico
   open-graph:
     image-width: 128
@@ -35,7 +35,7 @@ website:
         href: https://drive.google.com/file/d/1wP5hoQ1Tk6S2Lz4q730viUcCQdL9BIBo/view?usp=sharing
     right:
       - icon: envelope-fill
-        href: mailto:arjk [at] upenn.edu
+        href: mailto:arjk@upenn.edu
       - icon: mortarboard-fill
         href: https://scholar.google.com/citations?user=XsYoY2QAAAAJ&hl=en
 #      - icon: 0-circle-fill

@@ -1,0 +1,23 @@
+---
+sidebar: false
+title: "Misc Notes/Paper Summaries 📚"
+listing:
+    date-format: short
+    feed: true
+    filter-ui: false
+    type: table
+    sort-ui: false
+    sort: "date desc"
+    categories: true
+    fields: [date, title]
+    id: note-listings
+    contents: [d/]
+format:
+    html:
+        anchor-sections: true
+---
+
+A list of miscellaneous notes and paper summaries jotted down over time.
+
+::: {#note-listings}
+:::

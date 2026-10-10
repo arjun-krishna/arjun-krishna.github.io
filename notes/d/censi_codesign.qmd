@@ -1,0 +1,7 @@
+---
+title: "Theory of Co-Design"
+categories: [co-design, category-theory]
+draft: true
+description: 'Formalizing the Co-Design Problem'
+---
+

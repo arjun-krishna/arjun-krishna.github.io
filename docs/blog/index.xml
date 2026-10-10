@@ -9,7 +9,7 @@
 <link>https://arjun-krishna.github.io/blog/</link>
 <atom:link href="https://arjun-krishna.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Personal webpage containing blogs and notes on topics in Robotics and Machine Learning.</description>
-<generator>quarto-1.5.56</generator>
-<lastBuildDate>Tue, 16 Jun 2026 18:53:17 GMT</lastBuildDate>
+<generator>quarto-1.10.19</generator>
+<lastBuildDate>Sat, 10 Oct 2026 03:51:49 GMT</lastBuildDate>
 </channel>
 </rss>
