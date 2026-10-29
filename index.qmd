@@ -2,7 +2,7 @@
 sidebar: false
 description: "Arjun Krishna is a CS PhD student at Penn working on Robot Learning."
 toc: true
-image: ""
+image: "assets/profile-thumbnail.png"
 format:
   html:
     page-layout: full
@@ -14,7 +14,6 @@ listing:
     - publications.yml
   template-params:
     self: "Arjun Krishna"
-  # field-required: [title, image, authors]
 ---
 
 ::: {layout="[20,80]" .profile-header}

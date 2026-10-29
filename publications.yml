@@ -1,3 +1,17 @@
+- title: "LEMCA: LLM-Guided Synthesis of Efficient Mode-Switching Control Architectures"
+  thumbnail: assets/pub-thumbnails/lemca-thumbnail.png
+  authors:
+    - Arjun Krishna
+    - Vincent Pacelli
+    - Dinesh Jayaraman
+  links:
+    - name: reviews
+      href: https://openreview.net/forum?id=802PZFmFGd
+    - name: arXiv
+      href: https://arxiv.org/abs/2609.21319
+    - name: project-website
+      href: https://lemca-robotics.github.io/
+  pub_venue: CoRL 2026
 - title: "Let it Cook: Learning to Wait in Sequential Decision Making"
   thumbnail: assets/pub-thumbnails/lic-thumbnail.png
   authors:
